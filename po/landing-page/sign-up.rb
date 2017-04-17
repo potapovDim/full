@@ -11,8 +11,11 @@ module SignUp
   end
   def self.signup_user(username, password)
     @browser.element(css: @email_input).send_keys username
-    @browser.element(css: @password_input).send_keys password
-    @browser.element(css: login_button).click
+    @browser.elements(css: @password_input)[0].send_keys password
+    @browser.elements(css: @password_input)[1].send_keys password
+    @browser.element(css: @terms).click
+    @browser.element(css: @captcha).click
+    @browser.element(css: @signup_button).click
   end
   
 end
