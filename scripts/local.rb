@@ -10,7 +10,7 @@ RSpec.configure do |config|
     @username = CONFIG['username']
     @password = CONFIG['password']
 
-    @landing = LandingPage.new(@browser, @username, @password)
+    @landing = LandingPage.new(@browser)
 
     begin
       @browser.driver.manage.timeouts.implicit_wait = 150

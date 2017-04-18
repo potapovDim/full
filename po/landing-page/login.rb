@@ -2,7 +2,7 @@ module Login
   @email_input                  = 'input#id5'
   @password_input               = 'input#id9'
   @login_button                 = 'button[title="Login"]'
-
+  @alarm_ico_login_form         = '.icon.icon_alarm.icon_absolute_right'
   def self.initDriver(driver)
     @browser = driver
     return self

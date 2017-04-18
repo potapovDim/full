@@ -3,10 +3,7 @@ require_relative './login'
 class LandingPage
   include Login
   #inititalize class variables
-  def initialize(driver, username, password)
-    #user data 
-    @username                 = username
-    @password                 = password
+  def initialize(driver)
     #webdriver instance
     @browser                  = driver
     #main selectors
@@ -17,10 +14,6 @@ class LandingPage
   end
   def login
     @browser.element(css: @user_login).fire_event "click"
-    Login.initDriver(@browser).login_user(@username, @password)
-  end
-  def login_falin
-    @browser.element(css: @user_login).fire_event "click"
-    Login.initDriver(@browser).fail_login_user
+    return Login.initDriver(@browser)
   end
 end
