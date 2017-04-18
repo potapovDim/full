@@ -2,13 +2,13 @@ require 'rake'
 require 'parallel'
 require 'rspec/core/rake_task'
 
-RSpec::Core::RakeTask.new(:single) do |t|
+RSpec::Core::RakeTask.new(:smoke) do |t|
   ENV['CONFIG_NAME'] ||= "single"
-  t.pattern = Dir.glob('spec/*.rb')
+  t.pattern = Dir.glob('spec/smokes/*.smoke.rb')
   t.rspec_opts = '--format documentation'
   t.verbose = false
 end
-task :default => :single
+task :default => :smoke
 
 # RSpec::Core::RakeTask.new(:local) do |t|
 #   ENV['CONFIG_NAME'] ||= "local"
