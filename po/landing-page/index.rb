@@ -10,7 +10,10 @@ class LandingPage
     @user_login               = 'a[title="Log in"]'
     @user_signup              = 'a[title="Sign up"]'
     @get_started              = 'a[title="Get started"]'
-    @signup_and_freetrial     = 'a[title="Sign up and start trial now"]' 
+    @signup_and_freetrial     = 'a[title="Sign up and start trial now"]'
+    #footer part lading
+    #products
+    @futer_list_item          = '.footer-list__item'
   end
   def login
     @browser.element(css: @user_login).fire_event "click"
