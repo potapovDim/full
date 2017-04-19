@@ -16,4 +16,9 @@ class LandingPage
     @browser.element(css: @user_login).fire_event "click"
     return Login.initDriver(@browser)
   end
+  def get_started_login
+    @browser.element(css: @get_started).fire_event "click"
+    @browser.label(text: 'Login').fire_event "click"
+    return Login.initDriver(@browser)
+  end
 end

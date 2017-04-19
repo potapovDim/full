@@ -13,7 +13,12 @@ describe "Login user" do
     el = @landing.login().fail_login_user
     expect(el.present?).to eql(true)
   end
+  it "get started (success login)" do
+    @landing.get_started_login().login_user(@username, @password)
+    expect(@browser.url.include?('/myaccount/account/websites')).to eql(true)
+  end
+  it "get statrted (failed logn)" do
+    el = @landing.get_started_login().fail_login_user
+    expect(el.present?).to eql(true)
+  end
 end
-
-
-
