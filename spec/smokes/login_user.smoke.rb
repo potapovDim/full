@@ -17,8 +17,16 @@ describe "Login user" do
     @landing.get_started_login().login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/account/websites')).to eql(true)
   end
-  it "get statrted (failed logn)" do
+  it "get statrted (failed login)" do
     el = @landing.get_started_login().fail_login_user
     expect(el.present?).to eql(true)
+  end
+  it "sign up and start trial (success login)" do
+    @landing.signup_and_freetrial_login().login_user(@username, @password)
+    expect(@browser.url.include?('/myaccount/account/websites')).to eql(true)
+  end
+  it "sign up and start trial (failed login)" do
+    el = @landing.signup_and_freetrial_login().fail_login_user
+     expect(el.present?).to eql(true)
   end
 end
