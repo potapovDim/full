@@ -27,6 +27,35 @@ describe "Login user" do
   end
   it "sign up and start trial (failed login)" do
     el = @landing.signup_and_freetrial_login().fail_login_user
-     expect(el.present?).to eql(true)
+    expect(el.present?).to eql(true)
+  end
+  #pricing page logins
+  it "go pricing and succes login by first growth plan" do
+    @landing
+        .pricing_page()
+        .success_login_by_growth_plan(0)
+        .login_user(@username, @password)
+    expect(@browser.url.include?('/myaccount/account/websites')).to eql(true)
+  end
+  it "go pricing and succes login by second growth plan" do
+    @landing
+        .pricing_page()
+        .success_login_by_growth_plan(1)
+        .login_user(@username, @password)
+    expect(@browser.url.include?('/myaccount/account/websites')).to eql(true)
+  end
+  it "go pricing and succes login by third growth plan" do
+    @landing
+        .pricing_page()
+        .success_login_by_growth_plan(2)
+        .login_user(@username, @password)
+    expect(@browser.url.include?('/myaccount/account/websites')).to eql(true)
+  end
+  it "go pricing and succes login by fourth growth plan" do
+    @landing
+        .pricing_page()
+        .success_login_by_growth_plan(3)
+        .login_user(@username, @password)
+    expect(@browser.url.include?('/myaccount/account/websites')).to eql(true)
   end
 end
