@@ -1,9 +1,11 @@
 require_relative './login'
 require_relative './pricing'
+require_relative './concepts'
 
 class LandingPage
   include Login
   include Pricing
+  include Concepts
   #inititalize class variables
   def initialize(driver)
     #webdriver instance
@@ -15,8 +17,9 @@ class LandingPage
     @signup_and_freetrial     = 'a[title="Sign up and start trial now"]'
     #footer part lading
     #products
-    @footer_list_item          = '.footer-list__item'
-    @pricing = 'a[href="/pricing"]'
+    @footer_list_item         = '.footer-list__item'
+    @pricing                  = 'a[href="/pricing"]'
+    @concepts                 = 'a[href="/concepts"]'
   end
 
   def helper_contextpanel(index)
@@ -47,5 +50,11 @@ class LandingPage
     @browser.execute_script("window.scrollBy(0, 150000)")
     @browser.element(css: @pricing).click
     return Pricing.initDriver(@browser)
+  end
+
+  def concepts_page
+    @browser.execute_script("window.scrollBy(0, 150000)")
+    @browser.element(css: @concepts).click
+    return Concepts.initDriver(@browser)
   end
 end

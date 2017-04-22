@@ -58,4 +58,17 @@ describe "Login user" do
         .login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/account/websites')).to eql(true)
   end
+  it "go concepts and succes login by fourth growth plan" do
+    @landing
+        .concepts_page()
+        .go_to_login()
+        .login_user(@username, @password)
+    expect(@browser.url.include?('/myaccount/account/websites')).to eql(true)
+  end
+  it "go concepts and succes login by fourth growth plan" do
+    el = @landing.concepts_page()
+          .go_to_login()
+          .fail_login_user
+    expect(el.present?).to eql(true)
+  end
 end
