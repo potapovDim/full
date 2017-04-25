@@ -48,6 +48,19 @@ module MyProfile
     return self
   end
   def self.select_new_country(count)
-    
+    @browser.element(css: @contry).click
+    @browser.elements(css: @country_option)[count].click
+    return self
+  end
+  def self.save_new_user_info
+    @browser.element(text: 'Save info').click
+    return self
+  end
+  def self.change_password(old_pass, new_pass)
+    @browser.element(css: @old_password).send_keys old_pass 
+    @browser.element(css: @new_password).send_keys new_pass
+    @browser.element(css: @new_password_confirm).send_keys new_pass
+    @browser.element(text: 'Change password').click
+    return self
   end
 end
