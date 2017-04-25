@@ -17,5 +17,4 @@ module SignUp
     @browser.element(css: @captcha).click
     @browser.element(css: @signup_button).click
   end
-  
 end

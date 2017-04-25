@@ -9,6 +9,7 @@ RSpec.configure do |config|
     @browser              = Watir::Browser.new :chrome
     @username = CONFIG['username']
     @password = CONFIG['password']
+    @base_url = CONFIG['stage_url']
 
     @landing = LandingPage.new(@browser)
 

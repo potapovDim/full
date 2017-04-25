@@ -3,7 +3,7 @@ require_relative '../../scripts/local.rb'
 describe "Login user" do
   before :each do
     @browser.window.resize_to 1200, 1600
-    @browser.goto "https://weblium.co/"
+    @browser.goto @base_url
   end
   it "sucess login user" do
     @landing.login().login_user(@username, @password)
