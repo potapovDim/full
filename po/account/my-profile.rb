@@ -1,18 +1,26 @@
 module MyProfile
   #personal information
-  @first_name = 'input[name="sign-up-name"]'
-  @last_name = 'input[name="sign-up-l-name"]'
-  @phone_number = 'input[name="phone-num"]'
-  @street_address1 = 'input[name="address-1"]'
-  @street_address2 = 'input[name="address-2"]'
-  @city_name = 'input[name="city"]'
-  @state_region = 'input[name='region']'
-  @country = '#contry'
-  @country_option = 'option'
+  @first_name                           = 'input[name="sign-up-name"]'
+  @last_name                            = 'input[name="sign-up-l-name"]'
+  @phone_number                         = 'input[name="phone-num"]'
+  @street_address1                      = 'input[name="address-1"]'
+  @street_address2                      = 'input[name="address-2"]'
+  @city_name                            = 'input[name="city"]'
+  @state_region                         = 'input[name='region']'
+  @country                              = '#contry'
+  @country_option                       = 'option'
   #change password part
-  @old_password = 'input[name="old-pswd"]'
-  @new_password = 'input[name="new-pswd"]'
-  @new_password_confirm = 'input[name="new-pswd-confirm"]'
+  @go_to_change_password                = 'a[href="#password-form"]'
+  @old_password                         = 'input[name="old-pswd"]'
+  @new_password                         = 'input[name="new-pswd"]'
+  @new_password_confirm                 = 'input[name="new-pswd-confirm"]'
+  #email notification
+  @monthly_news                         = 'input#keepSigned2'
+  @important_updates                    = 'input#keepSigned3' 
+  @security_updates                     = 'input#keepSigned4'
+  #user data 
+  @user_full_name                       = '.panel__header' # full name is concat two fields First name and Last name
+  @user_data_IDS                        = '.text-list'
   #init driver instance
   def self.initialize(driver)
     @browser = driver
@@ -52,8 +60,12 @@ module MyProfile
     @browser.elements(css: @country_option)[count].click
     return self
   end
-  def self.save_new_user_info
+  def self.save_new_user_info_button
     @browser.element(text: 'Save info').click
+    return self
+  end
+  def self.go_to_change_password
+    @browser.element(css: @go_to_change_password).click
     return self
   end
   def self.change_password(old_pass, new_pass)
@@ -61,6 +73,17 @@ module MyProfile
     @browser.element(css: @new_password).send_keys new_pass
     @browser.element(css: @new_password_confirm).send_keys new_pass
     @browser.element(text: 'Change password').click
+    return self
+  end
+  def self.change_notification(notification)
+    case notification
+      when 'monthly'
+        @browser.element(css: @monthly_news).change
+      when 'important'
+        @browser.element(css: @important_updates).change
+      when 'sescurity'
+        @browser.element(css: @security_updates).change
+    end
     return self
   end
 end
