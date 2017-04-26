@@ -6,7 +6,7 @@ module MyProfile
   @street_address1                      = 'input[name="address-1"]'
   @street_address2                      = 'input[name="address-2"]'
   @city_name                            = 'input[name="city"]'
-  @state_region                         = 'input[name='region']'
+  @state_region                         = 'input[name="region"]'
   @country                              = '#contry'
   @country_option                       = 'option'
   #change password part
@@ -85,5 +85,8 @@ module MyProfile
         @browser.element(css: @security_updates).change
     end
     return self
+  end
+  def self.get_user_name_last_name
+    return @browser.elements(css: @user_full_name)[0].text, self
   end
 end
