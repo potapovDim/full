@@ -35,14 +35,14 @@ class LandingPage
   end
   def get_started_login
     @browser.element(css: @get_started).fire_event 'click'
-    @browser.label(text: 'Login').fire_event 'click'
+    @browser.label(text: 'Log in').fire_event 'click'
     return Login.initDriver(@browser)
   end
   
   def signup_and_freetrial_login
     @browser.element(css: @signup_and_freetrial).fire_event 'hover'
     @browser.element(css: @signup_and_freetrial).fire_event 'click'
-    @browser.label(text: 'Login').fire_event "click"
+    @browser.label(text: 'Log in').fire_event "click"
     return Login.initDriver(@browser)
   end
 

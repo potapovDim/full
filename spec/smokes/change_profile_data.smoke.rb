@@ -22,7 +22,7 @@ describe 'Change user profile' do
                     .signup_and_freetrial_login()
                     .login_user(@username, @password)
                     .go_to_my_profile()
-                    .change_last_name(new_user_name)
+                    .change_last_name(new_user_lastname)
                     .save_new_user_info_button()
                     .get_user_name_last_name()
     expect(user_name.include? new_user_lastname).to eql(true)
