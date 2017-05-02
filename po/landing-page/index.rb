@@ -58,4 +58,8 @@ class LandingPage
     @browser.element(css: @header_concepts).click
     return Concepts.initDriver(@browser)
   end
+  def go_to_footer
+    @browser.execute_script("window.scrollBy(0, 150000)")
+    return Footer().initDriver(@browser)
+  end
 end

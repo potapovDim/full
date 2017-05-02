@@ -21,13 +21,11 @@ module Footer
 
 
   def self.pricing_page
-    @browser.execute_script("window.scrollBy(0, 150000)")
     @browser.element(css: @pricing).click
     return Pricing.initDriver(@browser)
   end
 
   def self.concepts_page
-    @browser.execute_script("window.scrollBy(0, 150000)")
     @browser.element(css: @concepts).click
     return Concepts.initDriver(@browser)
   end
