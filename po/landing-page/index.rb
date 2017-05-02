@@ -20,6 +20,12 @@ class LandingPage
     @footer_list_item         = '.footer-list__item'
     @pricing                  = 'a[href="/pricing"]'
     @concepts                 = 'a[href="/concepts"]'
+    @about                    = 'a[href="/about"]'
+    @privacy_policy           = 'a[href="/policy"]'
+    @terms_of_use             = 'a[href="/terms"]'
+    @blog                     = 'a[href="http://blog.weblium.com/"]'
+    @facebook                 = 'a[href="https://www.facebook.com/weblium/"]'
+    @linkedin                 = 'a[href="https://www.linkedin.com/company-beta/17969770/"]'
   end
 
   def helper_contextpanel(index)
@@ -33,6 +39,7 @@ class LandingPage
     @browser.element(css: @user_login).fire_event 'click'
     return Login.initDriver(@browser)
   end
+
   def get_started_login
     @browser.element(css: @get_started).fire_event 'click'
     @browser.label(text: 'Log in').fire_event 'click'
@@ -44,17 +51,5 @@ class LandingPage
     @browser.element(css: @signup_and_freetrial).fire_event 'click'
     @browser.label(text: 'Log in').fire_event "click"
     return Login.initDriver(@browser)
-  end
-
-  def pricing_page
-    @browser.execute_script("window.scrollBy(0, 150000)")
-    @browser.element(css: @pricing).click
-    return Pricing.initDriver(@browser)
-  end
-
-  def concepts_page
-    @browser.execute_script("window.scrollBy(0, 150000)")
-    @browser.element(css: @concepts).click
-    return Concepts.initDriver(@browser)
   end
 end
