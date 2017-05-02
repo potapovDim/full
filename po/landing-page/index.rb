@@ -1,11 +1,13 @@
 require_relative './login'
 require_relative './pricing'
 require_relative './concepts'
+require_relative './footer'
 
 class LandingPage
   include Login
   include Pricing
   include Concepts
+  include Footer
   #inititalize class variables
   def initialize(driver)
     #webdriver instance
@@ -60,6 +62,6 @@ class LandingPage
   end
   def go_to_footer
     @browser.execute_script("window.scrollBy(0, 150000)")
-    return Footer().initDriver(@browser)
+    return Footer.initDriver(@browser)
   end
 end
