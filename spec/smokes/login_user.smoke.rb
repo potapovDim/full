@@ -32,41 +32,42 @@ describe "Login user" do
   #pricing page logins
   it "go pricing and succes login by first growth plan" do
     @landing
-        .pricing_page()
+        .header_pricing_page()
         .success_login_by_growth_plan(0)
         .login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/account/websites')).to eql(true)
   end
   it "go pricing and succes login by second growth plan" do
     @landing
-        .pricing_page()
+        .header_pricing_page()
         .success_login_by_growth_plan(1)
         .login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/account/websites')).to eql(true)
   end
   it "go pricing and succes login by third growth plan" do
     @landing
-        .pricing_page()
+        .header_pricing_page()
         .success_login_by_growth_plan(2)
         .login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/account/websites')).to eql(true)
   end
   it "go pricing and succes login by fourth growth plan" do
     @landing
-        .pricing_page()
+        .header_pricing_page()
         .success_login_by_growth_plan(3)
         .login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/account/websites')).to eql(true)
   end
   it "go concepts and succes login by fourth growth plan" do
     @landing
-        .concepts_page()
+        .header_concepts_page()
         .go_to_login()
         .login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/account/websites')).to eql(true)
   end
   it "go concepts and succes login by fourth growth plan" do
-    el = @landing.concepts_page()
+    el = @landing
+          .header_concepts_page()
           .go_to_login()
           .fail_login_user
     expect(el.present?).to eql(true)

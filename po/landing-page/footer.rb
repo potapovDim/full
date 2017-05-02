@@ -1,5 +1,9 @@
+require_relative './pricing'
+require_relative './concepts'
 
 module Footer
+  include Pricing
+  include Concepts
   #selectors
   @pricing                  = 'a[href="/pricing"]'
   # will features

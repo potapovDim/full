@@ -18,14 +18,10 @@ class LandingPage
     #footer part lading
     #products
     @footer_list_item         = '.footer-list__item'
-    @pricing                  = 'a[href="/pricing"]'
-    @concepts                 = 'a[href="/concepts"]'
-    @about                    = 'a[href="/about"]'
-    @privacy_policy           = 'a[href="/policy"]'
-    @terms_of_use             = 'a[href="/terms"]'
-    @blog                     = 'a[href="http://blog.weblium.com/"]'
-    @facebook                 = 'a[href="https://www.facebook.com/weblium/"]'
-    @linkedin                 = 'a[href="https://www.linkedin.com/company-beta/17969770/"]'
+    #header items
+    @header_about_us          = 'a[title="About us"]'
+    @header_concepts          = 'a[title="Concepts"]'
+    @header_pricing           = 'a[title="Pricing"]'
   end
 
   def helper_contextpanel(index)
@@ -51,5 +47,15 @@ class LandingPage
     @browser.element(css: @signup_and_freetrial).fire_event 'click'
     @browser.label(text: 'Log in').fire_event "click"
     return Login.initDriver(@browser)
+  end
+
+   def header_pricing_page
+    @browser.element(css: @header_pricing).click
+    return Pricing.initDriver(@browser)
+  end
+
+  def header_concepts_page
+    @browser.element(css: @header_concepts).click
+    return Concepts.initDriver(@browser)
   end
 end
