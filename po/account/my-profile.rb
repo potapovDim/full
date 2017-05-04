@@ -28,30 +28,37 @@ module MyProfile
   end
   #positive methods
   def self.change_first_name(name)
+    @browser.element(css: @first_name).wait_until_present.to_subtype.clear
     @browser.element(css: @first_name).send_keys name
     return self
   end
   def self.change_last_name(last_name)
+    @browser.element(css: @last_name).wait_until_present.to_subtype.clear
     @browser.element(css: @last_name).send_keys last_name
     return self
   end
   def self.change_phone_number(phone_number)
+    @browser.element(css: @phone_number).wait_until_present.to_subtype.clear
     @browser.element(css: @phone_number).send_keys phone_number
     return self
   end
   def self.change_street_address1(address)
+    @browser.element(css: @street_address1).wait_until_present.to_subtype.clear
     @browser.element(css: @street_address1).send_keys address
     return self
   end
   def self.change_street_address2(address)
+    @browser.element(css: @street_address2).wait_until_present.to_subtype.clear
     @browser.element(css: @street_address2).send_keys address
     return self
   end
   def self.change_city_name(city_name)
+    @browser.element(css: @city_name).wait_until_present.to_subtype.clear
     @browser.element(css: @city_name).send_keys city_name
     return self
   end
   def self.change_region(region)
+    @browser.element(css: @state_region).wait_until_present.to_subtype.clear
     @browser.element(css: @state_region).send_keys region
     return self
   end
@@ -61,7 +68,13 @@ module MyProfile
     return self
   end
   def self.save_new_user_info_button
-    @browser.element(text: 'Save info').click
+    @browser.button(text: 'Save info').click
+    condition = true
+    while condition do
+      if @browser.button(text: 'Changes saved').present?
+        condition = false
+      end
+    end
     return self
   end
   def self.go_to_change_password
