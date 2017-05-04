@@ -9,6 +9,7 @@ module MyProfile
   @state_region                         = 'input[name="region"]'
   @country                              = '#contry'
   @country_option                       = 'option'
+  @data_form_row                        = '.row-form'
   #change password part
   @go_to_change_password                = 'a[href="#password-form"]'
   @old_password                         = 'input[name="old-pswd"]'
@@ -101,5 +102,21 @@ module MyProfile
   end
   def self.get_user_name_last_name
     return @browser.elements(css: @user_full_name)[0].text, self
+  end
+  def self.get_data_from_form(row)
+    data = nil
+     case row
+      when 0 #user name and last name 
+        data = @browser.elements(css: @data_form_row)[0].text
+      when 1 #email and phone number
+        data = @browser.elements(css: @data_form_row)[1].text
+      when 2 #address 1 and address 2
+        data = @browser.elements(css: @data_form_row)[2].text
+      when 3 #city and region
+        data = @browser.elements(css: @data_form_row)[3].text
+      when 4 #postal code and country
+        data = @browser.elements(css: @data_form_row)[4].text
+    end
+    return data, self
   end
 end

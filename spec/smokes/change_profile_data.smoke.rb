@@ -42,14 +42,20 @@ describe 'Change user profile' do
     expect(user_name.include? new_user_lastname).to eql(true)
   end
   it 'change adress' do
-            @landing
+    adrs1 = 'testAddress1'
+    adrs2 = 'testAddress2'
+    profile = @landing
                     .signup_and_freetrial_login()
                     .login_user(@username, @password)
                     .go_to_my_profile()
-                    .(new_user_lastname)
-                    .change_first_name(new_user_firstname)
+                    .change_street_address1(adrs1)
+                    .change_street_address2(adrs2)
                     .save_new_user_info_button()
-                    .get_user_name_last_name()
+    @browser.refresh
+    address1_2, text = profile.get_data_from_form(2)
+    puts address1_2
+    expect(address1_2.include? adrs1).to eql(true)
+    expect(address1_2.include? adrs2).to eql(true)
   end
 
 end
