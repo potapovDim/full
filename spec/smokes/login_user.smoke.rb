@@ -111,7 +111,7 @@ describe "Login user" do
       .go_to_footer()
       .concepts_page()
       .go_to_login()
-      .login_user()
+      .login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/account/websites')).to eql(true)
   end
 end

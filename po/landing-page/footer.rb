@@ -19,6 +19,10 @@ module Footer
   @privacy_policy           = 'a[href="/policy"]'
   @terms_of_use             = 'a[href="/terms"]'
 
+  def self.initDriver(driver)
+    @browser = driver
+    return self
+  end
 
   def self.pricing_page
     @browser.element(css: @pricing).click
