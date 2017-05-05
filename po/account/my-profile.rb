@@ -7,6 +7,7 @@ module MyProfile
   @street_address2                      = 'input[name="address-2"]'
   @city_name                            = 'input[name="city"]'
   @state_region                         = 'input[name="region"]'
+  @postal_code                          = 'input[name="zip"]'
   @country                              = '#contry'
   @country_option                       = 'option'
   @data_form_row                        = '.row-form'
@@ -63,6 +64,11 @@ module MyProfile
     @browser.element(css: @state_region).send_keys region
     return self
   end
+  def self.change_postal_code(code)
+    @browser.element(css: @postal_code).wait_until_present.to_subtype.clear
+    @browser.element(css: @postal_code).send_keys code
+    return self
+  end
   def self.select_new_country(count)
     @browser.element(css: @contry).click
     @browser.elements(css: @country_option)[count].click
@@ -116,9 +122,12 @@ module MyProfile
           adr2: @browser.element(css: @street_address2).value
         }
       when 3 #city and region
-        data = @browser.elements(css: @data_form_row)[3].text
+        data = {
+          city: @browser.element(css: @city_name).value,
+          region: @browser.element(css: @state_region).value
+        }
       when 4 #postal code and country
-        data = @browser.elements(css: @data_form_row)[4].text
+        data = @browser.element(css: @postal_code).value
     end
     return data, self
   end

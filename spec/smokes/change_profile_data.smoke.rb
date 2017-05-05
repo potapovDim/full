@@ -53,8 +53,35 @@ describe 'Change user profile' do
                     .save_new_user_info_button()
     @browser.refresh
     address1_2, page = profile.get_data_from_form(2)
-    puts "adress = = = = = #{address1_2}"
     expect(address1_2[:adr1]).to eql(adrs1)
     expect(address1_2[:adr2]).to eql(adrs2)
+  end
+  it 'change city region' do
+    city = 'test city'
+    region = 'test region'
+    profile = @landing
+                    .signup_and_freetrial_login()
+                    .login_user(@username, @password)
+                    .go_to_my_profile()
+                    .change_city_name(city)
+                    .change_region(region)
+                    .save_new_user_info_button()
+    @browser.refresh
+    city_reg, page = profile.get_data_from_form(3)
+    expect(city_reg[:city]).to eql(city)
+    expect(city_reg[:region]).to eql(region)
+  end
+  it 'change postal code and country' do
+    postal_code = 11111111
+    profile = @landing
+                    .signup_and_freetrial_login()
+                    .login_user(@username, @password)
+                    .go_to_my_profile()
+                    .change_postal_code(postal_code)
+                    .select_new_country(1)
+                    .save_new_user_info_button()
+    @browser.refresh
+    code, page = profile.get_data_from_form(4)
+    expect(code).to eql(postal_code)
   end
 end
