@@ -72,7 +72,7 @@ describe 'Change user profile' do
     expect(city_reg[:region]).to eql(region)
   end
   it 'change postal code and country' do
-    postal_code = 11111111
+    postal_code = "22222222"
     profile = @landing
                     .signup_and_freetrial_login()
                     .login_user(@username, @password)

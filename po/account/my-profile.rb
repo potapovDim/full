@@ -8,7 +8,7 @@ module MyProfile
   @city_name                            = 'input[name="city"]'
   @state_region                         = 'input[name="region"]'
   @postal_code                          = 'input[name="zip"]'
-  @country                              = '#contry'
+  @country                              = '#country'
   @country_option                       = 'option'
   @data_form_row                        = '.row-form'
   #change password part
@@ -70,7 +70,7 @@ module MyProfile
     return self
   end
   def self.select_new_country(count)
-    @browser.element(css: @contry).click
+    @browser.element(css: @country).click
     @browser.elements(css: @country_option)[count].click
     return self
   end
