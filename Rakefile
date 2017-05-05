@@ -11,12 +11,12 @@ end
 
 task :default => :smoke_stage
 
-# RSpec::Core::RakeTask.new(:local) do |t|
-#   ENV['CONFIG_NAME'] ||= "local"
-#   t.pattern = Dir.glob('spec/local_test.rb')
-#   t.rspec_opts = '--format documentation'
-#   t.verbose = false
-# end
+RSpec::Core::RakeTask.new(:smoke_prod) do |t|
+  ENV['CONFIG_NAME'] ||= "prod"
+  t.pattern = Dir.glob('spec/smokes/*.smoke.rb')
+  t.rspec_opts = '--format documentation'
+  t.verbose = false
+end
 
 # task :parallel do |t, args|
 #   @num_parallel = 4

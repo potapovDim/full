@@ -52,10 +52,9 @@ describe 'Change user profile' do
                     .change_street_address2(adrs2)
                     .save_new_user_info_button()
     @browser.refresh
-    address1_2, text = profile.get_data_from_form(2)
-    puts address1_2
-    expect(address1_2.include? adrs1).to eql(true)
-    expect(address1_2.include? adrs2).to eql(true)
+    address1_2, page = profile.get_data_from_form(2)
+    puts "adress = = = = = #{address1_2}"
+    expect(address1_2[:adr1]).to eql(adrs1)
+    expect(address1_2[:adr2]).to eql(adrs2)
   end
-
 end

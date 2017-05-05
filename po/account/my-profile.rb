@@ -111,7 +111,10 @@ module MyProfile
       when 1 #email and phone number
         data = @browser.elements(css: @data_form_row)[1].text
       when 2 #address 1 and address 2
-        data = @browser.elements(css: @data_form_row)[2].text
+        data = {
+          adr1: @browser.element(css: @street_address1).value,
+          adr2: @browser.element(css: @street_address2).value
+        }
       when 3 #city and region
         data = @browser.elements(css: @data_form_row)[3].text
       when 4 #postal code and country
