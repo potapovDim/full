@@ -96,17 +96,25 @@ module MyProfile
     @browser.element(css: @go_to_change_password).click
     return self
   end
-  def self.change_password(old_pass, new_pass)
+  def self.change_password(old_pass, new_pass, positive = true)
     @browser.element(css: @old_password).send_keys old_pass 
     @browser.element(css: @new_password).send_keys new_pass
     @browser.element(css: @new_password_confirm).send_keys new_pass
     @browser.button(text: 'Change password').click
     condition = true
-    while condition do
-      if @browser.button(text: 'Changes saved').present?
-        condition = false
+    if positive
+      while condition do
+        if @browser.button(text: 'Changes saved').present?
+          condition = false
+        end
       end
+      return self, 'Password success changed'
     end
+    while condition do
+        if @browser.button(text: 'Failed to save changes').present?
+          condition = false
+        end
+      end
     return self, 'Password success saved'
   end
   def self.change_notification(notification)
