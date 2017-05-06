@@ -13,7 +13,7 @@ describe 'Change user profile' do
                     .login_user(@username, @password)
                     .go_to_my_profile()
                     .change_first_name(new_user_name)
-                    .save_new_user_info_button()
+                    .save_new_user_info_button(true)
                     .get_user_name_last_name()
     expect(user_name.include? new_user_name).to eql(true)
   end
@@ -24,7 +24,7 @@ describe 'Change user profile' do
                     .login_user(@username, @password)
                     .go_to_my_profile()
                     .change_last_name(new_user_lastname)
-                    .save_new_user_info_button()
+                    .save_new_user_info_button(true)
                     .get_user_name_last_name()
     expect(user_name.include? new_user_lastname).to eql(true)
   end
@@ -37,7 +37,7 @@ describe 'Change user profile' do
                     .go_to_my_profile()
                     .change_last_name(new_user_lastname)
                     .change_first_name(new_user_firstname)
-                    .save_new_user_info_button()
+                    .save_new_user_info_button(true)
                     .get_user_name_last_name()
     expect(user_name.include? new_user_firstname).to eql(true)
     expect(user_name.include? new_user_lastname).to eql(true)
@@ -51,7 +51,7 @@ describe 'Change user profile' do
                     .go_to_my_profile()
                     .change_street_address1(adrs1)
                     .change_street_address2(adrs2)
-                    .save_new_user_info_button()
+                    .save_new_user_info_button(true)
     @browser.refresh
     address1_2, page = profile.get_data_from_form(2)
     expect(address1_2[:adr1]).to eql(adrs1)
@@ -66,7 +66,7 @@ describe 'Change user profile' do
                     .go_to_my_profile()
                     .change_city_name(city)
                     .change_region(region)
-                    .save_new_user_info_button()
+                    .save_new_user_info_button(true)
     @browser.refresh
     city_reg, page = profile.get_data_from_form(3)
     expect(city_reg[:city]).to eql(city)
@@ -80,7 +80,7 @@ describe 'Change user profile' do
                     .go_to_my_profile()
                     .change_postal_code(postal_code)
                     .select_new_country(1)
-                    .save_new_user_info_button()
+                    .save_new_user_info_button(true)
     @browser.refresh
     code, page = profile.get_data_from_form(4)
     expect(code).to eql(postal_code)
@@ -95,4 +95,6 @@ describe 'Change user profile' do
                     .change_password(@password, new_password)
     expect(message).to eql('Password success saved')
   end
+  #negative cases
+
 end

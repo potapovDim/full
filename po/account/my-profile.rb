@@ -74,14 +74,22 @@ module MyProfile
     @browser.elements(css: @country_option)[count].click
     return self
   end
-  def self.save_new_user_info_button
+  def self.save_new_user_info_button(positive = true)
     @browser.button(text: 'Save info').click
     condition = true
-    while condition do
-      if @browser.button(text: 'Changes saved').present?
-        condition = false
+    if positive
+      while condition do
+        if @browser.button(text: 'Changes saved').present?
+          condition = false
+        end
       end
+      return self
     end
+    while condition do
+        if @browser.button(text: 'Failed to save changes').present?
+          condition = false
+        end
+      end
     return self
   end
   def self.go_to_change_password
