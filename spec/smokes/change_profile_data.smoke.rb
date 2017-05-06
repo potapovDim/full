@@ -5,6 +5,7 @@ describe 'Change user profile' do
     @browser.window.resize_to 1200, 1600
     @browser.goto @base_url
   end
+  #positive cases
   it 'change user first name' do
     new_user_name = 'test'
     user_name, myProfile = @landing
@@ -83,5 +84,15 @@ describe 'Change user profile' do
     @browser.refresh
     code, page = profile.get_data_from_form(4)
     expect(code).to eql(postal_code)
+  end
+  it 'change user password' do
+    new_password = @password
+    profile, message = @landing
+                    .signup_and_freetrial_login()
+                    .login_user(@username, @password)
+                    .go_to_my_profile()
+                    .go_to_change_password()
+                    .change_password(@password, new_password)
+    expect(message).to eql('Password success saved')
   end
 end

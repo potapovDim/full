@@ -92,8 +92,14 @@ module MyProfile
     @browser.element(css: @old_password).send_keys old_pass 
     @browser.element(css: @new_password).send_keys new_pass
     @browser.element(css: @new_password_confirm).send_keys new_pass
-    @browser.element(text: 'Change password').click
-    return self
+    @browser.button(text: 'Change password').click
+    condition = true
+    while condition do
+      if @browser.button(text: 'Changes saved').present?
+        condition = false
+      end
+    end
+    return self, 'Password success saved'
   end
   def self.change_notification(notification)
     case notification
