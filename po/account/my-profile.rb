@@ -23,6 +23,8 @@ module MyProfile
   #user data 
   @user_full_name                       = '.panel__header' # full name is concat two fields First name and Last name
   @user_data_IDS                        = '.text-list'
+  #exceptions message
+  @exceptions_message_data              = 'span.field__message'
   #init driver instance
   def self.initialize(driver)
     @browser = driver
@@ -74,8 +76,13 @@ module MyProfile
     @browser.elements(css: @country_option)[count].click
     return self
   end
-  def self.save_new_user_info_button(positive = true)
+  def self.save_new_user_info_button(positive = true, exception = false)
+    # if positive should got "changes saved" after button was clicking
+    # if exception shoul get value of exception in field what was changing
     @browser.button(text: 'Save info').click
+    if exception
+      return self
+    end
     condition = true
     if positive
       while condition do
@@ -115,7 +122,7 @@ module MyProfile
           condition = false
         end
       end
-    return self, 'Password success saved'
+    return self, 'Failed to change password'
   end
   def self.change_notification(notification)
     case notification
@@ -153,4 +160,22 @@ module MyProfile
     end
     return data, self
   end
+
+  # def self.get_exception_data_from_field(field)
+  #   case field
+  #     when "first name"
+  #       items[0].click
+  #     when "last name"
+  #       items[1].click
+  #     when "align left"
+  #       items[2].click
+  #     when "align center"
+  #       items[3].click
+  #     when "align right"
+  #       items[4].click
+  #     when "remove"
+  #       items[5].click
+  #   end
+  # end
 end
+
