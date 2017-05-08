@@ -1,6 +1,7 @@
 require_relative '../../scripts/local.rb'
 
-describe 'Change user profile' do
+# , :focus => true if need run only this suit
+describe 'Change user profile'  do
   before :each do
     @browser.window.resize_to 1200, 1600
     @browser.goto @base_url
@@ -96,7 +97,7 @@ describe 'Change user profile' do
     expect(message).to eql('Password success changed')
   end
   #negative cases
-  it 'change user password (negative)'  do
+  it 'change user password (negative)' do
     new_password = '123321321'
     profile, message = @landing
                     .signup_and_freetrial_login()
@@ -106,9 +107,9 @@ describe 'Change user profile' do
                     .change_password('123123', new_password, false)
     expect(message).to eql('Failed to change password')
   end
-  it 'change user first name (negative)' ,:focus => true do
+  it 'change user first name (negative)' do
     new_user_name = Array.new(300).join('1')
-    user_name, myProfile = @landing
+    user_name, my_profile = @landing
                     .signup_and_freetrial_login()
                     .login_user(@username, @password)
                     .go_to_my_profile()
@@ -116,46 +117,55 @@ describe 'Change user profile' do
                     .save_new_user_info_button(false, true)
                     .get_user_name_last_name()
     expect(user_name.include? new_user_name).to eql(false)
+    expect(my_profile.get_exception_data_from_field).not_to eql('')
+    expect(my_profile.get_exception_data_from_field).not_to eql(nil)
   end
-  it 'change user last name (negative)' do
+  it 'change user last name (negative)'  do
     new_user_lastname = Array.new(300).join('2')
-    user_name, myProfile = @landing
+    user_name, my_profile = @landing
                     .signup_and_freetrial_login()
                     .login_user(@username, @password)
                     .go_to_my_profile()
                     .change_last_name(new_user_lastname)
-                    .save_new_user_info_button(false, false)
+                    .save_new_user_info_button(false, true)
                     .get_user_name_last_name()
     expect(user_name.include? new_user_lastname).to eql(false)
+    expect(my_profile.get_exception_data_from_field).not_to eql('')
+    expect(my_profile.get_exception_data_from_field).not_to eql(nil)
   end
   it 'change address (negative)' do
     adrs1 = Array.new(300).join('1')
     adrs2 = Array.new(300).join('2')
-    profile = @landing
+    my_profile = @landing
                     .signup_and_freetrial_login()
                     .login_user(@username, @password)
                     .go_to_my_profile()
                     .change_street_address1(adrs1)
-                    .save_new_user_info_button(false)
+                    .save_new_user_info_button(false, true)
                     .change_street_address2(adrs2)
-                    .save_new_user_info_button(false)
+                    .save_new_user_info_button(false, true)
+    expect(my_profile.get_exception_data_from_field).not_to eql('')
+    expect(my_profile.get_exception_data_from_field).not_to eql(nil)
     @browser.refresh
-    address1_2, page = profile.get_data_from_form(2)
+    address1_2, page = my_profile.get_data_from_form(2)
     expect(address1_2[:adr1]).not_to eql(adrs1)
     expect(address1_2[:adr2]).not_to eql(adrs2)
+
   end
   it 'change city region (negative)' do
     city = Array.new(300).join('1')
     region = Array.new(300).join('2')
-    profile = @landing
+    my_profile = @landing
                     .signup_and_freetrial_login()
                     .login_user(@username, @password)
                     .go_to_my_profile()
                     .change_city_name(city)
                     .change_region(region)
-                    .save_new_user_info_button(false)
+                    .save_new_user_info_button(false, true)
+    expect(my_profile.get_exception_data_from_field).not_to eql('')
+    expect(my_profile.get_exception_data_from_field).not_to eql(nil)
     @browser.refresh
-    city_reg, page = profile.get_data_from_form(3)
+    city_reg, page = my_profile.get_data_from_form(3)
     expect(city_reg[:city]).not_to eql(city)
     expect(city_reg[:region]).not_to eql(region)
   end

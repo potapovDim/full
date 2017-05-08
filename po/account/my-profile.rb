@@ -161,21 +161,8 @@ module MyProfile
     return data, self
   end
 
-  # def self.get_exception_data_from_field(field)
-  #   case field
-  #     when "first name"
-  #       items[0].click
-  #     when "last name"
-  #       items[1].click
-  #     when "align left"
-  #       items[2].click
-  #     when "align center"
-  #       items[3].click
-  #     when "align right"
-  #       items[4].click
-  #     when "remove"
-  #       items[5].click
-  #   end
-  # end
+  def self.get_exception_data_from_field
+   return @browser.element(css: @exceptions_message_data).text
+  end
 end
 
