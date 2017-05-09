@@ -31,9 +31,18 @@ end
 #   end
 # end
 
-task :test do |t, args|
-  Rake::Task["single"].invoke
-  Rake::Task["single"].reenable
-  Rake::Task["local"].invoke
-  Rake::Task["parallel"].invoke
+task :chrome do |t, args|
+  ENV['BROWSER_NAME'] ||= "chrome"
+  Rake::Task["smoke_prod"].invoke
+  #Rake::Task["single"].reenable
+  # Rake::Task["local"].invoke
+  # Rake::Task["parallel"].invoke
+end
+
+task :firefox do |t, args|
+  ENV['BROWSER_NAME'] ||= "firefox"
+  Rake::Task["smoke_prod"].invoke
+  #Rake::Task["single"].reenable
+  # Rake::Task["local"].invoke
+  # Rake::Task["parallel"].invoke
 end
