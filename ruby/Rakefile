@@ -9,7 +9,7 @@ RSpec::Core::RakeTask.new(:smoke_stage) do |t|
   t.verbose = false
 end
 
-task :default => :smoke_stage
+task :default => :chrome
 
 RSpec::Core::RakeTask.new(:smoke_prod) do |t|
   ENV['CONFIG_NAME'] ||= "prod"
