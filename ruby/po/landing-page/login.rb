@@ -16,10 +16,16 @@ module Login
     @browser.element(css: "a.menu__link.ico.ring-ico").fire_event 'hover'
     return Account.new @browser
   end
-  def self.fail_login_user
-    @browser.element(css: @email_input).send_keys "12311232132121@213123123"
-    @browser.element(css: @password_input).send_keys "12311232132121@213123123"
-    @browser.element(css: @login_button).click
-    return @browser.element(text: "Invalid email or password")
+  def self.fail_login_user(*args)
+    email = "12311232132121@213123123"
+    pass = "12311232132121@213123123"
+    if args.length != 0
+      email = args[0]  
+      pass = args[1]  
+    end
+      @browser.element(css: @email_input).send_keys email
+      @browser.element(css: @password_input).send_keys pass
+      @browser.element(css: @login_button).click
+      return @browser.element(text: "Invalid email or password")
   end
 end
