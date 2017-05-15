@@ -1,6 +1,14 @@
 require 'rake'
 require 'parallel'
 require 'rspec/core/rake_task'
+require 'cucumber'
+require 'cucumber/rake/task'
+
+Cucumber::Rake::Task.new(:features) do |t|
+  t.cucumber_opts = "features --format pretty"
+end
+
+task :cucumb => :features
 
 RSpec::Core::RakeTask.new(:smoke_stage) do |t|
   ENV['CONFIG_NAME'] ||= "stage"
