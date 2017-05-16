@@ -2,4 +2,5 @@
 .DS_Store
 .vscode
 js/node_modules
-js/tests_output
+js/e2e/reports
+js/localdata

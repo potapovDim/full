@@ -1,12 +1,12 @@
-//require('babel-core/register');
+require('babel-core/register')
 
 module.exports = {
-  src_folders: ["./tests"],
-  output_folder: "./tests_output",
-  custom_commands_path: "./commands",
+  src_folders: ["./e2e/tests"],
+  output_folder: "./e2e/reports",
+  custom_commands_path: "./e2e/commands",
   custom_assertions_path: "",
-  page_objects_path: "./pages",
-  globals_path: "globals.js",
+  page_objects_path: "./e2e/pages",
+  globals_path: "./e2e/globals.js",
   test_settings: {
     default: {
       skip_testcases_on_fail: false,

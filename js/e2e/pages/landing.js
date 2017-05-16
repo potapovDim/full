@@ -1,6 +1,6 @@
 const initialPage = {
   disableTransition() {
-    return this.disableCSS()
+    return this.disableCSS(1)
   },
   waitApp() {
     return this.waitForElementVisible('@app')

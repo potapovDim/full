@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="1">
+
+  <testsuite name="landing.test"
+    errors="1" failures="0" hostname="" id="" package="landing.test" skipped="0"
+    tests="1" time="0.1830" timestamp="Tue, 16 May 2017 12:44:05 GMT">
+  
+    <testcase name="execute disable transition" classname="landing.test" time="0.1830" assertions="0">
+    </testcase>
+      <system-err>
+          Error while running [Landing Test / execute disable transition]:
+
+  TypeError: this.execute is not a function
+    at Page.disableTransition (/Users/potapovD1/Documents/full/js/pages/landing.js:6:17)
+    at Object.execute disable transition (/Users/potapovD1/Documents/full/js/tests/landing.test.js:7:18)
+    at Module.call (/Users/potapovD1/Documents/full/js/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/potapovD1/Documents/full/js/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/potapovD1/Documents/full/js/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/potapovD1/Documents/full/js/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/potapovD1/Documents/full/js/node_modules/q/q.js:796:13)
+    at /Users/potapovD1/Documents/full/js/node_modules/q/q.js:556:49
+    at runSingle (/Users/potapovD1/Documents/full/js/node_modules/q/q.js:137:13)
+    at flush (/Users/potapovD1/Documents/full/js/node_modules/q/q.js:125:13)
+      </system-err>
+  
+  
+  </testsuite>
+</testsuites>

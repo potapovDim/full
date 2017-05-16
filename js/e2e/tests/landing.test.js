@@ -1,4 +1,4 @@
- module.exports = {
+module.exports = {
    'execute disable transition': (client) => {
      const initialPage = client.page.landing()
      initialPage.navigate()

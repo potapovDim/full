@@ -16,7 +16,6 @@ const disableTransition = (selector) => {
   document.getElementsByTagName(selector)[0].appendChild(style)
 }
 
-module.exports = function command () {
-  console.log('dlksjaljdlkasjdljaskdljklsajld')
+export function command() {
   return this.execute(disableTransition, ['head'])
 }
