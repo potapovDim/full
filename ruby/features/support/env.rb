@@ -1,5 +1,6 @@
-require 'watir-webdriver'
+require 'watir'
 require 'cucumber'
+require_relative '../../po/landing-page/index'
 
 # def browser_name
 #     (ENV['BROWSER'] ||= 'firefox').downcase.to_sym  # allows me to pass browser as a command line argument
@@ -8,6 +9,11 @@ require 'cucumber'
 # def environment
 #     (ENV['ENVIRONMENT'] ||= 'prod').downcase.to_sym  # allows me to set environment for testing as argument. defaults to 'prod'
 # end
+
+CONFIG_NAME = ENV['CONFIG_NAME']
+BROWSER_NAME = ENV['BROWSER_NAME']
+
+CONFIG = YAML.load(File.read(File.join(File.dirname(__FILE__), "../../localdata/#{CONFIG_NAME}.yml")))
 
 Before do |scenario|
   def assert_it message, &block
@@ -37,6 +43,11 @@ Before do |scenario|
 
 # elsif environment == :prod
     @browser = Watir::Browser.new :chrome
+    @username = CONFIG['username']
+    @password = CONFIG['password']
+    @base_url = CONFIG['stage_url']
+
+    @landing = LandingPage.new(@browser)
   # end
 end
 After do |scenario|

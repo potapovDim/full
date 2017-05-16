@@ -1,4 +1,4 @@
-Feature: Amazon Search functionality
+Feature: Weblium landing login
 
 
 Scenario: Users can search for a specific item on Amazon

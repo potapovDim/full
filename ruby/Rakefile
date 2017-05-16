@@ -5,6 +5,7 @@ require 'cucumber'
 require 'cucumber/rake/task'
 
 Cucumber::Rake::Task.new(:features) do |t|
+  ENV['CONFIG_NAME'] ||= "prod"
   t.cucumber_opts = "features --format pretty"
 end
 
