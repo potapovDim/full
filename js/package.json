@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "nightwatch",
+    "test": "NODE_ENV=prod nightwatch",
+    "test:prod": "nightwatch -e prod",
+    "test:stage": "nightwatch -e stage",
     "wd:update": "webdriver-manager update",
     "wd:start": "webdriver-manager start"
   },

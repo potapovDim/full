@@ -7,7 +7,7 @@ const initialPage = {
   }
 }
 module.exports = {
-  url: 'https://weblium.com',
+  url: LINK_TO_RESOURCE,
   elements: {
     app: '#app'
   },
