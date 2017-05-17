@@ -51,13 +51,13 @@ export const account = {
 
 export const myProfile = {
   //pesonal information
-  firstUserName                         : 'input[name="sign-up-name"]', // first name input
+  firstUsearName                         : 'input[name="sign-up-name"]', // first name input
   lastUserName                          : 'input[name="sign-up-l-name"]', //last name input
-  pfoneUserName                         : 'input[name="phone-num"]', // phone number input
+  phoneUserName                         : 'input[name="phone-num"]', // phone number input
   streetUserAddress1                    : 'input[name="address-1"]', // address 1 input
   streetUserAddress2                    : 'input[name="address-2"]', // address 2 input
   cityName                              : 'input[name="city"]', // city input
-  regionName                            : 'input[name="region"]', // region input
+  regionStateName                       : 'input[name="region"]', // region input
   zipCode                               : 'input[name="zip"]', // zip code input
   countryOpenList                       : '#country', // country (open list)
   countryListOption                     : 'option', // country list selection
@@ -75,5 +75,9 @@ export const myProfile = {
   userFullName                          : '.panel__header', // full name is concat two fields First name and Last name
   userDataIDS                           : '.text-list',
   //exeptions message
-  exceptionMessage                      : 'span.field__message'
+  exceptionMessage                      : 'span.field__message',
+  //save info button 
+  saveButton                            : '.btn.btn_lg.btn_blue.btn_rect.btn_width_xlg', // save info button
+  saveButtonProgress                    : '.btn.btn_lg.btn_blue.btn_rect.btn_width_xlg.progress', // save info button in progress
+  saveButtonSuccess                     : '.btn.btn_lg.btn_blue.btn_rect.btn_width_xlg.success' // save info button when success
 }

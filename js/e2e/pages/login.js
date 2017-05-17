@@ -35,20 +35,14 @@ const loginPageAPI = {
         .setValue('@emailInput', email)
         .setValue('@passwordInput', password)
         .click('@loginSubmitButton')
-        .pauseTime(5000)
-        .getText('@invalidEmailOrPassword', result => {
-          console.log(result, '!!!!!!!!!!!!')
-        })
+        .pauseTime(500)
     }
     else {
       return this.waitForElementVisible('@emailInput')
         .setValue('@emailInput', 'abbabagalamaga@abbabagalamaga.abbabagalamaga')
         .setValue('@passwordInput', '01010101010110')
         .click('@loginSubmitButton')
-        .pauseTime(5000)
-        .getText('@invalidEmailOrPassword', result => {
-          console.log(result, '!!!!!!!!!!!!')
-        })
+        .pauseTime(500)
     }
   }
 }

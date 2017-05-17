@@ -6,6 +6,7 @@ module.exports = {
     loginPage.navigate()
              .waitApp()
              .loginUserSuccess()
+    client.assert.urlEquals(`${LINK_TO_RESOURCE}myaccount/account/websites`)
     client.end()
   },
   'failed login user': client => {
@@ -14,6 +15,7 @@ module.exports = {
     loginPage.navigate()
              .waitApp()
              .loginUserFailed()
+    client.assert.urlEquals(`${LINK_TO_RESOURCE}login`)
     client.end()
   }
 }
