@@ -48,9 +48,11 @@ const myAccountAPI = {
   },
   //succes submit user data
   successSubmitUserData(){
-    return this.click('@saveButton')
-                .waitForElementVisible('@saveButtonProgress')
-                .waitForElementVisible('@saveButtonSuccess ')
+    return this.waitForElementNotPresent('@saveButtonProgress', 1500)
+               .waitForElementNotPresent('@saveButtonSuccess', 1500)
+               .click('@saveButton')
+               .waitForElementVisible('@saveButtonProgress')
+               .waitForElementVisible('@saveButtonSuccess')
   }
 }
 module.exports = {

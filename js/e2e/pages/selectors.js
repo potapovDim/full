@@ -51,7 +51,7 @@ export const account = {
 
 export const myProfile = {
   //pesonal information
-  firstUsearName                         : 'input[name="sign-up-name"]', // first name input
+  firstUserName                         : 'input[name="sign-up-name"]', // first name input
   lastUserName                          : 'input[name="sign-up-l-name"]', //last name input
   phoneUserName                         : 'input[name="phone-num"]', // phone number input
   streetUserAddress1                    : 'input[name="address-1"]', // address 1 input
