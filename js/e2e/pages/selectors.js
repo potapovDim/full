@@ -13,7 +13,8 @@ export const loginModal = {
   emailInput                            : 'input#id5', //user email input
   passwordInput                         : 'input#id9', //user email input
   loginSubmitButton                     : 'button[title="Login"]', //login submit button
-  alarmMessage                          : '.icon.icon_alarm.icon_absolute_right' // if something wrong alarm message selector
+  alarmMessage                          : '.icon.icon_alarm.icon_absolute_right', // if something wrong alarm message selector
+  invalidEmailOrPassword                : 'form>span' //if user data invalid
 }
 
 export const pricingPage = {
@@ -60,6 +61,19 @@ export const myProfile = {
   zipCode                               : 'input[name="zip"]', // zip code input
   countryOpenList                       : '#country', // country (open list)
   countryListOption                     : 'option', // country list selection
-  dataFormRow                           : '.row-form' // data form row
+  dataFormRow                           : '.row-form', // data form row
   // change passwrod
+  goToChangePasswordModal               : 'a[href="#password-form"]',
+  oldPasswordInput                      : 'input[name="old-pswd"]',
+  newPasswordInput                      : 'input[name="new-pswd"]',
+  newPasswordConfirmInput               : 'input[name="new-pswd-confirm"]',
+  //email notification
+  monthlyNews                           : 'input#keepSigned2',
+  importantUpdates                      : 'input#keepSigned3' ,
+  securityUpdates                       : 'input#keepSigned4',
+  //user data
+  userFullName                          : '.panel__header', // full name is concat two fields First name and Last name
+  userDataIDS                           : '.text-list',
+  //exeptions message
+  exceptionMessage                      : 'span.field__message'
 }
