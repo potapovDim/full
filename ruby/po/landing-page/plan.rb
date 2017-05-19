@@ -7,11 +7,11 @@ module Plan
   include Pricing
   include Concepts
   #header
-  @pricing                  = 'a[href="/pricing"]'
+  @pricing                              = 'a[href="/pricing"]'
   # will features
-  @concepts                 = 'a[href="/concepts"]'
+  @concepts                             = 'a[href="/concepts"]'
   #
-  @about                    = 'a[href="/about"]'
+  @about                                = 'a[href="/about"]'
   #selectors
   @your_website_name                    = '#website'
   @website_option                       = 'option'

@@ -26,7 +26,7 @@ module MyProfile
   #exceptions message
   @exceptions_message_data              = 'span.field__message'
   #init driver instance
-  def self.initialize(driver)
+  def self.initDriver(driver)
     @browser = driver
     self
   end
