@@ -26,7 +26,9 @@ module Plan
   @promocode_button                     = 'button[title="Enter promo code"]' #open promo code input
   @promocode_input                      = 'input#promo' 
   @promocode_submit                     = 'button[title="Submit"]'
+  @day_price                            = '.total-pay__price'
 
+  #init driver instance
   def self.initDriver(driver)
     @browser = driver
     return self
@@ -40,5 +42,17 @@ module Plan
   def self.concepts_page
     @browser.element(css: @concepts).click
     return Concepts.initDriver(@browser)
+  end
+
+  def self.choose_your_payment_method(payment_method)
+    case payment_method
+      when "annually"
+        @browser.element(css: @annually_plan).fire_event 'click'
+      when "monthly"
+        @browser.element(css: @monthly_plan).fire_event 'click'
+      when "binnualy"
+        @browser.element(css: @biannually_plan).fire_event 'click'
+    end
+    return self, @browser.element(css: @day_price).value
   end
 end

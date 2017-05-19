@@ -1,9 +1,11 @@
 require_relative './my-profile'
 require_relative '../landing-page/plan'
+require_relative '../landing-page/login'
 
 class Account
   include MyProfile
   include Plan
+  include Login
   #inititalize class variables
   def initialize(driver)
     @browser                        = driver
