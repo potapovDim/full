@@ -17,5 +17,23 @@ module.exports = {
              .loginUserFailed()
     client.assert.urlEquals(`${LINK_TO_RESOURCE}login`)
     client.end()
+  },
+  'failed login user (edge conditin name)': client => {
+    const loginPage = client.page.login()
+    client.resizeWindow(1200, 900)
+    loginPage.navigate()
+             .waitApp()
+             .loginUserSuccess(' '+USER_NAME, USER_PASSWORD)
+    client.assert.urlEquals(`${LINK_TO_RESOURCE}login`)
+    client.end()
+  },
+  'failed login user (edge conditin password)': client => {
+    const loginPage = client.page.login()
+    client.resizeWindow(1200, 900)
+    loginPage.navigate()
+             .waitApp()
+             .loginUserSuccess(USER_NAME,' ' + USER_PASSWORD)
+    client.assert.urlEquals(`${LINK_TO_RESOURCE}login`)
+    client.end()
   }
 }
