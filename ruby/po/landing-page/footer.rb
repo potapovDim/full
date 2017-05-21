@@ -2,8 +2,8 @@ require_relative './pricing'
 require_relative './concepts'
 
 module Footer
-  include Pricing
-  include Concepts
+  # include Pricing
+  # include Concepts
   #selectors
   @pricing                  = 'a[href="/pricing"]'
   # will features
@@ -20,13 +20,15 @@ module Footer
   @terms_of_use             = 'a[href="/terms"]'
 
   def self.initDriver(driver)
+    @Pricing = Pricing.initDriver driver
+    @Concepts = Concepts.initDriver driver
     @browser = driver
     return self
   end
 
   def self.pricing_page
     @browser.element(css: @pricing).click
-    return Pricing.initDriver(@browser)
+    return @Pricing
   end
 
   def self.concepts_page

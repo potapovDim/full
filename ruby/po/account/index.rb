@@ -1,5 +1,5 @@
 require_relative './my-profile'
-#require_relative '../landing-page/plan'
+require_relative '../landing-page/plan'
 #require_relative '../landing-page/login'
 
 class Account
@@ -22,7 +22,7 @@ class Account
   end
   def buy_growth_plan
     @browser.element(css: @buy_growth_plan_button).click
-    #return Plan.initDriver(@browser)
+    return Plan.initDriver(@browser)
   end
   def go_to_landing
     @browser.element(css: @back_landing).click

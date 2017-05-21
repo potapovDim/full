@@ -1,7 +1,7 @@
 require_relative './login'
 
 module Pricing
-  include Login
+  #include Login
   #pricing selectors
   @buy_growth_plan                  = 'a[title="Buy growth plan"]' # 0 green button , 1 test plan , 2 monthy , 4 annually
   @plan_feature                     = '.plan__feature' # Moneyback guarantee ; 14 days for free
@@ -9,6 +9,7 @@ module Pricing
   
   #initialize webdriver 
   def self.initDriver(driver)
+    @Login = Login.initDriver driver #
     @browser = driver
     return self
   end
@@ -24,7 +25,7 @@ module Pricing
       when 3 #login by first plan -> annually plan
         @browser.elements(css: @buy_growth_plan)[3].fire_event 'click'
     end
-    return Login.initDriver(@browser)
+    return @Login
   end
 
   def self.success_login_by_sign_up_centred

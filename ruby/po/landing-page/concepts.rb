@@ -1,7 +1,6 @@
 require_relative './login'
 
 module Concepts
-  include Login
   #concepts selectors
   @concept                    = 'img[alt="concept name"]'
   @start_your_website         = 'button[title="Start website"]'
@@ -9,6 +8,7 @@ module Concepts
 
   #initialize webdriver 
   def self.initDriver(driver)
+    @Login = Login.initDriver driver
     @browser = driver
     return self
   end
@@ -17,6 +17,6 @@ module Concepts
   def self.go_to_login
     @browser.elements(css: @concept)[0].fire_event 'hover'
     @browser.element(css: @start_your_website).fire_event 'click'
-    return Login.initDriver(@browser)
+    return @Login
   end
 end

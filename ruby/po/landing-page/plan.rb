@@ -3,9 +3,6 @@ require_relative './pricing'
 require_relative './concepts'
 
 module Plan
-  include Login
-  include Pricing
-  include Concepts
   #header
   @pricing                              = 'a[href="/pricing"]'
   # will features
@@ -30,6 +27,7 @@ module Plan
 
   #init driver instance
   def self.initDriver(driver)
+    @Login = Login.initDriver driver
     @browser = driver
     return self
   end
@@ -53,6 +51,6 @@ module Plan
       when "binnualy"
         @browser.element(css: @biannually_plan).fire_event 'click'
     end
-    return self, @browser.element(css: @day_price).value
+    return self, @browser.element(css: @day_price).text
   end
 end

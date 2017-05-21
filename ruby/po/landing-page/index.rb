@@ -4,10 +4,10 @@ require_relative './concepts'
 require_relative './footer'
 
 class LandingPage
-  include Login
-  include Pricing
-  include Concepts
-  include Footer
+  # include Login
+  # include Pricing
+  # include Concepts
+  # include Footer
   #inititalize class variables
   def initialize(driver)
     #webdriver instance
