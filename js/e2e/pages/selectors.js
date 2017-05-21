@@ -79,5 +79,27 @@ export const myProfile = {
   //save info button 
   saveButton                            : '.btn.btn_lg.btn_blue.btn_rect.btn_width_xlg', // save info button
   saveButtonProgress                    : '.btn.btn_lg.btn_blue.btn_rect.btn_width_xlg.progress', // save info button in progress
-  saveButtonSuccess                     : '.btn.btn_lg.btn_blue.btn_rect.btn_width_xlg.success' // save info button when success
+  saveButtonSuccess                     : '.btn.btn_lg.btn_blue.btn_rect.btn_width_xlg.success', // save info button when success
+  //buy browth plan -> go to plans
+  buyGrowthPlanGreenBtn                 : 'button.btn.btn_green.trial-notice__btn'
+}
+
+export const plans = {
+  //your website 
+  youWebsiteDropList                    : '#website',
+  youWebsiteDropListOption              : 'option',
+  //plans radio
+  planAnnually                          : '#annually', //  15 per/month
+  planMonthly                           : '#monthly', //  10.5 per/month
+  planBiannually                        : '#biannually', //  8.25 per/month
+  //payment way 
+  stripe                                : '#stripe',
+  paypal                                : '#paypal',
+  //promocode enter and get error message
+  promocodeButton                       : 'button[title="Enter promo code"]',
+  promocodeInput                        : 'input#promo' ,
+  promocodeSubmit                       : 'button[title="Submit"]',
+  promocodeSubmitError                  : '.footer-form__notice.error',
+  //day price when choosed plan
+  dayPrice                              : '.total-pay__price'
 }

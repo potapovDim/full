@@ -13,7 +13,7 @@ module Plan
   @your_website_name                    = '#website'
   @website_option                       = 'option'
   #plans 
-  @annually_plan                        = '#annually' #15 per/month
+  @annually_plan                        = '#annually' # 15 per/month
   @monthly_plan                         = '#monthly' # 10.5 per/month
   @biannually_plan                      = '#biannually' # 8.25 per/month
   #payment way
