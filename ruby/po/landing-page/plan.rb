@@ -23,6 +23,8 @@ module Plan
   @promocode_button                     = 'button[title="Enter promo code"]' #open promo code input
   @promocode_input                      = 'input#promo' 
   @promocode_submit                     = 'button[title="Submit"]'
+  @promocode_submit_error               = '.footer-form__notice.error'
+  #day price when choosed plan
   @day_price                            = '.total-pay__price'
 
   #init driver instance
@@ -52,5 +54,11 @@ module Plan
         @browser.element(css: @biannually_plan).fire_event 'click'
     end
     return self, @browser.element(css: @day_price).text
+  end
+  def self.enter_promocode_fail(promo_code)
+    @browser.element(css: @promocode_button).click
+    @browser.element(css: @promocode_input).send_keys promo_code
+    @browser.element(css: @promocode_submit).click
+    return self, @browser.element(css: @promocode_submit_error).text
   end
 end

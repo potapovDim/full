@@ -24,5 +24,11 @@ describe "Growth plan" ,:focus => true  do
     plan_page_driver_after_next_change, price_value = plan_page_after_change
                                             .choose_your_payment_method("binnualy")
     expect(price_value).to eql('$198')
+    page, error_value = plan_page_driver_after_next_change
+                                            .enter_promocode_fail(" ;")
+    expect(error_value).to eql('You have entered a wrong code')
+    page_after_error, error_value = page
+                                            .enter_promocode_fail("dsakdkljsajdlaskl")
+    expect(error_value).to eql('You have entered a wrong code')
   end
 end
