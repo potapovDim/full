@@ -56,28 +56,30 @@ const myAccountAPI = {
   },
   //change user password
   changeUserPasswordSuccess(oldPass, newPass) {
-    return this.waitForElementNotPresent('@oldPasswordInput')
+    return this.waitForElementPresent('@oldPasswordInput')
+               .moveToElement('@oldPasswordInput', 0, 0)
                .setValue('@oldPasswordInput', oldPass)
-               .waitForElementNotPresent('@newPasswordInput')
+               .waitForElementPresent('@newPasswordInput')
                .setValue('@newPasswordInput', newPass)
-               .waitForElementNotPresent('@newPasswordConfirmInput')
+               .waitForElementPresent('@newPasswordConfirmInput')
                .setValue('@newPasswordConfirmInput', newPass)
                .click('@changePasswordButton')
-               .waitForElementNotPresent('@changePasswordButtonProgress')
-               .waitForElementNotPresent('@changePasswordButtonSuccess')
+               .waitForElementPresent('@changePasswordButtonProgress')
+               .waitForElementPresent('@changePasswordButtonSuccess')
 
   },
   //changePasswordButtonFail
   changeUserPasswordFailed(oldPass, newPass) {
-    return this.waitForElementNotPresent('@oldPasswordInput')
+    return this.waitForElementPresent('@oldPasswordInput')
+               .moveToElement('@oldPasswordInput', 0, 0)
                .setValue('@oldPasswordInput', oldPass)
-               .waitForElementNotPresent('@newPasswordInput')
+               .waitForElementPresent('@newPasswordInput')
                .setValue('@newPasswordInput', newPass)
-               .waitForElementNotPresent('@newPasswordConfirmInput')
+               .waitForElementPresent('@newPasswordConfirmInput')
                .setValue('@newPasswordConfirmInput', newPass)
                .click('@changePasswordButton')
-               .waitForElementNotPresent('@changePasswordButtonProgress')
-               .waitForElementNotPresent('@changePasswordButtonFail')
+               .waitForElementPresent('@changePasswordButtonProgress')
+               .waitForElementPresent('@changePasswordButtonFail')
   }
 }
 module.exports = {
