@@ -53,6 +53,31 @@ const myAccountAPI = {
                .click('@saveButton')
                .waitForElementVisible('@saveButtonProgress')
                .waitForElementVisible('@saveButtonSuccess')
+  },
+  //change user password
+  changeUserPasswordSuccess(oldPass, newPass) {
+    return this.waitForElementNotPresent('@oldPasswordInput')
+               .setValue('@oldPasswordInput', oldPass)
+               .waitForElementNotPresent('@newPasswordInput')
+               .setValue('@newPasswordInput', newPass)
+               .waitForElementNotPresent('@newPasswordConfirmInput')
+               .setValue('@newPasswordConfirmInput', newPass)
+               .click('@changePasswordButton')
+               .waitForElementNotPresent('@changePasswordButtonProgress')
+               .waitForElementNotPresent('@changePasswordButtonSuccess')
+
+  },
+  //changePasswordButtonFail
+  changeUserPasswordFailed(oldPass, newPass) {
+    return this.waitForElementNotPresent('@oldPasswordInput')
+               .setValue('@oldPasswordInput', oldPass)
+               .waitForElementNotPresent('@newPasswordInput')
+               .setValue('@newPasswordInput', newPass)
+               .waitForElementNotPresent('@newPasswordConfirmInput')
+               .setValue('@newPasswordConfirmInput', newPass)
+               .click('@changePasswordButton')
+               .waitForElementNotPresent('@changePasswordButtonProgress')
+               .waitForElementNotPresent('@changePasswordButtonFail')
   }
 }
 module.exports = {

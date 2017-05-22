@@ -1,6 +1,6 @@
 module.exports = {
   '@tags': ['userprofile','smoke'],
-  'success login user': client => {
+  'success change user data': client => {
     const loginPage = client.page.login()
     const myProfile = client.page.myaccount()
     client.resizeWindow(1200, 900)
@@ -20,6 +20,19 @@ module.exports = {
              .successSubmitUserData()
              .changeCountry('test countr')
              .successSubmitUserData()
+    client.end()
+  },
+  'success change user password': client => {
+    const loginPage = client.page.login()
+    const myProfile = client.page.myaccount()
+    client.resizeWindow(1200, 900)
+    loginPage.navigate()
+             .waitApp()
+             .loginUserSuccess()
+    client.assert.urlEquals(`${LINK_TO_RESOURCE}myaccount/account/websites`)
+    myProfile.navigate()
+             .waitApp()
+             .changeUserPasswordSuccess(USER_PASSWORD, USER_PASSWORD)
     client.end()
   }
 }

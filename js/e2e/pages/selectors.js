@@ -66,7 +66,11 @@ export const myProfile = {
   goToChangePasswordModal               : 'a[href="#password-form"]',
   oldPasswordInput                      : 'input[name="old-pswd"]',
   newPasswordInput                      : 'input[name="new-pswd"]',
-  newPasswordConfirmInput               : 'input[name="new-pswd-confirm"]',
+  newPasswordConfirmInput               : 'input[name="new-pswd-confirm"]', 
+  changePasswordButton                  : '.btn.btn_lg.btn_blue.btn_rect.btn_width_lg', // change password form button
+  changePasswordButtonProgress          : '.btn.btn_lg.btn_blue.btn_rect.btn_width_lg.progress', // change password form button progress
+  changePasswordButtonSuccess           : '.btn.btn_lg.btn_blue.btn_rect.btn_width_lg.success', // change password form button success
+  changePasswordButtonFail           : '.btn.btn_lg.btn_blue.btn_rect.btn_width_lg.fail', // change password form button failed
   //email notification
   monthlyNews                           : 'input#keepSigned2',
   importantUpdates                      : 'input#keepSigned3' ,

@@ -12,7 +12,7 @@ end
 task :cucumb => :features
 
 RSpec::Core::RakeTask.new(:smoke_stage) do |t|
-  ENV['CONFIG_NAME'] ||= "stage"
+  ENV['CONFIG_NAME'] = "stage"
   t.pattern = Dir.glob('spec/smokes/*.smoke.rb')
   t.rspec_opts = '--format documentation'
   t.verbose = false
