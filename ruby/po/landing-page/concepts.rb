@@ -29,8 +29,8 @@ module Concepts
   end
   def self.assert_search(keys)
     concept_titles = @browser.elements(css: @concept_title) #get all titles
-    for i in 0..concept_title.length do # for all titles
-      if !concept_title[i].text.include? keys # if title not includes search keys end func 
+    for i in 0..concept_titles.length do # for all titles
+      if !concept_titles[i].text.include? keys # if title not includes search keys end func 
         return false
       end
     end

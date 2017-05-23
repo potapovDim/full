@@ -7,7 +7,7 @@ CONFIG_NAME = ENV['CONFIG_NAME']
 BROWSER_NAME = ENV['BROWSER_NAME']
 CONFIG = YAML.load(File.read(File.join(File.dirname(__FILE__), "../localdata/#{CONFIG_NAME}.yml")))
 RSpec.configure do |config|
-  config.filter_run :focus => true
+  #config.filter_run :focus => true
   config.around(:example) do |example|
     @browser = nil
     case BROWSER_NAME
