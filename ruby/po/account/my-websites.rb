@@ -8,6 +8,7 @@ module MyWebsites
   @message_modal_view_pricing                             = 'button.btn.btn_flat.btn_flat_blue.btn_width_md.btn_font_md'
   #initialize webdriver
   def self.initDriver(driver)
+    puts '2'
     @browser = driver
     return self
   end
@@ -18,6 +19,7 @@ module MyWebsites
   end
 
   def self.go_to_buy_growth_plan_modal
+    puts '3'
     @browser.element(css: @message_modal_buy_growth_plan_button).fire_event 'click'
     return Plan.initDriver @browser
   end

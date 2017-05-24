@@ -1,11 +1,9 @@
 require_relative './my-profile'
+require_relative './my-websites'
 require_relative '../landing-page/plan'
-#require_relative '../landing-page/login'
 
 class Account
-  include MyProfile
-  #include Plan
-  #include Login
+  #include MyProfile
   #inititalize class variables
   def initialize(driver)
     @browser                        = driver
@@ -26,5 +24,12 @@ class Account
   end
   def go_to_landing
     @browser.element(css: @back_landing).click
+  end
+
+  def go_to_my_websites
+    puts '1'
+    @browser.element(text: 'My websites').click
+    puts '2-1'
+    return MyWebsites.initDriver(@browser)
   end
 end

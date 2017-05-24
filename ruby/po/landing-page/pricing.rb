@@ -1,7 +1,6 @@
 require_relative './login'
 
 module Pricing
-  #include Login
   #pricing selectors
   @buy_growth_plan                  = 'a[title="Buy growth plan"]' # 0 green button , 1 test plan , 2 monthy , 4 annually
   @plan_feature                     = '.plan__feature' # Moneyback guarantee ; 14 days for free

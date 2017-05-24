@@ -31,6 +31,4 @@ module EditorExpiredPerion
     @browser.element(css: @view_pricing_button).fire_event 'click'
     return Pricing.initDriver(@browser)
   end
-  
- 
 end
