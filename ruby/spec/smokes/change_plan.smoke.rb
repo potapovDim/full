@@ -14,7 +14,7 @@ describe "Growth plan" do
   end
   it "change growth plan" do
     plan_page_driver, price_value = @landing.login()
-                                            .login_user(@username, @password)
+                                            .login_user(@username_expired, @password_expired)
                                             .buy_growth_plan()
                                             .choose_your_payment_method("annually")
     expect(price_value).to eql('$126')
