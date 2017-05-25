@@ -31,7 +31,7 @@ describe "Growth plan" do
                                             .enter_promocode_fail("dsakdkljsajdlaskl")
     expect(error_value).to eql('You have entered a wrong code')
   end
-  it "chage growth plan (modal message button)" , :focus => true do
+  it "chage growth plan (modal message button)" do
     plan_page_driver, price_value = @landing.login()
                                             .login_user(@username_expired, @password_expired) 
                                             .go_to_my_websites()
@@ -50,5 +50,23 @@ describe "Growth plan" do
     page_after_error, error_value = page
                                             .enter_promocode_fail("dsakdkljsajdlaskl")
     expect(error_value).to eql('You have entered a wrong code')
+  end
+  it "change grwoth plan from editor (top panel)" do
+    @landing.login()
+            .login_user(@username_expired, @password_expired) 
+            .go_to_my_websites()
+            .go_to_editor_from_website(2)
+    expect(@browser.url.include?('/editor/website/')).to eql(true)
+    @editor.buy_growth_plan(true)
+    expect(@browser.url.include?('/plan?websiteId')).to eql(true)
+  end
+  it "change grwoth plan from editor (modal)" do
+    @landing.login()
+            .login_user(@username_expired, @password_expired) 
+            .go_to_my_websites()
+            .go_to_editor_from_website(2)
+    expect(@browser.url.include?('/editor/website/')).to eql(true)
+    @editor.buy_growth_plan(false)
+    expect(@browser.url.include?('/plan?websiteId')).to eql(true)
   end
 end

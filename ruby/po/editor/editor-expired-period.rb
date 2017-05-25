@@ -1,11 +1,12 @@
 require_relative '../landing-page/plan'
 require_relative '../landing-page/pricing'
 
-module EditorExpiredPerion
-  #expired period selectors 
+module EditorExpiredPerionAndPublish
+  #selectors 
   @buy_a_growth_plan_top_link                   = 'a[title="Buy a Growth Plan"]'
   @view_pricing_button                          = 'button[title="View pricing"]'
   @buy_a_growth_plan_modal_button               = 'button[title="Buy a Growth Plan"]'
+  @ready_to_launch_submit                       = 'button[title="Ready to launch!"]'
   #initialize webdriver 
   def self.initDriver(driver)
     @browser = driver
@@ -13,8 +14,21 @@ module EditorExpiredPerion
   end
   #click publish button for open modal
   def self.publish_button_click
-    @browser.element(text: 'Publish').fire_event 'click'
+    @browser.button(text: 'Publish').fire_event 'click'
     return self
+  end
+  #ready to lanunch! success publish your website
+  def self.submit_publish
+    @browser.button(css: @ready_to_launch_submit).fire_event 'click'
+    return self
+  end
+  #when start publishing open modal -> close this opened modal
+  def self.close_publishing_modal
+    @browser.button(text: 'Hide').fire_event 'click'
+    return self
+  end
+  def self.get_publishing_process 
+    return @browser.button(text: 'Publishing').present?
   end
   #go to buying plan for current website (top black link)
   def self.buy_a_growth_plan_for_current_website
