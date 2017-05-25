@@ -29,7 +29,6 @@ module Plan
 
   #init driver instance
   def self.initDriver(driver)
-    puts '4'
     @Login = Login.initDriver driver
     @browser = driver
     return self

@@ -33,7 +33,7 @@ describe "Growth plan" do
   end
   it "chage growth plan (modal message button)" , :focus => true do
     plan_page_driver, price_value = @landing.login()
-                                            .login_user(@username_expired, @password_expired)
+                                            .login_user(@username_expired, @password_expired) 
                                             .go_to_my_websites()
                                             .go_to_buy_growth_plan_modal()
                                             .choose_your_payment_method("annually")

@@ -2,6 +2,7 @@ require 'yaml'
 require 'rspec'
 require 'watir-webdriver'
 require_relative '../po/landing-page/index'
+require_relative '../po/editor/index'
 
 CONFIG_NAME = ENV['CONFIG_NAME']
 BROWSER_NAME = ENV['BROWSER_NAME']
@@ -25,7 +26,11 @@ RSpec.configure do |config|
     @username_expired = CONFIG['username_expired']
     @password_expired = CONFIG['password_expired']
 
+    #landing po 
     @landing = LandingPage.new(@browser)
+    #editor po
+    @editor = Editor.new(@browser)
+    
 
     begin
       @browser.driver.manage.timeouts.implicit_wait = 150

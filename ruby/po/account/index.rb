@@ -8,6 +8,7 @@ class Account
   def initialize(driver)
     @browser                        = driver
     @back_landing                   = 'button.logo'
+    @left_nav_item                  = '.left-nav__item'
     @my_profile                     = 'a[href="/myaccount/account/profile"]' 
     @my_websites                    = 'a[href="/myaccount/account/websites"]' 
     @buy_growth_plan_button         = 'button.btn.btn_green.trial-notice__btn'
@@ -27,9 +28,7 @@ class Account
   end
 
   def go_to_my_websites
-    puts '1'
-    @browser.element(text: 'My websites').click
-    puts '2-1'
+    @browser.elements(css: @left_nav_item)[0].click
     return MyWebsites.initDriver(@browser)
   end
 end
