@@ -1,7 +1,3 @@
-require_relative './login'
-require_relative './pricing'
-require_relative './concepts'
-
 module Plan
   #header
   @pricing                              = 'a[href="/pricing"]'

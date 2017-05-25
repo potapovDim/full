@@ -1,6 +1,3 @@
-require_relative './pricing'
-require_relative './concepts'
-
 module Footer
   # include Pricing
   # include Concepts

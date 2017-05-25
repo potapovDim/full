@@ -1,8 +1,3 @@
-require_relative './login'
-require_relative './pricing'
-require_relative './concepts'
-require_relative './footer'
-
 class LandingPage
   # include Login
   # include Pricing

@@ -1,6 +1,3 @@
-require_relative '../landing-page/plan'
-require_relative '../landing-page/pricing'
-
 module EditorExpiredPerionAndPublish
   #selectors 
   @buy_a_growth_plan_top_link                   = 'a[title="Buy a Growth Plan"]'
@@ -14,6 +11,9 @@ module EditorExpiredPerionAndPublish
   end
   #click publish button for open modal
   def self.publish_button_click
+    if @browser.button(text: 'Publish').fire_event 'click'
+      
+    end
     @browser.button(text: 'Publish').fire_event 'click'
     return self
   end

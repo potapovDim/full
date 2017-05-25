@@ -1,5 +1,3 @@
-require_relative '../account/index'
-
 module Login
   @email_input                  = 'input#id5'
   @password_input               = 'input#id9'

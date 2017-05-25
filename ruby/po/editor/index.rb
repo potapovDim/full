@@ -1,5 +1,3 @@
-require_relative "./editor-expired-period"
-
 class Editor
   #initialize drivers
   @@browser

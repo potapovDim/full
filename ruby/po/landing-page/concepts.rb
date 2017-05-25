@@ -1,5 +1,3 @@
-require_relative './login'
-
 module Concepts
   #concepts selectors
   @concept                            = 'img[alt="concept name"]'

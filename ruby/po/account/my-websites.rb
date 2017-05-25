@@ -1,6 +1,3 @@
-require_relative '../landing-page/plan'
-require_relative '../landing-page/pricing'
-
 module MyWebsites
   #my websites selectors
   @top_panel_buy_growth_plan_button                       = 'button.btn.btn_green.trial-notice__btn' 

@@ -1,7 +1,3 @@
-require_relative './my-profile'
-require_relative './my-websites'
-require_relative '../landing-page/plan'
-
 class Account
   #include MyProfile
   #inititalize class variables
