@@ -6,8 +6,10 @@ class Block
   include ContextPanelBlock
   #initialize drivers
   @@browser
-  def initialize(browser)
-    @@browser = browser
+  def initialize(browser, block_target = 0)
+    @@block_background        = '[data-test="block-component"]>div>div:nth-child(1)>div>div'
+    @@browser                 = browser
+    @@block_target            = block_target
     ContextPanelBlock.initBrowser browser
   end
   #paddings api
@@ -15,14 +17,17 @@ class Block
     return PaddingsBlock.initBrowser @@browser
   end
   #block context panel api
-  def click_block_context (button, index = 0)
+  def click_block_context (button)
     case button
       when "remove"
-        ContextPanelBlock.block_remove(index)
+        ContextPanelBlock.block_remove(@@block_target)
       when "duplicate"
-        ContextPanelBlock.block_duplicate(index)
+        ContextPanelBlock.block_duplicate(@@block_target)
       when "settings"
-        ContextPanelBlock.open_block_settings(index)
+        ContextPanelBlock.open_block_settings(@@block_target)
     end
+  end
+  def get_block_background
+    return @@browser.elements(css: @@block_background)[@@block_target].style 'background'
   end
 end
