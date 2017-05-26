@@ -11,8 +11,10 @@ module EditorExpiredPerionAndPublish
   end
   #click publish button for open modal
   def self.publish_button_click
-    if @browser.button(text: 'Publish').fire_event 'click'
-      
+    if @browser.button(text: 'Published').present? 
+      #if site already published we change block`s` padding
+      Block.new(@browser).resize_padding()
+                         .resize_padding_bottom_block(10, -10, 1)
     end
     @browser.button(text: 'Publish').fire_event 'click'
     return self

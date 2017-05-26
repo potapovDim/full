@@ -10,17 +10,13 @@ require_relative '../po/landing-page/sign-up'
 require_relative '../po/landing-page/plan'
 require_relative '../po/landing-page/footer'
 require_relative '../po/landing-page/concepts'
-
-
 #account 
 require_relative '../po/account/index'
 require_relative '../po/account/my-profile'
 require_relative '../po/account/my-websites'
-
 #editor 
 require_relative '../po/editor/index'
 require_relative "../po/editor/editor-expired-period"
-
 #editor parts
 #block
 require_relative '../po/editor/block/index'
@@ -61,18 +57,7 @@ RSpec.configure do |config|
     @landing = LandingPage.new(@browser)
     #editor po
     @editor = Editor.new(@browser)
-    #editor parts po
-    # @block                  = Block.new @browser
-    # #elements instances
-    # @image                  = Image.new @browser
-    # @text                   = Text.new @browser
-    # @button                 = Button.new @browser
-    # @line                   = Line.new @browser
-    # @icon                   = Icon.new @browser
-    # #leftnav instance
-    # @left_nav               = LeftNav.new @browser
-    # #row 
-    # @row                    = Row.new @browser
+
     
     begin
       @browser.driver.manage.timeouts.implicit_wait = 150

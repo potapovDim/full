@@ -1,7 +1,7 @@
 require_relative '../../scripts/local.rb'
 
 # , :focus => true if need run only this suit
-describe 'Change user profile'  do
+describe 'Change user profile' do
   before :each do
     @browser.window.resize_to 1200, 1600
     @browser.goto @base_url

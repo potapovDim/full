@@ -5,15 +5,15 @@ require 'cucumber'
 require 'cucumber/rake/task'
 
 Cucumber::Rake::Task.new(:features) do |t|
-  ENV['CONFIG_NAME'] ||= "prod"
+  ENV['CONFIG_NAME'] = "prod"
   t.cucumber_opts = "features --format pretty"
 end
 
 task :cucumb => :features
 
 RSpec::Core::RakeTask.new(:smoke_stage) do |t|
-  ENV['CONFIG_NAME'] ||= "stage"
-  ENV['BROWSER_NAME'] ||= "chrome"
+  ENV['CONFIG_NAME'] = "stage"
+  ENV['BROWSER_NAME'] = "chrome"
   t.pattern = Dir.glob('spec/smokes/*.smoke.rb')
   t.rspec_opts = '--format documentation'
   t.verbose = false
@@ -22,7 +22,7 @@ end
 task :default => :chrome
 
 RSpec::Core::RakeTask.new(:smoke_prod) do |t|
-  ENV['CONFIG_NAME'] ||= "prod"
+  ENV['CONFIG_NAME'] = "prod"
   t.pattern = Dir.glob('spec/smokes/*.smoke.rb')
   t.rspec_opts = '--format documentation'
   t.verbose = false
@@ -42,7 +42,7 @@ end
 # end
 
 task :chrome do |t, args|
-  ENV['BROWSER_NAME'] ||= "chrome"
+  ENV['BROWSER_NAME'] = "chrome"
   Rake::Task["smoke_prod"].invoke
   #Rake::Task["single"].reenable
   # Rake::Task["local"].invoke
@@ -50,7 +50,7 @@ task :chrome do |t, args|
 end
 
 task :firefox do |t, args|
-  ENV['BROWSER_NAME'] ||= "firefox"
+  ENV['BROWSER_NAME'] = "firefox"
   Rake::Task["smoke_prod"].invoke
   #Rake::Task["single"].reenable
   # Rake::Task["local"].invoke
