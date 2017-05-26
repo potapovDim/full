@@ -38,15 +38,15 @@ module BackgroundTab
       when "image"
         drop_list[0].fire_event "mousedown"
         drop_options[1].fire_event "mousedown"
-      when "video"
-        drop_list[0].fire_event "mousedown"
-        drop_options[2].fire_event "mousedown"
       when "color"
         drop_list[0].fire_event "mousedown"
-        drop_options[3].fire_event "mousedown"    
+        drop_options[2].fire_event "mousedown"
       when "gradient"
         drop_list[0].fire_event "mousedown"
-        drop_options[4].fire_event "mousedown"    
+        drop_options[3].fire_event "mousedown"    
+      # when "gradient"
+      #   drop_list[0].fire_event "mousedown"
+      #   drop_options[4].fire_event "mousedown"    
     end
     return self
   end
