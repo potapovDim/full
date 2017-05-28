@@ -19,4 +19,7 @@ class Row
         ContextPanelRow.open_row_settings(index)
     end
   end
+  def get_row_background
+    return @@browser.elements(css: @@block_background)[@@block_target].style 'background'
+  end
 end
