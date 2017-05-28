@@ -10,13 +10,26 @@ describe "Block component", do
             .go_to_my_websites()
             .go_to_editor_from_website(2)
     expect(@browser.url.include?('/editor/website/')).to eql(true)
-  end
-  it "change block background" do
     @block = Block.new(@browser, 0)
     initial_background = @block.get_block_background
     @block.click_block_context('settings')
           .choose_tab("background")
+          .change_background_type("none")
+  end
+  it "change block background (color)" do
+    initial_background = @block.get_block_background
+    @block.click_block_context('settings')
+          .choose_tab("background")
           .change_background_type("color")
+    @browser.send_keys :escape
+    changed_background = @block.get_block_background
+    expect(changed_background).to_not eql(initial_background)
+  end
+  it "change block background (gradient)" do
+    initial_background = @block.get_block_background
+    @block.click_block_context('settings')
+          .choose_tab("background")
+          .change_background_type("gradient")
     @browser.send_keys :escape
     changed_background = @block.get_block_background
     expect(changed_background).to_not eql(initial_background)
