@@ -1,7 +1,7 @@
 require_relative '../../scripts/local.rb'
 
 # , :focus => true if need run only this suit
-describe "Block component" , :focus => true do
+describe "Block component" do
   before :each do
     @browser.window.resize_to 1200, 1600
     @browser.goto @base_url
@@ -15,6 +15,7 @@ describe "Block component" , :focus => true do
     @block.click_block_context('settings')
           .choose_tab("background")
           .change_background_type("none")
+    @browser.send_keys :escape
   end
   it "change block background (color)" do
     initial_background = @block.get_block_background
