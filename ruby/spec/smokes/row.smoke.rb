@@ -5,7 +5,6 @@ describe "Row component" do
   before :each do
     @browser.window.resize_to 1200, 1600
     @browser.goto @base_url
-
     @landing.login()
             .login_user(@username, @password) 
             .go_to_my_websites()
@@ -15,6 +14,10 @@ describe "Row component" do
     @row.click_row_context('settings')
         .choose_tab("background")
         .change_background_type("none")
+    @browser.send_keys :escape
+    @row.click_row_context("settings")
+        .choose_tab("layout")
+        .change_layout(2)
     @browser.send_keys :escape
   end
   it "change row background (color)" do
@@ -34,5 +37,17 @@ describe "Row component" do
     @browser.send_keys :escape
     changed_background = @row.get_row_background
     expect(changed_background).to_not eql(initial_background)
+  end
+  it "change row layout" do
+    initial_layout = @row.get_row_layout
+    @row.click_row_context("settings")
+        .choose_tab("layout")
+        .change_layout(2)
+        .change_layout(3)
+        .change_layout(4)
+        .change_layout(5)
+    @browser.send_keys :escape
+    changed_row_layout = @row.get_row_layout
+    expect(initial_layout).to_not eql(changed_row_layout)
   end
 end

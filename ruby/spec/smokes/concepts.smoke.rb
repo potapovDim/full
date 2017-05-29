@@ -1,7 +1,7 @@
 require_relative '../../scripts/local.rb'
 
 # , :focus => true if need run only this suit
-describe "Concepts"  do
+describe "Concepts" do
   before :each do
     @browser.window.resize_to 1200, 1600
     @browser.goto @base_url
@@ -45,6 +45,7 @@ describe "Concepts"  do
     concepts_page, result = @landing.header_concepts_page()
                                     .search_concept_by_keys('law')
                                     .assert_search('law')
+                              
     expect(result).not_to eql(false)
   end
 end

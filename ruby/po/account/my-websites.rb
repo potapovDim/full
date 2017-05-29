@@ -27,7 +27,7 @@ module MyWebsites
 
   def self.go_to_editor_from_website(website)
     user_websites = @browser.elements(css: @website_edit_button)
-    if user_websites.length == 1
+    if user_websites.length <= website
       @browser.elements(css: @website_edit_button)[0].fire_event 'hover'
       @browser.elements(css: @website_edit_button)[0].fire_event 'click'
     else 
