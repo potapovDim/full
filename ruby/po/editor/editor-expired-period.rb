@@ -4,6 +4,9 @@ module EditorExpiredPerionAndPublish
   @view_pricing_button                          = 'button[title="View pricing"]'
   @buy_a_growth_plan_modal_button               = 'button[title="Buy a Growth Plan"]'
   @ready_to_launch_submit                       = 'button[title="Ready to launch!"]'
+
+
+  @mode_selectors                               = '.item_348Ou' #not stable will be changed to data-test
   #initialize webdriver 
   def self.initDriver(driver)
     @browser = driver
@@ -19,6 +22,31 @@ module EditorExpiredPerionAndPublish
     @browser.button(text: 'Publish').fire_event 'click'
     return self
   end
+  #go to preview mode
+  def self.preview_mode_submit
+    @browser.a(text: 'Preview').fire_event 'click'
+    @browser.wait_until(150) {@browser.url.include? '/editor/preview/'}
+    return self
+  end
+  #go to editor mode
+  def self.editor_mode_submit
+    @browser.a(text: 'Edit website').fire_event 'click'
+    @browser.wait_until(150) {@browser.url.include?('/editor/preview/') == false}
+    return self
+  end
+
+  #go to mobile mode
+  def self.mobile_mode_submit
+    @browser.elements(css: @mode_selectors).[1]fire_event 'click'
+    @browser.wait_until(150) {@browser.url.include? 'mobile/'}
+    return self
+  end
+  #go to desktop mode
+  def self.desktop_mode_submit
+    @browser.elements(css: @mode_selectors).[0]fire_event 'click'
+    @browser.wait_until(150) {@browser.url.include?('mobile/') == false}
+    return self
+  end
   #ready to lanunch! success publish your website
   def self.submit_publish
     @browser.button(css: @ready_to_launch_submit).fire_event 'click'
@@ -29,7 +57,7 @@ module EditorExpiredPerionAndPublish
     @browser.button(text: 'Hide').fire_event 'click'
     return self
   end
-  def self.get_publishing_process 
+  def self.get_publishing_process
     return @browser.button(text: 'Publishing').present?
   end
   #go to buying plan for current website (top black link)

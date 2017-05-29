@@ -1,4 +1,5 @@
 class Editor
+
   #initialize drivers
   @@browser
   def initialize(browser)
@@ -19,5 +20,9 @@ class Editor
                                  .submit_publish()
                                  .close_publishing_modal()
                                  .get_publishing_process()
+  end
+
+  def editor_mode_change
+    return EditorExpiredPerionAndPublish
   end
 end
