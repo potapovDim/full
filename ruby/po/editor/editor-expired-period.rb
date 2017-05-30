@@ -24,27 +24,27 @@ module EditorExpiredPerionAndPublish
   end
   #go to preview mode
   def self.preview_mode_submit
-    @browser.a(text: 'Preview').fire_event 'click'
-    @browser.wait_until(150) {@browser.url.include? '/editor/preview/'}
+    @browser.elements(css: @mode_selectors)[@browser.elements(css: @mode_selectors).length - 2].click
+    @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/preview/')}
     return self
   end
   #go to editor mode
   def self.editor_mode_submit
     @browser.a(text: 'Edit website').fire_event 'click'
-    @browser.wait_until(150) {@browser.url.include?('/editor/preview/') == false}
+    @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/preview/') == false}
     return self
   end
 
   #go to mobile mode
   def self.mobile_mode_submit
-    @browser.elements(css: @mode_selectors).[1]fire_event 'click'
-    @browser.wait_until(150) {@browser.url.include? 'mobile/'}
+    @browser.elements(css: @mode_selectors)[@browser.elements(css: @mode_selectors).length - 3].a.fire_event 'click'
+    @browser.wait_until(timeout: 150) { |browser| browser.url.include? 'mobile/'}
     return self
   end
   #go to desktop mode
   def self.desktop_mode_submit
-    @browser.elements(css: @mode_selectors).[0]fire_event 'click'
-    @browser.wait_until(150) {@browser.url.include?('mobile/') == false}
+    @browser.elements(css: @mode_selectors)[@browser.elements(css: @mode_selectors).length - 4].a.fire_event 'click'
+    @browser.wait_until(timeout: 150) { |browser| browser.url.include?('mobile/') == false}
     return self
   end
   #ready to lanunch! success publish your website
