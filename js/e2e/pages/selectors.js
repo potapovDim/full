@@ -107,3 +107,11 @@ export const plans = {
   //day price when choosed plan
   dayPrice                              : '.total-pay__price'
 }
+
+export const editorTopNav = {
+  buyGrowthPlanTopLink                  : 'a[title="Buy a Growth Plan"]', //top panel if expired period
+  viewPricingButton                     : 'button[title="View pricing"]', // if expired period
+  buyGrowthPlanModalButton              : 'button[title="Buy a Growth Plan"]', //opened modal button
+  readyToLanchSubmit                    : 'button[title="Ready to launch!"]', //opened modal button
+  modeSelectors                         : '.item_348Ou' //not stable will be changed to data-test
+}
