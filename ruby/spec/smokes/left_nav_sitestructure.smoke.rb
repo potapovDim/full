@@ -25,8 +25,7 @@ describe "Leftnav (site structure)"  do
     expect(page_length_before != page_length_after ).to be true
     #delete page part
     before_pages, after_pages = @left_nav.open_pages()
-                                         .delete_page(1)
-    puts before_pages, after_pages                 
+                                         .delete_page(1)               
     expect(before_pages != after_pages ).to be true
   end
 end

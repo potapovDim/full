@@ -9,8 +9,8 @@ describe "Growth plan" do
 
   it "redirect to login" do
     @browser.goto @base_url+'plan'
-    expect(@browser.url.include?('/login')).to eql(true)
     expect(@browser.url.include?('/plan')).to eql(false)
+    expect(@browser.url.include?('/login')).to eql(true)
   end
   it "change growth plan (top panel button)" do
     plan_page_driver, price_value = @landing.login()

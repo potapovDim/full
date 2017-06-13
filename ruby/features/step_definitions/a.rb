@@ -14,7 +14,6 @@ Then(/^amazon should return results for "([^"]*)"$/) do |arg|
 end
 
 When(/^the user looks for (.*)$/) do |query|
-  puts '!!!!!!!!!' ,query, '!!!!!!!!!'
   @browser.text_field(:id => "twotabsearchtextbox").set "#{query}"
   @browser.send_keys :return
 end

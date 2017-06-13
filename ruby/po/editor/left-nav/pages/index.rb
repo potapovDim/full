@@ -18,9 +18,7 @@ module Pages
   end
   # def self.became_to_initial_structure
   #   pages = @browser.elements(css: '.pages__item_3vlsq')
-  #   puts "---=-=-=-=-=-=-=---=-==-=-"
   #   pages.each do |page|
-  #     puts '!!!!!!', page.text, '!!!!!'
   #     if page.text.include? 'test'
   #       page.hover
   #       page.element(css: @page_button_remove).click

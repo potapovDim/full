@@ -12,6 +12,9 @@ class Row
     ContextPanelRow.initBrowser browser
   end
   #row context panel api
+  def hover_current_row
+    @@browser.element(css: @@row_background, index: @@row_target).fire_event 'hover'
+  end
   def click_row_context (button)
     case button
       when "remove"
