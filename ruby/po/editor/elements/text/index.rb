@@ -13,6 +13,7 @@ class Text
   end
   #methods
   def focus_element 
+    @@browser.element(css: @@draggable_text).wait_until_present
     @@browser.element(css: @@draggable_text).fire_event "mousedown"
   end
   def context_panel_action(align="align center")

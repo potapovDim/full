@@ -13,7 +13,8 @@ class Line
   end
   #methods
   def focus_element 
-    @@browser.element(css: @@draggable_text).fire_event "mousedown"
+    @@browser.element(css: @@draggable_line).wait_until_present
+    @@browser.element(css: @@draggable_line).fire_event "mousedown"
   end
   def context_panel_action(align="align center")
     LineContextPanel.click_context_item align

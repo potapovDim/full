@@ -1,7 +1,7 @@
 require_relative '../../scripts/local.rb'
 
 # , :focus => true if need run only this suit
-describe "Row component", :focus => true do
+describe "Row component" do
   before :each do
     @browser.window.resize_to 1600, 1200 
     @browser.goto @base_url

@@ -13,6 +13,7 @@ class Image
   end
   #methods
   def focus_element 
+    @@browser.element(css: @@draggable_image).wait_until_present 
     @@browser.element(css: @@draggable_image).fire_event "mousedown"
   end
   def context_panel_action(align="align center")

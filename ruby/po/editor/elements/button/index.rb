@@ -12,7 +12,8 @@ class Button
     ButtonContextPanel.initBrowser @@browser
   end
   #methods
-  def focus_element 
+  def focus_element
+    @@browser.element(css: @@draggable_button).wait_until_present 
     @@browser.element(css: @@draggable_button).fire_event "mousedown"
   end
   def context_panel_action(align="align center")
