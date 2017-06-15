@@ -1,7 +1,7 @@
 require_relative '../../scripts/local.rb'
 
 # , :focus => true if need run only this suit
-describe "Components align" , :focus => true  do
+describe "Components align" do
   before :each do
     @browser.window.resize_to  1600, 1200
     @browser.goto @base_url
@@ -15,10 +15,10 @@ describe "Components align" , :focus => true  do
     @icon = Line.new @browser
     @text = Text.new @browser
     @button = Button.new @browser
-    sleep 7
   end
   it "change button align" do
     @button.focus_element
+    sleep 3
     @button.context_panel_action("align center")
         .click_context_item("align left")
         .click_context_item("align right")
@@ -27,6 +27,7 @@ describe "Components align" , :focus => true  do
   end
   it "change icon align" do
     @icon.focus_element
+    sleep 3
     @icon.context_panel_action("align center")
         .click_context_item("align left")
         .click_context_item("align right")
@@ -35,6 +36,7 @@ describe "Components align" , :focus => true  do
   end
   it "change image align" do
     @image.focus_element
+    sleep 3
     @image.context_panel_action("align center")
         .click_context_item("align left")
         .click_context_item("align right")
@@ -43,6 +45,7 @@ describe "Components align" , :focus => true  do
   end
   it "change button align" do
     @button.focus_element()
+    sleep 3
     @button.context_panel_action("align center")
         .click_context_item("align left")
         .click_context_item("align right")
@@ -51,6 +54,7 @@ describe "Components align" , :focus => true  do
   end
   it "change text align" do
     @text.focus_element()
+    sleep 3
     @text.context_panel_action("align center")
         .click_context_item("align left")
         .click_context_item("align right")
