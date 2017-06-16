@@ -4,3 +4,5 @@
 js/node_modules
 js/e2e/reports
 js/localdata
+
+ruby/screenshots
