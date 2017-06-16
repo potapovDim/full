@@ -1,0 +1,7 @@
+require_relative './contact-form/index'
+require_relative './image-gallery/index'
+require_relative './map/index'
+require_relative './menu/index'
+require_relative './social-icons/index'
+require_relative './social-share/index'
+require_relative './video/index'

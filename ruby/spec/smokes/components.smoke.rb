@@ -12,50 +12,59 @@ describe "Components align" do
     expect(@browser.url.include?('/editor/website/')).to eql(true)
     @icon = Icon.new @browser
     @image = Image.new @browser
-    @icon = Line.new @browser
+    @line = Line.new @browser
     @text = Text.new @browser
     @button = Button.new @browser
   end
-  it "change button align" do
+  it "change elements align" do
     @button.focus_element
-    sleep 3
+    sleep 1
     @button.context_panel_action("align center")
         .click_context_item("align left")
         .click_context_item("align right")
         .click_context_item("align left")
         .click_context_item("align center")
-  end
-  it "change icon align" do
+
     @icon.focus_element
-    sleep 3
+    @icon.focus_element
+    sleep 1
     @icon.context_panel_action("align center")
         .click_context_item("align left")
         .click_context_item("align right")
         .click_context_item("align left")
         .click_context_item("align center")
-  end
-  it "change image align" do
+
     @image.focus_element
-    sleep 3
+    @image.focus_element
+    sleep 1
     @image.context_panel_action("align center")
         .click_context_item("align left")
         .click_context_item("align right")
         .click_context_item("align left")
         .click_context_item("align center")
-  end
-  it "change button align" do
+    
     @button.focus_element()
-    sleep 3
+    @button.focus_element()
+    sleep 1
     @button.context_panel_action("align center")
         .click_context_item("align left")
         .click_context_item("align right")
         .click_context_item("align left")
         .click_context_item("align center")
-  end
-  it "change text align" do
+
     @text.focus_element()
-    sleep 3
+    @text.focus_element()
+    sleep 1
     @text.context_panel_action("align center")
+        .click_context_item("align left")
+        .click_context_item("align right")
+        .click_context_item("align left")
+        .click_context_item("align center")
+
+    @line.focus_element()
+    @line.focus_element()
+    sleep 1
+    @line.context_panel_action("align center")
         .click_context_item("align left")
         .click_context_item("align right")
         .click_context_item("align left")

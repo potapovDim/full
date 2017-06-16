@@ -13,7 +13,7 @@ class ImageGallery
   end
   #methods
   def focus_element 
-    @@browser.element(css: @@draggable_contact_form).fire_event "mousedown"
+    @@browser.element(css: @@draggable_image_gallery).fire_event "mousedown"
   end
   def context_panel_action(align="align center")
     ImageGalleryContextPanel.click_context_item align

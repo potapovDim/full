@@ -21,11 +21,9 @@ require_relative "../po/editor/editor-expired-period"
 #block
 require_relative '../po/editor/block/index'
 #elements
-require_relative '../po/editor/elements/button/index'
-require_relative '../po/editor/elements/icon/index'
-require_relative '../po/editor/elements/image/index'
-require_relative '../po/editor/elements/line/index'
-require_relative '../po/editor/elements/text/index'
+require_relative '../po/editor/elements/index'
+#apps
+require_relative '../po/editor/apps/index'
 #left nav
 require_relative '../po/editor/left-nav/index'
 #row
