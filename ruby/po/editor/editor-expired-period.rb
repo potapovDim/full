@@ -18,6 +18,10 @@ module EditorExpiredPerionAndPublish
       #if site already published we change block`s` padding
       Block.new(@browser).resize_padding()
                          .resize_padding_bottom_block(10, -10, 1)
+    end 
+    if @browser.button(text: 'Publishing').present?
+       @browser.button(text: 'Publishing').fire_event 'click'
+       return self 
     end
     @browser.button(text: 'Publish').fire_event 'click'
     return self

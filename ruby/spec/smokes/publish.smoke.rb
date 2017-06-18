@@ -14,5 +14,7 @@ describe "Publish website" do
     expect(@browser.url.include?('/editor/website/')).to eql(true)
     publish_result = @editor.publish_website()
     expect(publish_result).to eql(true)
+    sleep 5
+    editor.publish_website
   end
 end
