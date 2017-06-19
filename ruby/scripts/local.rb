@@ -56,18 +56,17 @@ RSpec.configure do |config|
     @landing = LandingPage.new(@browser)
     #editor po
     @editor = Editor.new(@browser)
-
     begin
       @browser.driver.manage.timeouts.implicit_wait = 150
       example.run
     ensure
-      if example.exception
-        Dir::mkdir('screenshots') if not File.directory?('screenshots')
-        screenshot = "./screenshots/FAILED_#{example.full_description}.jpeg"
-        @browser.driver.save_screenshot(screenshot)
-        @browser.quit
-        embed screenshot, 'image/jpeg'
-      end
+      # if example.exception
+      #   Dir::mkdir('screenshots') if not File.directory?('screenshots')
+      #   screenshot = "./screenshots/FAILED_#{example.full_description}.jpeg"
+      #   @browser.driver.save_screenshot(screenshot)
+      #   @browser.quit
+      #   embed screenshot, 'image/jpeg'
+      # end
       @browser.quit
     end
   end

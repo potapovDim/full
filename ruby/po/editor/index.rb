@@ -20,7 +20,8 @@ class Editor
                                  .submit_publish()
                                  .close_publishing_modal()
                                  .get_publishing_process()
-  end open_modal_in_publish_proccess
+  end 
+  def open_modal_in_publish_proccess
     EditorExpiredPerionAndPublish.publish_button_click()
   end
   def editor_mode_change
