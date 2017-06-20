@@ -18,7 +18,5 @@ describe "Publish website" do
     #positive publish website
     publish_result = @editor.publish_website()
     expect(publish_result).to eql(true)
-    sleep 5
-    editor.publish_website
   end
 end

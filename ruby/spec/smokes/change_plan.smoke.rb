@@ -66,6 +66,7 @@ describe "Growth plan" do
             .go_to_my_websites()
             .go_to_editor_from_website(2)
     expect(@browser.url.include?('/editor/website/')).to eql(true)
+    sleep 3
     @editor.buy_growth_plan(false)
     expect(@browser.url.include?('/plan?websiteId')).to eql(true)
   end

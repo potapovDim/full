@@ -19,7 +19,7 @@ describe "Editor mode" do
     expect(@browser.url.include?('/editor/preview/')).to eql(false)
     editor_mode.mobile_mode_submit
     expect(@browser.url.include?('/mobile/')).to eql(true)
-    editor_mode.desktop_mode_submit
-    expect(@browser.url.include?('/mobile/')).to eql(false)
+    # editor_mode.desktop_mode_submit
+    # expect(@browser.url.include?('/mobile/')).to eql(false)
   end
 end

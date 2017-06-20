@@ -9,7 +9,7 @@ describe "Login user" do
   #fail part login
   it "failed login user" do
     el = @landing.login().fail_login_user
-    expect(el.present?).to eql(false)
+    expect(el.present?).to eql(true)
   end
   it "get statrted (negative)" do
     el = @landing.get_started_login().fail_login_user

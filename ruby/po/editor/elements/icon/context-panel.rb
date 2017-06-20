@@ -19,16 +19,18 @@ module IconContextPanel
     case item
       when "change icon"
         items[0].click
-      when "duplicate"
+      when "icon style"
         items[1].click
-      when "align left"
+      when "duplicate"
         items[2].click
-      when "align center"
+      when "align left"
         items[3].click
-      when "align right"
+      when "align center"
         items[4].click
-      when "remove"
+      when "align right"
         items[5].click
+      when "remove"
+        items[6].click
     end
     return self
   end

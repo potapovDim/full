@@ -17,16 +17,15 @@ module EditorExpiredPerionAndPublish
   end
   #click publish button for open modal
   def self.publish_button_click
-    if @browser.button(text: 'Published').present? 
+    if @browser.button(css: '.button_1BgCo.button_blue_2aXIf').text == 'Published'
       #if site already published we change block`s` padding
       Block.new(@browser).resize_padding()
                          .resize_padding_bottom_block(10, -10, 1)
-    end 
-    if @browser.button(text: 'Publishing').present?
-       @browser.button(text: 'Publishing').fire_event 'click'
+    elsif @browser.button(css: '.button_1BgCo.button_blue_2aXIf').text == 'Publishing'
+       @browser.span(text: 'Publishing').fire_event 'click'
        return self 
     end
-    @browser.button(text: 'Publish').fire_event 'click'
+    @browser.button(css: '.button_1BgCo.button_blue_2aXIf').fire_event 'click'
     return self
   end
   #go to preview mode
@@ -37,7 +36,7 @@ module EditorExpiredPerionAndPublish
   end
   #go to editor mode
   def self.editor_mode_submit
-    @browser.a(text: 'Edit website').fire_event 'click'
+    @browser.element(css: @preview_or_edit_website).fire_event 'click'
     @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/preview/') == false}
     return self
   end
@@ -64,7 +63,7 @@ module EditorExpiredPerionAndPublish
     return self
   end
   def self.get_publishing_process
-    return @browser.button(text: 'Publishing').present?
+    return @browser.button(css: '.button_1BgCo.button_blue_2aXIf').text == 'Publishing'
   end
   #go to buying plan for current website (top black link)
   def self.buy_a_growth_plan_for_current_website
