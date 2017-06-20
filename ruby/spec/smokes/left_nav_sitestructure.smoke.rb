@@ -34,7 +34,7 @@ describe "Leftnav (site structure)" do
                                              verify_ssl: false))
             if page_data['data']['metadata']['displayName'] == 'test'
               puts website
-              removed_page_response = JSON.parse(RestClient::Request.execute(url: "#{USER_URL}/api/v0.1.0/website/#{website['_id']}/page/#{page}?__v=#{website['__v']}",
+              removed_page_response = JSON.parse(RestClient::Request.execute(url: "#{@base_url}/api/v0.1.0/website/#{website['_id']}/page/#{page}?__v=#{website['__v']}",
                                              method: :delete,
                                              headers: {content_type: 'application/json', authorization: "Bearer #{data_token['user_token']}"},
                                              verify_ssl: false))
