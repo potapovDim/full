@@ -7,6 +7,7 @@ module EditorExpiredPerionAndPublish
   @preview_or_edit_website                      = '[data-test="preview-or-edit"]'
   @mobile_view_mode                             = '[data-test="website-view-mobile"]'
   @desktop_view_mode                            = '[data-test="website-view-desktop"]'
+  @open_publised_website                        = '[data-test="open-published-site"]'
 
   @mode_selectors                               = '.item_348Ou' #not stable will be changed to data-test
   #initialize webdriver 
@@ -84,5 +85,11 @@ module EditorExpiredPerionAndPublish
   def self.cancel_publish
     @browser.button(text: 'Cancel').fire_event 'click'
     return self
+  end
+  #open published website by 'Open website' button
+  def self.open_webliste_submit
+    @browser.element(css: @open_publised_website).fire_event 'click'
+    open_new_tab = @browser.window.(title: 'Home').exists?
+    return self, open_new_tab
   end
 end

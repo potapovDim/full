@@ -8,7 +8,7 @@ describe "Row component" do
     @landing.login()
             .login_user(@username, @password) 
             .go_to_my_websites()
-            .go_to_editor_from_website(2)
+            .go_to_editor_from_website(0)
     expect(@browser.url.include?('/editor/website/')).to eql(true)
     @row = Row.new(@browser, 0)
     @row.hover_current_row

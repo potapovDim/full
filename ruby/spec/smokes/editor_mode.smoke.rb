@@ -10,7 +10,7 @@ describe "Editor mode" do
     @landing.login()
             .login_user(@username, @password) 
             .go_to_my_websites()
-            .go_to_editor_from_website(2)
+            .go_to_editor_from_website(0)
     expect(@browser.url.include?('/editor/website/')).to eql(true)
     editor_mode = @editor.editor_mode_change
     editor_mode.preview_mode_submit
