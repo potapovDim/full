@@ -4,7 +4,9 @@ module EditorExpiredPerionAndPublish
   @view_pricing_button                          = 'button[title="View pricing"]'
   @buy_a_growth_plan_modal_button               = 'button[title="Buy a Growth Plan"]'
   @ready_to_launch_submit                       = 'button[title="Ready to launch!"]'
-
+  @preview_or_edit_website                      = '[data-test="preview-or-edit"]'
+  @mobile_view_mode                             = '[data-test="website-view-mobile"]'
+  @desktop_view_mode                            = '[data-test="website-view-desktop"]'
 
   @mode_selectors                               = '.item_348Ou' #not stable will be changed to data-test
   #initialize webdriver 
@@ -28,7 +30,7 @@ module EditorExpiredPerionAndPublish
   end
   #go to preview mode
   def self.preview_mode_submit
-    @browser.elements(css: @mode_selectors)[@browser.elements(css: @mode_selectors).length - 2].click
+    @browser.element(css: @preview_or_edit_website).fire_event 'click'
     @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/preview/')}
     return self
   end
@@ -38,16 +40,15 @@ module EditorExpiredPerionAndPublish
     @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/preview/') == false}
     return self
   end
-
   #go to mobile mode
   def self.mobile_mode_submit
-    @browser.elements(css: @mode_selectors)[@browser.elements(css: @mode_selectors).length - 3].a.fire_event 'click'
+    @browser.element(css: @mobile_view_mode).fire_event 'click'
     @browser.wait_until(timeout: 150) { |browser| browser.url.include? 'mobile/'}
     return self
   end
   #go to desktop mode
   def self.desktop_mode_submit
-    @browser.elements(css: @mode_selectors)[@browser.elements(css: @mode_selectors).length - 4].a.fire_event 'click'
+    @browser.element(css: @desktop_mode_submit).fire_event 'click'
     @browser.wait_until(timeout: 150) { |browser| browser.url.include?('mobile/') == false}
     return self
   end
@@ -78,5 +79,10 @@ module EditorExpiredPerionAndPublish
   def self.go_to_view_pricing
     @browser.element(css: @view_pricing_button).fire_event 'click'
     return Pricing.initDriver(@browser)
+  end
+  #cancel and close publish modal
+  def self.cancel_publish
+    @browser.button(text: 'Cancel').fire_event 'click'
+    return self
   end
 end
