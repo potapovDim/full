@@ -4,31 +4,31 @@ class Editor
   @@browser
   def initialize(browser)
     @@browser = browser
-    EditorExpiredPerionAndPublish.initDriver browser
+    EditorTopNav.initDriver browser
   end
   #go to browth plan if expired trial period
   def buy_growth_plan(from_top)
     if from_top
-      EditorExpiredPerionAndPublish.buy_a_growth_plan_for_current_website
+      EditorTopNav.buy_a_growth_plan_for_current_website
     else
-      EditorExpiredPerionAndPublish.publish_button_click()
+      EditorTopNav.publish_button_click()
                                    .buy_a_growth_plan_for_current_website_modal()
     end
   end
   def publish_website
-    EditorExpiredPerionAndPublish.publish_button_click()
+    EditorTopNav.publish_button_click()
                                  .submit_publish()
                                  .close_publishing_modal()
                                  .get_publishing_process()
   end
   def open_publis_window_and_close
-    EditorExpiredPerionAndPublish.publish_button_click()
+    EditorTopNav.publish_button_click()
                                  .cancel_publish()
   end
   def open_modal_in_publish_proccess
-    EditorExpiredPerionAndPublish.publish_button_click()
+    EditorTopNav.publish_button_click()
   end
   def editor_mode_change
-    return EditorExpiredPerionAndPublish
+    return EditorTopNav
   end
 end
