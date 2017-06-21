@@ -28,7 +28,7 @@ class Editor
   def open_modal_in_publish_proccess
     EditorTopNav.publish_button_click()
   end
-  def editor_mode_change
+  def get_top_nav_instance
     return EditorTopNav
   end
 end

@@ -20,9 +20,9 @@ module EditorTopNav
      exists_button = nil
      case should_present
       when true
-        exists_button = @browser.element(css: @open_publised_website).exists?
+        exists_button = @browser.span(css: @open_publised_website).present?
       when false
-        exists_button = @browser.element(css: @open_publised_website).exists?
+        exists_button = @browser.span(css: @open_publised_website).present?
     end
     return self, exists_button
   end

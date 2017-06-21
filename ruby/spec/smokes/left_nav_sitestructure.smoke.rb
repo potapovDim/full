@@ -33,7 +33,6 @@ describe "Leftnav (site structure)" do
                                              headers: {content_type: 'application/json', authorization: "Bearer #{data_token['user_token']}"},
                                              verify_ssl: false))
             if page_data['data']['metadata']['displayName'] == 'test'
-              puts website
               removed_page_response = JSON.parse(RestClient::Request.execute(url: "#{@base_url}/api/v0.1.0/website/#{website['_id']}/page/#{page}?__v=#{website['__v']}",
                                              method: :delete,
                                              headers: {content_type: 'application/json', authorization: "Bearer #{data_token['user_token']}"},
@@ -64,7 +63,7 @@ describe "Leftnav (site structure)" do
                                     .enter_page_url('test')
                                     .add_page()
     sleep 2
-    expect(page_length_before == page_length_after ).to be true
+    expect(page_length_before == page_length_after ).to be false
     #delete page part
     # before_pages, after_pages = @left_nav.open_pages()
     #                                      .delete_page(1)               
