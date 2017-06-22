@@ -56,14 +56,13 @@ describe "Leftnav (site structure)" do
     #add page part
     page_length_before, new_page = @left_nav
                                     .open_pages()
-                                    .became_to_initial_structure()
                                     .create_new_page()
     page_length_after            =  new_page
                                     .enter_page_name('test')
                                     .enter_page_url('test')
                                     .add_page()
     sleep 2
-    expect(page_length_before == page_length_after ).to be false
+    expect(page_length_before != page_length_after ).to be true
     #delete page part
     # before_pages, after_pages = @left_nav.open_pages()
     #                                      .delete_page(1)               
