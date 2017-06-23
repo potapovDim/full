@@ -16,17 +16,6 @@ module Pages
     @browser = browser
     return self
   end
-  # def self.became_to_initial_structure
-  #   pages = @browser.elements(css: '.pages__item_3vlsq')
-  #   pages.each do |page|
-  #     if page.text.include? 'test'
-  #       page.hover
-  #       page.element(css: @page_button_remove).click
-  #       @browser.element(css: @submit_remove_page_button).click
-  #     end
-  #   end
-  #   return self
-  # end
   #api methods
   def self.open_page_settings
     @browser.elements(css: @page_buttons)[0].click

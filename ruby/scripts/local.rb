@@ -16,7 +16,7 @@ require_relative '../po/account/my-profile'
 require_relative '../po/account/my-websites'
 #editor 
 require_relative '../po/editor/index'
-require_relative "../po/editor/editor-expired-period"
+require_relative "../po/editor/top-nav/index"
 #editor parts
 #block
 require_relative '../po/editor/block/index'

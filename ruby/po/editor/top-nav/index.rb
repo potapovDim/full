@@ -1,3 +1,5 @@
+require_relative './new-tab'
+
 module EditorTopNav
   #selectors 
   @buy_a_growth_plan_top_link                   = 'a[title="Buy a Growth Plan"]'
@@ -8,14 +10,18 @@ module EditorTopNav
   @mobile_view_mode                             = '[data-test="website-view-mobile"] > a'
   @desktop_view_mode                            = '[data-test="website-view-desktop"] > a'
   @open_publised_website                        = '[data-test="open-published-site"]'
+  @new_tab_modal_open                           = 'button[data-test="new-tab-pages"]'
 
-  @mode_selectors                               = '.item_348Ou' #not stable will be changed to data-test
   #initialize webdriver 
   def self.initDriver(driver)
     @browser = driver
     return self
   end
   #open website button should be present if website was published
+  def self.open_new_tab
+    @browser.element(css: @new_tab_modal_open).fire_event 'click'
+    return NewTab.initDriver(@browser)
+  end
   def self.open_website_button(should_present)
      exists_button = nil
      case should_present
@@ -101,5 +107,9 @@ module EditorTopNav
     @browser.element(css: @open_publised_website).fire_event 'click'
     open_new_tab = @browser.window.(title: 'Home').exists?
     return self, open_new_tab
+  end
+  #activa tabs in top nav panel when open new page 
+  def self.get_opened_pages_quantity
+    return @browser.elements(css: /data-test="page-name/).length
   end
 end
