@@ -100,14 +100,14 @@ module MyProfile
     return self
   end
   def self.go_to_change_password
-    @browser.element(css: @go_to_change_password).click
+    @browser.button(text: 'Change password').click
     return self
   end
   def self.change_password(old_pass, new_pass, positive = true)
     @browser.element(css: @old_password).send_keys old_pass 
     @browser.element(css: @new_password).send_keys new_pass
     @browser.element(css: @new_password_confirm).send_keys new_pass
-    @browser.button(text: 'Change password').click
+    @browser.element(css: '[data-test="Change password"]').click
     condition = true
     if positive
       while condition do

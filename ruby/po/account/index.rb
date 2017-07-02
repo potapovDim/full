@@ -7,7 +7,7 @@ class Account
     @left_nav_item                  = '.left-nav__item'
     @my_profile                     = 'a[href="/myaccount/account/profile"]' 
     @my_websites                    = 'a[href="/myaccount/account/websites"]' 
-    @buy_growth_plan_button         = 'button.btn.btn_green.trial-notice__btn'
+    @buy_growth_plan_button         = '[data-test="Buy Growth Plan"]'
   end
 
   #navigation methods

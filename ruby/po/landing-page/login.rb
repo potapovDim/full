@@ -11,7 +11,7 @@ module Login
     @browser.element(css: @email_input).send_keys username
     @browser.element(css: @password_input).send_keys password
     @browser.element(css: @login_button).click
-    @browser.element(css: "a.menu__link.ico.ring-ico").fire_event 'hover'
+    @browser.element(css: ".menu__link.ico.ring-ico").fire_event 'hover'
     return Account.new @browser
   end
   def self.fail_login_user(*args)

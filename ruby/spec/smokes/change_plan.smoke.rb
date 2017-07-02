@@ -34,7 +34,7 @@ describe "Growth plan" do
   it "chage growth plan (modal message button)" do
     plan_page_driver, price_value = @landing.login()
                                             .login_user(@username_expired, @password_expired) 
-                                            .go_to_my_websites()
+                                            .go_to_my_websites(0)
                                             .go_to_buy_growth_plan_modal()
                                             .choose_your_payment_method("annually")
     expect(price_value).to eql('$126')
