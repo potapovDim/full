@@ -9,7 +9,7 @@ class Icon
   @@browser
   def initialize(browser)
     @@browser = browser
-    IconContextPanel.initBrowser @@browser
+    IconContextPanel.initDriver @@browser
   end
   #methods
   def focus_element 

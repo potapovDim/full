@@ -4,7 +4,7 @@ module StructurePart
   #@row = '[data-test="thumbnail-image"]'
   #initialize browser
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
     return self
   end

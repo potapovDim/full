@@ -25,7 +25,7 @@ module ColorPicker
   @bb_value_input = '#bbcolor'
   #initialize driver
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
     return self
   end

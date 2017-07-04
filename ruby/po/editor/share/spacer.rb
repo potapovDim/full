@@ -5,7 +5,7 @@ module Spacer
   #browser instance
   @browser
   @spacer_value
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
     return self
   end

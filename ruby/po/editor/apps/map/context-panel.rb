@@ -6,7 +6,7 @@ module MapContextPanel
   @context_panel_item = '[data-test="context-panel-item"]'
   #browser instance
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
   end
   #methods

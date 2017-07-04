@@ -9,7 +9,7 @@ class Image
   @@browser
   def initialize(browser)
     @@browser = browser
-    ImageContextPanel.initBrowser @@browser
+    ImageContextPanel.initDriver @@browser
   end
   #methods
   def focus_element 

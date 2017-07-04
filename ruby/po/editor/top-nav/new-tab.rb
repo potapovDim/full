@@ -6,7 +6,7 @@ module NewTab
   @page                                     = '[data-test="item-node-target"]'
   #browser instance
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
     return self
   end

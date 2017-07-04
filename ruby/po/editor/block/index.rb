@@ -10,11 +10,11 @@ class Block
     @@block_background        = '[data-test="block-component"]>div>div:nth-child(1)>div>div'
     @@browser                 = browser
     @@block_target            = block_target
-    ContextPanelBlock.initBrowser browser
+    ContextPanelBlock.initDriver browser
   end
   #paddings api
   def resize_padding()
-    return PaddingsBlock.initBrowser @@browser
+    return PaddingsBlock.initDriver @@browser
   end
   #block context panel api
   def click_block_context (button)

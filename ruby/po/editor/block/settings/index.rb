@@ -10,7 +10,7 @@ module SettingsBlock
 
   #browser instance
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
     return self
   end
@@ -19,10 +19,10 @@ module SettingsBlock
     case tab
       when "background"
         @browser.element(text: @background_tab).click
-        return BackgroundTab.initBrowser @browser
+        return BackgroundTab.initDriver @browser
       when "appearance"
         @browser.element(text: @appearance_tab).click
-        return AppearanceTab.initBrowser @browser
+        return AppearanceTab.initDriver @browser
     end
   end
 end

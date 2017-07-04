@@ -9,7 +9,7 @@ class Menu
   @@browser
   def initialize(browser)
     @@browser = browser
-    MenuContextPanel.initBrowser @@browser
+    MenuContextPanel.initDriver @@browser
   end
   #methods
   def focus_element 

@@ -12,7 +12,7 @@ module Pages
   @submit_remove_page_button        = 'button[title="Remove"]'
   #initialize browser
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
     return self
   end
@@ -37,6 +37,6 @@ module Pages
 
   def self.create_new_page
     @browser.div(text: 'Create new page').click
-    return @browser.elements(css: @page).length, CreateNewPage.initBrowser(@browser)
+    return @browser.elements(css: @page).length, CreateNewPage.initDriver(@browser)
   end
 end

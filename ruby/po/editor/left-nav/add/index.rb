@@ -6,16 +6,16 @@ module Add
   include BuiltInAppsPart
   #browser instance
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
     return self
   end
   #api methods
   def self.add_elements
-    return ElementsPart.initBrowser @browser
+    return ElementsPart.initDriver @browser
   end
 
   def self.add_apps
-    return BuiltInAppsPart.initBrowser @browser
+    return BuiltInAppsPart.initDriver @browser
   end
 end

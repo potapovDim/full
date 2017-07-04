@@ -6,7 +6,7 @@ module ControlButtons
   @control_selector = '[data-test="button-control-text-panel"]>button'
   #initialize browser
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
     return self
   end
@@ -46,10 +46,10 @@ module ControlButtons
         controls[14].click
       when "font color" #change font color 
         controls[15].click 
-        return ColorPicker.initBrowser @browser
+        return ColorPicker.initDriver @browser
       when "background color" #change font background color  
         controls[16].click
-        return ColorPicker.initBrowser @browser
+        return ColorPicker.initDriver @browser
       when "clear" #clear all text styles
         controls[17].click
       when "undo" #text undo (previous view)

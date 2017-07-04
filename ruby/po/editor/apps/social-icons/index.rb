@@ -9,7 +9,7 @@ class SocialIcons
   @@browser
   def initialize(browser)
     @@browser = browser
-    SocialIconsContextPanel.initBrowser @@browser
+    SocialIconsContextPanel.initDriver @@browser
   end
   #methods
   def focus_element 

@@ -7,7 +7,7 @@ module AppearanceTab
   @none_bg_none_ctnt = 'input#none'
   #browser instance
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
     return self
   end

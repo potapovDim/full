@@ -15,7 +15,7 @@ module MediaGallery
   #imageItem_1-Z - image instance
   #initialize browser
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
     return self
   end

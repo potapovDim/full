@@ -7,7 +7,7 @@ module PaddingsBlock
   @padding_bottom = '[data-test="block-padding-bottom"]'
   #browser instance
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
     return self
   end

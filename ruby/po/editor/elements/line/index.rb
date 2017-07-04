@@ -9,7 +9,7 @@ class Line
   @@browser
   def initialize(browser)
     @@browser = browser
-    LineContextPanel.initBrowser @@browser
+    LineContextPanel.initDriver @@browser
   end
   #methods
   def focus_element 

@@ -17,11 +17,11 @@ class LeftNav
   #api methods
   def open_element_catalogue
     @@browser.element(css: @@add_catalogue).click
-    return Add.initBrowser @@browser
+    return Add.initDriver @@browser
   end
 
   def open_pages
     @@browser.element(css: @@pages).click
-    return Pages.initBrowser @@browser
+    return Pages.initDriver @@browser
   end
 end

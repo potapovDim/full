@@ -10,7 +10,7 @@ module SettingsRow
 
   #browser instance
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
     return self
   end
@@ -19,10 +19,10 @@ module SettingsRow
     case tab
       when "background"
         @browser.element(text: @background_tab).click
-        return BackgroundTab.initBrowser @browser
+        return BackgroundTab.initDriver @browser
       when "layout"
         @browser.element(text: @layout_tab).click
-        return LayoutTab.initBrowser @browser
+        return LayoutTab.initDriver @browser
     end
   end
 end

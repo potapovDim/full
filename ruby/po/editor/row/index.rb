@@ -9,7 +9,7 @@ class Row
     @@row_target                = row_target
     @@browser                   = browser
     @@column_context_panel      = '[data-test="column-context-panel"]'
-    ContextPanelRow.initBrowser browser
+    ContextPanelRow.initDriver browser
   end
   #row context panel api
   def hover_current_row

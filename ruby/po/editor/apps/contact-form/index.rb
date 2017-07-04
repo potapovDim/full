@@ -9,7 +9,7 @@ class ContactForm
   @@browser
   def initialize(browser)
     @@browser = browser
-    ContactFromContextPanel.initBrowser @@browser
+    ContactFromContextPanel.initDriver @@browser
   end
   #methods
   def focus_element 

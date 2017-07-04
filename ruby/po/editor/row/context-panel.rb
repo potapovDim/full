@@ -11,7 +11,7 @@ module ContextPanelRow
   @row_drag                        = '[data-test="row-settings"]>[draggable="true"]'
   #browser instance
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
   end
   def self.helper_contextpanel(index)
@@ -36,6 +36,6 @@ module ContextPanelRow
     @browser.elements(css: @row_component)[index].hover
     @browser.wait_until {self.helper_contextpanel(index)}
     @browser.elements(css: @row_settings_button)[index].click
-    return SettingsRow.initBrowser @browser
+    return SettingsRow.initDriver @browser
   end
 end

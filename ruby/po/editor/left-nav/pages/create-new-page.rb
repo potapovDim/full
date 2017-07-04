@@ -8,7 +8,7 @@ module CreateNewPage
   @add_page_button               = 'button[title="Add page"]'
   #initialize browser
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
     return self
   end

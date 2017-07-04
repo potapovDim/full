@@ -6,7 +6,7 @@ module LayoutTab
   @no_margin                 = '#nomargin-option'
   #browser instance
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
     return self
   end

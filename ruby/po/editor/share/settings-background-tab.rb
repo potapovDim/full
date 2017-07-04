@@ -21,7 +21,7 @@ module BackgroundTab
   @meddia_gallery_button    = '[data-test="settings-upload-photo"] button'
   #initialize driver
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
     return self
   end
@@ -53,7 +53,7 @@ module BackgroundTab
   #open color picker 
   def self.open_color_picker (number = 0)
     @browser.elements(css: @color_picker)[number].click
-    return ColorPicker.initBrowser @browser
+    return ColorPicker.initDriver @browser
   end
   #image part methods
   #change background size : contain - cover - original
@@ -114,7 +114,7 @@ module BackgroundTab
   #media gallery
   def self.open_gallery
     @browser.element(css: @meddia_gallery_button).click
-    return MediaGallery.initBrowser @browser
+    return MediaGallery.initDriver @browser
   end
   #need presets library add
 end

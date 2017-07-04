@@ -9,7 +9,7 @@ class Text
   @@browser
   def initialize(browser)
     @@browser = browser
-    TextContextPanel.initBrowser @@browser
+    TextContextPanel.initDriver @@browser
   end
   #methods
   def focus_element 

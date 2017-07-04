@@ -6,7 +6,7 @@ module SEOTuning
   @seo_description               = 'textarea[name="seo-description"]'
   #initialize browser
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
     return self
   end

@@ -9,7 +9,7 @@ class Button
   @@browser
   def initialize(browser)
     @@browser = browser
-    ButtonContextPanel.initBrowser @@browser
+    ButtonContextPanel.initDriver @@browser
   end
   #methods
   def focus_element

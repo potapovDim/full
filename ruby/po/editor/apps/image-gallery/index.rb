@@ -9,7 +9,7 @@ class ImageGallery
   @@browser
   def initialize(browser)
     @@browser = browser
-    ImageGalleryContextPanel.initBrowser @@browser
+    ImageGalleryContextPanel.initDriver @@browser
   end
   #methods
   def focus_element 

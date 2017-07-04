@@ -9,7 +9,7 @@ class Map
   @@browser
   def initialize(browser)
     @@browser = browser
-    MapContextPanel.initBrowser @@browser
+    MapContextPanel.initDriver @@browser
   end
   #methods
   def focus_element 

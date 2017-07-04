@@ -9,7 +9,7 @@ module ContextPanelBlock
   @remove_block = '[data-test="context-panel-button-remove"]'
   #browser instance
   @browser
-  def self.initBrowser(browser)
+  def self.initDriver(browser)
     @browser = browser
   end
   def self.helper_contextpanel(index)
@@ -37,6 +37,6 @@ module ContextPanelBlock
     @browser.elements(css: @block_component)[index].fire_event 'click'
     @browser.wait_until {self.helper_contextpanel(index)}
     @browser.elements(css: @open_settings)[index].click
-    return SettingsBlock.initBrowser @browser
+    return SettingsBlock.initDriver @browser
   end
 end

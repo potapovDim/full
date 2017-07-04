@@ -9,7 +9,7 @@ class SocialShare
   @@browser
   def initialize(browser)
     @@browser = browser
-    SocialShareContextPanel.initBrowser @@browser
+    SocialShareContextPanel.initDriver @@browser
   end
   #methods
   def focus_element 
