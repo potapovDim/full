@@ -11,10 +11,34 @@ module EditorTopNav
   @desktop_view_mode                            = '[data-test="website-view-desktop"] > a'
   @open_publised_website                        = '[data-test="open-published-site"]'
   @new_tab_modal_open                           = 'button[data-test="new-tab-pages"]'
+  #drop menu navigation part
+  @right_drop_menu_navigation                   = '.moreMenu__button_1Rtgb'
+  @right_drop_menu_navigation_to_websites       = 'a[title="My websites"]' 
+  @right_drop_menu_navigation_to_profile        = 'a[title="My profile"]'
+  @right_drop_menu_navigation_to_buy_plan       = 'a[title="Buy growth plan"]'
+  @right_drop_menu_navigation_to_site_settings  = 'a[title="Site settings"]'
+  @right_drop_menu_navigation_logout            = 'a[title="Logout"]'
 
   #initialize webdriver 
   def self.initDriver(driver)
     @browser = driver
+    return self
+  end
+  #rightw drop menu 
+  def self.right_drop_menu_navigate_to(to)
+    @browser.element(css: @right_drop_menu_navigation).fire_event 'click'
+    case to
+      when 'plan'
+        @browser.element(css: @right_drop_menu_navigation_to_buy_plan).fire_event 'click'
+      when 'profile'
+        @browser.element(css: @right_drop_menu_navigation_to_profile).fire_event 'click'
+      when 'settings'
+        @browser.element(css: @right_drop_menu_navigation_to_site_settings).fire_event 'click'
+      when 'websites'
+        @browser.element(css: @right_drop_menu_navigation_to_websites).fire_event 'click'
+      when 'logout'
+        @browser.element(css: @right_drop_menu_navigation_logout).fire_event 'click'
+    end
     return self
   end
   #open website button should be present if website was published

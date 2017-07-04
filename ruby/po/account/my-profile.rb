@@ -140,7 +140,7 @@ module MyProfile
   end
   def self.get_data_from_form(row)
     data = nil
-     case row
+    case row
       when 0 #user name and last name 
         data = @browser.elements(css: @data_form_row)[0].text
       when 1 #email and phone number

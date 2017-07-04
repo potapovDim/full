@@ -10,6 +10,7 @@ end
 
 require 'rest-client'
 require 'json'
+
 def get_user_token(username, password)
   user_token = JSON.parse(RestClient::Request.execute(url: "#{@base_url}/api/v0.1.0/auth/login",
                                            method: :post,
@@ -44,6 +45,20 @@ def remove_test_page_from_websites(data_token)
         puts removed_page_response
       end                                   
     end
+  end
+end
+
+
+def clear_useless_user_websites(username, password)
+  websites_token = get_user_website_list(get_user_token(username, password)))
+  websites = websites_token['websites']
+  token = websites_token['user_token']
+  websites.each do |website|
+    remove_body = JSON.parse(RestClient::Request.execute(url: "#{@base_url}/api/v0.1.0/website/#{website['_id']}",
+                                           method: :delete,
+                                           headers: {content_type: 'application/json', authorization: "Bearer #{token}"},
+                                           verify_ssl: false))
+    puts remove_body
   end
 end
 
