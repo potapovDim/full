@@ -50,7 +50,7 @@ end
 
 
 def clear_useless_user_websites(username, password)
-  websites_token = get_user_website_list(get_user_token(username, password)))
+  websites_token = get_user_website_list(get_user_token(username, password))
   websites = websites_token['websites']
   token = websites_token['user_token']
   websites.each do |website|
