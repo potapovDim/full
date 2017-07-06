@@ -18,7 +18,6 @@ module EditorTopNav
   @right_drop_menu_navigation_to_buy_plan       = 'a[title="Buy growth plan"]'
   @right_drop_menu_navigation_to_site_settings  = 'a[title="Site settings"]'
   @right_drop_menu_navigation_logout            = 'a[title="Logout"]'
-
   #initialize webdriver 
   def self.initDriver(driver)
     @browser = driver
@@ -135,5 +134,22 @@ module EditorTopNav
   #activa tabs in top nav panel when open new page 
   def self.get_opened_pages_quantity
     return @browser.elements(css: /data-test="page-name/).length
+  end
+  #go to user websites
+  def self.navigate_from_drop_menu(way)
+    @browser.element(css: @right_drop_menu_navigation).fire_event 'click'
+    case way
+      when 'websites'
+        @browser.element(css: @right_drop_menu_navigation_to_websites).fire_event 'click'
+      when 'profile'
+        @browser.element(css: @right_drop_menu_navigation_to_profile).fire_event 'click'
+      when 'plan'
+        @browser.element(css: @right_drop_menu_navigation_to_buy_plan).fire_event 'click'
+      when 'settings'
+        @browser.element(css: @right_drop_menu_navigation_to_site_settings).fire_event 'click'
+      when 'logout'
+        @browser.element(css: @right_drop_menu_navigation_logout).fire_event 'click'
+    end
+    return self
   end
 end

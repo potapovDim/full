@@ -7,18 +7,25 @@ module Concepts
   @concept_category_filter_button     = 'button.aside-menu__link'
   @concept_category_filter_item       = '.aside-menu__item'
   @active_concept_category            = '.aside-menu__item.flex.flex_align_center.light.active'
+  #when 10 free concepts open modal
+  @buy_grown_plan                     = '[data-test="Buy growth plan"]'
   #initialize webdriver 
   def self.initDriver(driver)
     @Login = Login.initDriver driver
     @browser = driver
     return self
   end
-  
+   
   #method
-  def self.go_to_login
+  def self.go_to_login #if use it for login case
     @browser.elements(css: @concept)[0].fire_event 'hover'
-    @browser.element(css: @start_your_website).fire_event 'click'
+    @browser.elements(css: @start_your_website)[0].fire_event 'click'
     return @Login
+  end
+  def self.choose_concept(concept_index)
+    @browser.elements(css: @concept)[concept_index].fire_event 'hover'
+    @browser.elements(css: @start_your_website)[concept_index].fire_event 'click'
+    return self
   end
   #search concept by keys
   def self.search_concept_by_keys(keys)
@@ -78,5 +85,10 @@ module Concepts
   def self.get_active_concept_filter_text
     active_tab_text = @browser.element(css: @active_concept_category).text
     return self, active_tab_text
+  end
+  #buy growth plan from 
+  def self.go_to_growth_plan_from_modal
+    @browser.element(css: @buy_grown_plan).fire_event 'click'
+    return Plan.initDriver @browser
   end
 end
