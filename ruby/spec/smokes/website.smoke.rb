@@ -12,11 +12,49 @@ describe "Website myaccount" do
                           .go_to_my_websites()
   end
   it "try to add more then 10 websites" do
-     concepts_lists = @my_account_websites.add_new_website
-     editor_top_nav = @editor.get_top_nav_instance
+    @my_account_websites.add_new_website.choose_concept(0)
+    editor_top_nav = @editor.get_top_nav_instance
 
-     concepts_lists.choose_concept(0)
-     expect(@browser.url.include?('/editor/website/')).to eql(true)
+    @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/website/')}
 
+    editor_top_nav.right_drop_menu_navigate_to('websites')
+    @my_account_websites.add_new_website.choose_concept(1)
+    @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/website/')}
+
+    editor_top_nav.right_drop_menu_navigate_to('websites')
+    @my_account_websites.add_new_website.choose_concept(1)
+    @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/website/')}
+
+    editor_top_nav.right_drop_menu_navigate_to('websites')
+    @my_account_websites.add_new_website.choose_concept(1)
+    @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/website/')}
+
+    editor_top_nav.right_drop_menu_navigate_to('websites')
+    @my_account_websites.add_new_website.choose_concept(0)
+    @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/website/')}
+
+    editor_top_nav.right_drop_menu_navigate_to('websites')
+    @my_account_websites.add_new_website.choose_concept(0)
+    @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/website/')}
+
+    editor_top_nav.right_drop_menu_navigate_to('websites')
+    @my_account_websites.add_new_website.choose_concept(0)
+    @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/website/')}
+
+    editor_top_nav.right_drop_menu_navigate_to('websites')
+    @my_account_websites.add_new_website.choose_concept(0)
+    @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/website/')}
+
+    editor_top_nav.right_drop_menu_navigate_to('websites')
+    @my_account_websites.add_new_website.choose_concept(0)
+    @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/website/')}
+
+    editor_top_nav.right_drop_menu_navigate_to('websites')
+    @my_account_websites.add_new_website.choose_concept(0)
+    @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/website/')}
+
+    editor_top_nav.right_drop_menu_navigate_to('websites')
+    @my_account_websites.add_new_website.choose_concept(0)
+    expect(@browser.url.include?('/editor/website/')).to eql(false)
   end
 end
