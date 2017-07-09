@@ -54,7 +54,7 @@ describe "Website myaccount" do
     @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/website/')}
 
     editor_top_nav.right_drop_menu_navigate_to('websites')
-    @my_account_websites.add_new_website.choose_concept(0)
+    @my_account_websites.add_new_website
     expect(@browser.url.include?('/editor/website/')).to eql(false)
   end
 end
