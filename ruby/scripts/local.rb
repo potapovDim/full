@@ -14,6 +14,7 @@ require_relative '../po/landing-page/concepts'
 require_relative '../po/account/index'
 require_relative '../po/account/my-profile'
 require_relative '../po/account/my-websites'
+require_relative '../po/account/website-settings'
 #editor 
 require_relative '../po/editor/index'
 require_relative "../po/editor/top-nav/index"
@@ -51,8 +52,8 @@ RSpec.configure do |config|
     @username_expired       = CONFIG['username_expired']
     @password_expired       = CONFIG['password_expired']
 
-    @username_remove       = CONFIG['username_remove']
-    @password_remove       = CONFIG['password_expired']
+    @username_remove        = CONFIG['username_remove']
+    @password_remove        = CONFIG['password_expired']
 
     #landing po 
     @landing = LandingPage.new(@browser)

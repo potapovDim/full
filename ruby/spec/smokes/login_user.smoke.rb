@@ -6,7 +6,7 @@ describe "Login user" do
     @browser.window.resize_to 1200, 1600
     @browser.goto @base_url
   end
-  #fail part login
+  # fail part login
   it "failed login user" do
     el = @landing.login().fail_login_user
     expect(el.present?).to eql(true)
@@ -122,7 +122,7 @@ describe "Login user" do
         .header_concepts_page()
         .go_to_login()
         .login_user(@username, @password)
-    expect(@browser.url.include?('/myaccount/websites')).to eql(true)
+    expect(@browser.url.include?('/myaccount/website/create/')).to eql(true)
   end
   it "go pricing from footer and success login by first growth plan" do
     @landing
@@ -162,6 +162,6 @@ describe "Login user" do
       .concepts_page()
       .go_to_login()
       .login_user(@username, @password)
-    expect(@browser.url.include?('/myaccount/websites')).to eql(true)
+    expect(@browser.url.include?('/myaccount/website/create/')).to eql(true)
   end
 end

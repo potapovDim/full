@@ -1,4 +1,4 @@
-module Website
+module WebsiteSettings
   #general part selectors
   @site_name_banner                 = '.banner-tab__site.ellipsis' 
   @site_domain_banner               = '.banner-tab__link.ellipsis' 

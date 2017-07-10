@@ -4,7 +4,7 @@ module MyWebsites
   @message_modal_buy_growth_plan_button                   = '.btn.btn_green.bold.btn_width_md.btn_font_md'
   @message_modal_view_pricing                             = '.btn.btn_flat.btn_flat_blue.btn_width_md.btn_font_md'
   @website_edit_button                                    = '.btn.btn_white.btn_upper.btn_width_sd' # go to editor
-
+  @website_settings_button                                = '.button.btn.btn_flat.btn_flat_white.btn_upper.btn_width_sd' #for open website settings
   @create_new_website_green_plus                          = '[data-test="simple-button"]'
   #initialize webdriver
   def self.initDriver(driver)
@@ -39,5 +39,10 @@ module MyWebsites
       @browser.elements(css: @website_edit_button)[website].fire_event 'hover'
       @browser.elements(css: @website_edit_button)[website].fire_event 'click'
     end
+  end
+
+  def self.open_website_settings(website)
+    @browser.elements(css: @website_settings_button)[website].fire_event 'hover'
+    @browser.elements(css: @website_settings_button)[website].fire_event 'click'
   end
 end

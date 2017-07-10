@@ -49,17 +49,27 @@ def remove_test_page_from_websites(data_token)
 end
 
 
-def clear_useless_user_websites(username, password)
+def clear_useless_user_websites(username, password, all, need_nine)
   websites_token = get_user_website_list(get_user_token(username, password))
   websites = websites_token['websites']
   token = websites_token['user_token']
-  websites.each do |website|
+  if need_nine && websites.length == 9
+    return 
+  end
+  if all
+    websites.each do |website|
     remove_body = JSON.parse(RestClient::Request.execute(url: "#{@base_url}/api/v0.1.0/website/#{website['_id']}",
                                            method: :delete,
                                            headers: {content_type: 'application/json', authorization: "Bearer #{token}"},
                                            verify_ssl: false))
     puts remove_body
+    end
   end
+  remove_body = JSON.parse(RestClient::Request.execute(url: "#{@base_url}/api/v0.1.0/website/#{websites[0]['_id']}",
+                                           method: :delete,
+                                           headers: {content_type: 'application/json', authorization: "Bearer #{token}"},
+                                           verify_ssl: false))
+  puts remove_body
 end
 
 
