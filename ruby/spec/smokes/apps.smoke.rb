@@ -9,6 +9,7 @@ describe "Apps align" do
             .login_user(@username, @password) 
             .go_to_my_websites()
             .go_to_editor_from_website(0)
+    sleep 1
     expect(@browser.url.include?('/editor/website/')).to eql(true)
     @social_icons = SocialIcons.new @browser
     @image_gallery = ImageGallery.new @browser
@@ -25,7 +26,6 @@ describe "Apps align" do
         .click_context_item("align center")
 
     @image_gallery.focus_element
-    @image_gallery.focus_element
     sleep 1
     @image_gallery.context_panel_action("align center")
         .click_context_item("align left")
@@ -34,7 +34,6 @@ describe "Apps align" do
         .click_context_item("align center")
 
     @map.focus_element
-    @map.focus_element
     sleep 1
     @map.context_panel_action("align center")
         .click_context_item("align left")
@@ -42,8 +41,7 @@ describe "Apps align" do
         .click_context_item("align left")
         .click_context_item("align center")
     
-    @menu.focus_element()
-    @menu.focus_element()
+    @menu.focus_element
     sleep 1
     @menu.context_panel_action("align center")
         .click_context_item("align left")

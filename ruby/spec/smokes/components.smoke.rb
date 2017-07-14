@@ -9,6 +9,7 @@ describe "Components align" do
             .login_user(@username, @password) 
             .go_to_my_websites()
             .go_to_editor_from_website(0)
+    sleep 1
     expect(@browser.url.include?('/editor/website/')).to eql(true)
     @icon = Icon.new @browser
     @image = Image.new @browser
@@ -43,8 +44,7 @@ describe "Components align" do
         .click_context_item("align left")
         .click_context_item("align center")
     
-    @button.focus_element()
-    @button.focus_element()
+    @button.focus_element
     sleep 1
     @button.context_panel_action("align center")
         .click_context_item("align left")
@@ -52,8 +52,7 @@ describe "Components align" do
         .click_context_item("align left")
         .click_context_item("align center")
 
-    @text.focus_element()
-    @text.focus_element()
+    @text.focus_element
     sleep 1
     @text.context_panel_action("align center")
         .click_context_item("align left")
@@ -61,8 +60,7 @@ describe "Components align" do
         .click_context_item("align left")
         .click_context_item("align center")
 
-    @line.focus_element()
-    @line.focus_element()
+    @line.focus_element
     sleep 1
     @line.context_panel_action("align center")
         .click_context_item("align left")

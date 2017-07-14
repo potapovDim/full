@@ -4,19 +4,24 @@ require 'rspec/core/rake_task'
 require 'cucumber'
 require 'cucumber/rake/task'
 
-Cucumber::Rake::Task.new(:features) do |t|
-  ENV['CONFIG_NAME'] = "prod"
-  t.cucumber_opts = "features --format pretty"
-end
+# Cucumber::Rake::Task.new(:features) do |t|
+#   ENV['CONFIG_NAME'] = "prod"
+#   t.cucumber_opts = "features --format pretty"
+# end
 
-task :cucumb => :features
+# task :cucumb => :features
 
-RSpec::Core::RakeTask.new(:smoke_stage) do |t|
-  ENV['CONFIG_NAME'] = "stage"
-  ENV['BROWSER_NAME'] = "chrome"
+RSpec::Core::RakeTask.new(:base_smoke) do |t|
   t.pattern = Dir.glob('spec/smokes/*.smoke.rb')
   t.rspec_opts = '--format documentation'
   t.verbose = false
+end
+
+task :smoke_stage do |t, args|
+  ENV['CONFIG_NAME'] = "stage"
+  ENV['BROWSER_NAME'] = "chrome"
+  Rake::Task["base_smoke"].invoke
+  Rake::Task["base_smoke"].reenable
 end
 
 task :default => :smoke_stage #:chrome
@@ -29,31 +34,13 @@ RSpec::Core::RakeTask.new(:smoke_prod) do |t|
   t.verbose = false
 end
 
-# task :parallel do |t, args|
-#   @num_parallel = 4
-
-#   Parallel.map([*1..@num_parallel], :in_processes => @num_parallel) do |task_id|
-#     ENV["TASK_ID"] = (task_id - 1).to_s
-#     ENV['name'] = "parallel_test"
-#     ENV['CONFIG_NAME'] = "parallel"
-
-#     Rake::Task["single"].invoke
-#     Rake::Task["single"].reenable
-#   end
-# end
-
-task :chrome do |t, args|
-  ENV['BROWSER_NAME'] = "chrome"
-  Rake::Task["smoke_prod"].invoke
-  #Rake::Task["single"].reenable
-  # Rake::Task["local"].invoke
-  # Rake::Task["parallel"].invoke
-end
-
-task :firefox do |t, args|
-  ENV['BROWSER_NAME'] = "firefox"
-  Rake::Task["smoke_prod"].invoke
-  #Rake::Task["single"].reenable
-  # Rake::Task["local"].invoke
-  # Rake::Task["parallel"].invoke
+task :parallel do |t, args|
+  @num_parallel = 2
+  Parallel.map([*1..@num_parallel], :in_processes => @num_parallel) do |task_id|
+    ENV["TASK_ID"] = (task_id - 1).to_s
+    ENV['BROWSER_NAME'] = "parallel"
+    ENV['CONFIG_NAME'] = "prod"
+    Rake::Task["base_smoke"].invoke
+    Rake::Task["base_smoke"].reenable
+  end
 end

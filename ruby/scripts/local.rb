@@ -32,6 +32,8 @@ require_relative '../po/editor/row/index'
 
 CONFIG_NAME = ENV['CONFIG_NAME']
 BROWSER_NAME = ENV['BROWSER_NAME']
+TASK_ID = ENV['TASK_ID']
+
 CONFIG = YAML.load(File.read(File.join(File.dirname(__FILE__), "../localdata/#{CONFIG_NAME}.yml")))
 
 RSpec.configure do |config|
@@ -44,7 +46,12 @@ RSpec.configure do |config|
       when 'firefox'
         @browser = Watir::Browser.new :firefox
     end
-    # @browser  = Watir::Browser.new :chrome
+    # case TASK_ID
+    #   when '0'
+    #     @browser = Watir::Browser.new :chrome
+    #   when '1'
+    #     @browser = Watir::Browser.new :firefox
+    # end
     @username               = CONFIG['username']
     @password               = CONFIG['password']
     @base_url               = CONFIG['base_url']

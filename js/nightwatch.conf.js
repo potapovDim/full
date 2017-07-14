@@ -21,7 +21,31 @@ module.exports = {
       desiredCapabilities: {
         browserName: "chrome",
         javascriptEnabled: true,
-        acceptSslCerts: true
+        acceptSslCerts: false
+      }
+    },
+    phantom: {
+      desiredCapabilities: {
+        browserName: "phantomjs",
+        javascriptEnabled: true,
+        acceptSslCerts: true,
+        "phantomjs.binary.path": "./node_modules/phantomjs/bin/phantomjs",
+        "phantomjs.cli.args": [
+          "--ignore-ssl-errors=true"
+        ]
+      }
+    },
+    safari: {
+      desiredCapabilities: {
+        browserName: "safari",
+        version: "49"
+      }
+    },
+    firefox: {
+      desiredCapabilities: {
+        browserName: "firefox",
+        javascriptEnabled: true,
+        acceptSslCerts: false
       }
     }
   }
