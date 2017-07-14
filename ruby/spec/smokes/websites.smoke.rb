@@ -22,7 +22,4 @@ describe "Websites myaccount" do
     @my_account_websites.add_new_website
     expect(@browser.url.include?('/editor/website/')).to eql(false)
   end
-  it "remove website from website settings" do
-     
-  end
 end

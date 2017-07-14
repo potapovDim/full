@@ -35,9 +35,32 @@ BROWSER_NAME = ENV['BROWSER_NAME']
 TASK_ID = ENV['TASK_ID']
 
 CONFIG = YAML.load(File.read(File.join(File.dirname(__FILE__), "../localdata/#{CONFIG_NAME}.yml")))
+class CustomFormatter
+  RSpec::Core::Formatters.register(self,
+                                   :example_started,
+                                   :example_failed,
+                                   :example_failed)
+  def initialize(output)
+    @output = output
+  end
+  def example_started(notification)
+
+  end
+  def example_passed(notification)
+    @output << "test: " << notification.example.description << BROWSER_NAME
+  end
+  def example_failed(notification)
+     @output << "fail " << notification.example.description << BROWSER_NAME
+  end
+end
 
 RSpec.configure do |config|
     # config.filter_run :focus => true
+    config.failure_color = :magenta
+    config.success_color = :cyan
+    config.tty = true
+    config.color = true
+    config.add_formatter(CustomFormatter)
     config.around(:example) do |example|
     @browser = nil
     case BROWSER_NAME
@@ -46,12 +69,6 @@ RSpec.configure do |config|
       when 'firefox'
         @browser = Watir::Browser.new :firefox
     end
-    # case TASK_ID
-    #   when '0'
-    #     @browser = Watir::Browser.new :chrome
-    #   when '1'
-    #     @browser = Watir::Browser.new :firefox
-    # end
     @username               = CONFIG['username']
     @password               = CONFIG['password']
     @base_url               = CONFIG['base_url']

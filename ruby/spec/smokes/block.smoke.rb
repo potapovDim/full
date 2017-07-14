@@ -9,6 +9,7 @@ describe "Block component" do
             .login_user(@username, @password) 
             .go_to_my_websites()
             .go_to_editor_from_website(0)
+    sleep 1
     expect(@browser.url.include?('/editor/website/')).to eql(true)
     @block = Block.new(@browser, 0)
     initial_background = @block.get_block_background
