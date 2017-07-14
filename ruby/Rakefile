@@ -1,15 +1,6 @@
 require 'rake'
 require 'parallel'
 require 'rspec/core/rake_task'
-require 'cucumber'
-require 'cucumber/rake/task'
-
-# Cucumber::Rake::Task.new(:features) do |t|
-#   ENV['CONFIG_NAME'] = "prod"
-#   t.cucumber_opts = "features --format pretty"
-# end
-
-# task :cucumb => :features
 
 RSpec::Core::RakeTask.new(:base_smoke) do |t|
   t.pattern = Dir.glob('spec/smokes/*.smoke.rb')
@@ -26,12 +17,11 @@ end
 
 task :default => :smoke_stage #:chrome
 
-RSpec::Core::RakeTask.new(:smoke_prod) do |t|
+task :smoke_prod do |t, args|
   ENV['CONFIG_NAME'] = "prod"
   ENV['BROWSER_NAME'] = "chrome"
-  t.pattern = Dir.glob('spec/smokes/*.smoke.rb')
-  t.rspec_opts = '--format documentation'
-  t.verbose = false
+  Rake::Task["base_smoke"].invoke
+  Rake::Task["base_smoke"].reenable
 end
 
 task :parallel do |t, args|
