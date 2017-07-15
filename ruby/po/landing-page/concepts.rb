@@ -84,7 +84,7 @@ module Concepts
   #get active concept filter text 
   def self.get_active_concept_filter_text
     active_tab_text = @browser.element(css: @active_concept_category).text
-    return self, active_tab_text
+    return active_tab_text, self
   end
   #buy growth plan from 
   def self.go_to_growth_plan_from_modal

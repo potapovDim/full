@@ -53,7 +53,7 @@ module EditorTopNav
       when false
         exists_button = @browser.span(css: @open_publised_website).present?
     end
-    return self, exists_button
+    return exists_button, self
   end
   #click publish button for open modal
   def self.publish_button_click
@@ -129,7 +129,7 @@ module EditorTopNav
   def self.open_webliste_submit
     @browser.element(css: @open_publised_website).fire_event 'click'
     open_new_tab = @browser.window.(title: 'Home').exists?
-    return self, open_new_tab
+    return open_new_tab, self
   end
   #activa tabs in top nav panel when open new page 
   def self.get_opened_pages_quantity

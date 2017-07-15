@@ -32,13 +32,13 @@ describe "Editor top nav" do
     expect(publish_result).to eql(true)
   end
   it "present open website button exists" do
-    top_nav, button = @editor.get_top_nav_instance()
+    button, top_nav = @editor.get_top_nav_instance()
                              .open_website_button(true)
     expect(button).to eql(true)
   end
   it "new tab tests" do
     new_tab = @editor.get_top_nav_instance().open_new_tab()
-    new_tab, before_move, after_move = new_tab.change_window_position(30 ,40)
+    before_move, after_move, new_tab = new_tab.change_window_position(30 ,40)
     expect(before_move).to_not eql after_move
     new_tab.open_page(1)
   end

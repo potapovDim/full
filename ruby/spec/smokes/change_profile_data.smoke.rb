@@ -88,7 +88,7 @@ describe 'Change user profile' do
   end
   it 'change user password (positive)' do
     new_password = @password
-    profile, message = @landing
+    message, profile = @landing
                     .signup_and_freetrial_login()
                     .login_user(@username, @password)
                     .go_to_my_profile()
@@ -99,7 +99,7 @@ describe 'Change user profile' do
   #negative cases
   it 'change user password (negative)' do
     new_password = '123321321'
-    profile, message = @landing
+    message, profile = @landing
                     .signup_and_freetrial_login()
                     .login_user(@username, @password)
                     .go_to_my_profile()

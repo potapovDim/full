@@ -115,14 +115,14 @@ module MyProfile
           condition = false
         end
       end
-      return self, 'Password success changed'
+      return 'Password success changed', self
     end
     while condition do
         if @browser.button(text: 'Failed to save changes').present?
           condition = false
         end
       end
-    return self, 'Failed to change password'
+    return 'Failed to change password', self
   end
   def self.change_notification(notification)
     case notification

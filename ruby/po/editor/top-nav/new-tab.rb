@@ -21,6 +21,6 @@ module NewTab
     initial_position = @browser.element(css: @drag_modal).style
     @browser.element(css: @drag_modal).drag_and_drop_by x, y
     changed_position = @browser.element(css: @drag_modal).style
-    return self, initial_position, changed_position
+    return initial_position, changed_position, self
   end
 end

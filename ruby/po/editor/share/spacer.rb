@@ -1,10 +1,10 @@
 module Spacer
   #css selector 
-  @spacer = '[data-test="spacer"]'
-  @spacer_hovered = '[data-test="spacer-hover"]'
+  @spacer                   = '[data-test="spacer"]'
+  @spacer_hovered           = '[data-test="spacer-hover"]'
   #browser instance
   @browser
-  @spacer_value
+  @spacer_value = nil
   def self.initDriver(browser)
     @browser = browser
     return self
@@ -15,10 +15,10 @@ module Spacer
   end
   #not hovered spacer
   def self.unhovered_spacer
-    return self, @browser.elements(css: @spacer)
+    return @browser.elements(css: @spacer), self
   end
   def self.get_spacer_value
-    return self, @spacer_value
+    return @spacer_value, self
   end
   #resize spacer
 end
