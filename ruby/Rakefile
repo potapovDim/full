@@ -3,7 +3,7 @@ require 'parallel'
 require 'rspec/core/rake_task'
 
 RSpec::Core::RakeTask.new(:base_smoke) do |t|
-  t.pattern = Dir.glob('spec/smokes/*.smoke.rb')
+  t.pattern = Dir.glob('spec/smokes/login.smoke.rb')
   t.rspec_opts = '--format documentation'
   t.verbose = false
 end
@@ -25,10 +25,9 @@ task :smoke_prod do |t, args|
 end
 
 task :parallel do |t, args|
-  @num_parallel = 2
-  Parallel.map([*1..@num_parallel], :in_processes => @num_parallel) do |task_id|
-    ENV["TASK_ID"] = (task_id - 1).to_s
-    ENV['BROWSER_NAME'] = "parallel"
+  @browsers = ['firefox', 'chrome']
+  Parallel.map(@browsers, :in_processes => @browsers.length) do |browser|
+    ENV['BROWSER_NAME'] = browser
     ENV['CONFIG_NAME'] = "prod"
     Rake::Task["base_smoke"].invoke
     Rake::Task["base_smoke"].reenable

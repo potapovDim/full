@@ -46,12 +46,6 @@ RSpec.configure do |config|
       when 'firefox'
         @browser = Watir::Browser.new :firefox
     end
-    # case TASK_ID
-    #   when '0'
-    #     @browser = Watir::Browser.new :chrome
-    #   when '1'
-    #     @browser = Watir::Browser.new :firefox
-    # end
     @username               = CONFIG['username']
     @password               = CONFIG['password']
     @base_url               = CONFIG['base_url']

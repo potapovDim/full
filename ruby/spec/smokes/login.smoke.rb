@@ -8,50 +8,50 @@ describe "Login user" do
   end
   # fail part login
   it "failed login user" do
-    el = @landing.login().fail_login_user
+    el = @landing.login().fail_login_user[0]
     expect(el.present?).to eql(true)
   end
   it "get statrted (negative)" do
-    el = @landing.get_started_login().fail_login_user
+    el = @landing.get_started_login().fail_login_user[0]
     expect(el.present?).to eql(true)
   end
   it "sign up and start trial (negative)" do
-    el = @landing.signup_and_freetrial_login().fail_login_user
+    el = @landing.signup_and_freetrial_login().fail_login_user[0]
     expect(el.present?).to eql(true)
   end
   it "go concepts and succes login by fourth growth plan (negative)" do
     el = @landing
           .header_concepts_page()
           .go_to_login()
-          .fail_login_user
+          .fail_login_user[0]
     expect(el.present?).to eql(true)
   end
   it "go pricing and login by first growth plan (negative)" do
     @landing
         .header_pricing_page()
         .success_login_by_growth_plan(0)
-        .fail_login_user(" "+ @username, @password)
+        .fail_login_user(" "<<@username, @password)
     expect(@browser.url.include?('/myaccount/account/websites')).to eql(false)
   end
   it "go pricing and login by second growth plan (negative)" do
     @landing
         .header_pricing_page()
         .success_login_by_growth_plan(1)
-        .fail_login_user(" "+ @username, @password)
+        .fail_login_user(" "<<@username, @password)
     expect(@browser.url.include?('/myaccount/account/websites')).to eql(false)
   end
   it "go pricing and login by second growth plan (negative)" do
     @landing
         .header_pricing_page()
         .success_login_by_growth_plan(1)
-        .fail_login_user(@username," "+@password)
+        .fail_login_user(@username," "<<@password)
     expect(@browser.url.include?('/myaccount/account/websites')).to eql(false)
   end
   it "go pricing and login by second growth plan (negative)" do
     @landing
         .header_pricing_page()
         .success_login_by_growth_plan(1)
-        .fail_login_user(@username,@password + " ")
+        .fail_login_user(@username,@password<<" ")
     expect(@browser.url.include?('/myaccount/account/websites')).to eql(false)
   end
   it "go pricing and login by second growth plan (negative)" do

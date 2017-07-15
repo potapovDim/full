@@ -24,11 +24,18 @@ module Login
     pass = "12311232132121@213123123"
     if args.length != 0
       email = args[0]  
-      pass = args[1]  
+      pass = args[1]
+      pattern = args[2]
     end
+    if pattern
       @browser.element(css: @email_input).send_keys email
       @browser.element(css: @password_input).send_keys pass
       @browser.element(css: @login_button).click
-      return @browser.element(text: "Invalid email or password"), self
+      return self
+    end
+    @browser.element(css: @email_input).send_keys email
+    @browser.element(css: @password_input).send_keys pass
+    @browser.element(css: @login_button).click
+    return @browser.element(text: "Invalid email or password"), self
   end
 end

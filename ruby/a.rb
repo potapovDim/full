@@ -5,4 +5,4 @@ module A
 end
 
 x = A.a[0]
-print x 
+print "     " << '10'
