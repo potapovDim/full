@@ -32,7 +32,7 @@ require_relative '../po/editor/row/index'
 
 CONFIG_NAME = ENV['CONFIG_NAME']
 BROWSER_NAME = ENV['BROWSER_NAME']
-TASK_ID = ENV['TASK_ID']
+NEED_SCREEN = ENV['NEED_SCREEN']
 
 CONFIG = YAML.load(File.read(File.join(File.dirname(__FILE__), "../localdata/#{CONFIG_NAME}.yml")))
 
@@ -64,13 +64,13 @@ RSpec.configure do |config|
       @browser.driver.manage.timeouts.implicit_wait = 150
       example.run
     ensure
-      # if example.exception
-      #   Dir::mkdir('screenshots') if not File.directory?('screenshots')
-      #   screenshot = "./screenshots/FAILED_#{example.full_description}.jpeg"
-      #   @browser.driver.save_screenshot(screenshot)
-      #   @browser.quit
-      #   embed screenshot, 'image/jpeg'
-      # end
+      if example.exception && NEED_SCREEN
+        Dir::mkdir('screenshots') if not File.directory?('screenshots')
+        screenshot = "./screenshots/FAILED_#{example.full_description}.jpeg"
+        @browser.driver.save_screenshot(screenshot)
+        @browser.quit
+        embed screenshot, 'image/jpeg'
+      end
       @browser.quit
     end
   end

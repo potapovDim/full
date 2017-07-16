@@ -19,7 +19,7 @@ describe "Apps align" do
   it "change apps align" do
     @social_icons.focus_element
     sleep 1
-    @social_icons.context_panel_action("align center")
+     @social_icons.context_panel_action("align center")
         .click_context_item("align left")
         .click_context_item("align right")
         .click_context_item("align left")
