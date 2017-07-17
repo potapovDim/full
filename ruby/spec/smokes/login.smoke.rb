@@ -11,19 +11,20 @@ describe "Login user" do
     el = @landing.login().fail_login_user[0]
     expect(el.present?).to eql(true)
   end
-  it "get statrted (negative)" do
+  it "get started (negative)" do
     el = @landing.get_started_login().fail_login_user[0]
     expect(el.present?).to eql(true)
   end
   it "sign up and start trial (negative)" do
-    el = @landing.signup_and_freetrial_login().fail_login_user[0]
+    el = @landing.signup_and_freetrial_login()
+                 .fail_login_user('test@test.test', '!@##@!#!@$@!$@!')[0]
     expect(el.present?).to eql(true)
   end
   it "go concepts and succes login by fourth growth plan (negative)" do
     el = @landing
           .header_concepts_page()
           .go_to_login()
-          .fail_login_user[0]
+          .fail_login_user('test@test.test', '!@##@!#!@$@!$@!')[0]
     expect(el.present?).to eql(true)
   end
   it "go pricing and login by first growth plan (negative)" do

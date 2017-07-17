@@ -24,7 +24,7 @@ module Login
     return self
   end
   def self.set_pass_input(pass)
-    @browser.element(css: @email_input).send_keys pass
+    @browser.element(css: @password_input).send_keys pass
     return self
   end
   def self.submit_login
