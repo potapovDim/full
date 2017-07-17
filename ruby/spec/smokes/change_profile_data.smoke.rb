@@ -11,7 +11,7 @@ describe 'Change user profile' do
     new_user_name = 'test'
     user_name, myProfile = @landing
                     .signup_and_freetrial_login()
-                    .login_user(@username, @password)
+                    .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .change_first_name(new_user_name)
                     .save_new_user_info_button(true, false)
@@ -22,7 +22,7 @@ describe 'Change user profile' do
     new_user_lastname = 'test'
     user_name, myProfile = @landing
                     .signup_and_freetrial_login()
-                    .login_user(@username, @password)
+                    .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .change_last_name(new_user_lastname)
                     .save_new_user_info_button(true, false)
@@ -34,7 +34,7 @@ describe 'Change user profile' do
     new_user_lastname = 'test_last'
     user_name, myProfile = @landing
                     .signup_and_freetrial_login()
-                    .login_user(@username, @password)
+                    .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .change_last_name(new_user_lastname)
                     .change_first_name(new_user_firstname)
@@ -48,7 +48,7 @@ describe 'Change user profile' do
     adrs2 = 'testAddress2'
     profile = @landing
                     .signup_and_freetrial_login()
-                    .login_user(@username, @password)
+                    .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .change_street_address1(adrs1)
                     .change_street_address2(adrs2)
@@ -63,7 +63,7 @@ describe 'Change user profile' do
     region = 'test region'
     profile = @landing
                     .signup_and_freetrial_login()
-                    .login_user(@username, @password)
+                    .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .change_city_name(city)
                     .change_region(region)
@@ -77,7 +77,7 @@ describe 'Change user profile' do
     postal_code = "22222222"
     profile = @landing
                     .signup_and_freetrial_login()
-                    .login_user(@username, @password)
+                    .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .change_postal_code(postal_code)
                     .select_new_country(1)
@@ -90,7 +90,7 @@ describe 'Change user profile' do
     new_password = @password
     message, profile = @landing
                     .signup_and_freetrial_login()
-                    .login_user(@username, @password)
+                    .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .go_to_change_password()
                     .change_password(@password, new_password, true)
@@ -101,7 +101,7 @@ describe 'Change user profile' do
     new_password = '123321321'
     message, profile = @landing
                     .signup_and_freetrial_login()
-                    .login_user(@username, @password)
+                    .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .go_to_change_password()
                     .change_password('123123', new_password, false)
@@ -111,7 +111,7 @@ describe 'Change user profile' do
     new_user_name = Array.new(300).join('1')
     user_name, my_profile = @landing
                     .signup_and_freetrial_login()
-                    .login_user(@username, @password)
+                    .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .change_first_name(new_user_name)
                     .save_new_user_info_button(false, true)
@@ -124,7 +124,7 @@ describe 'Change user profile' do
     new_user_lastname = Array.new(300).join('2')
     user_name, my_profile = @landing
                     .signup_and_freetrial_login()
-                    .login_user(@username, @password)
+                    .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .change_last_name(new_user_lastname)
                     .save_new_user_info_button(false, true)
@@ -138,7 +138,7 @@ describe 'Change user profile' do
     adrs2 = Array.new(300).join('2')
     my_profile = @landing
                     .signup_and_freetrial_login()
-                    .login_user(@username, @password)
+                    .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .change_street_address1(adrs1)
                     .save_new_user_info_button(false, true)
@@ -157,7 +157,7 @@ describe 'Change user profile' do
     region = Array.new(300).join('2')
     my_profile = @landing
                     .signup_and_freetrial_login()
-                    .login_user(@username, @password)
+                    .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .change_city_name(city)
                     .change_region(region)

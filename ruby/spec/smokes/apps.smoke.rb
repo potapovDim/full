@@ -6,7 +6,7 @@ describe "Apps align" do
     @browser.window.resize_to  1600, 1200
     @browser.goto @base_url
     @landing.login()
-            .login_user(@username, @password) 
+            .success_login_user(@username, @password) 
             .go_to_my_websites()
             .go_to_editor_from_website(0)
     sleep 1

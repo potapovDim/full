@@ -14,7 +14,7 @@ describe "Growth plan" do
   end
   it "change growth plan (top panel button)" do
     plan_page_driver, price_value = @landing.login()
-                                            .login_user(@username_expired, @password_expired)
+                                            .success_login_user(@username_expired, @password_expired)
                                             .buy_growth_plan()
                                             .choose_your_payment_method("annually")
     expect(price_value).to eql('$126')
@@ -33,7 +33,7 @@ describe "Growth plan" do
   end
   it "chage growth plan (modal message button)" do
     plan_page_driver, price_value = @landing.login()
-                                            .login_user(@username_expired, @password_expired) 
+                                            .success_login_user(@username_expired, @password_expired) 
                                             .go_to_my_websites()
                                             .go_to_buy_growth_plan_modal()
                                             .choose_your_payment_method("annually")
@@ -53,7 +53,7 @@ describe "Growth plan" do
   end
   it "change grwoth plan from editor (top panel)" do
     @landing.login()
-            .login_user(@username_expired, @password_expired) 
+            .success_login_user(@username_expired, @password_expired) 
             .go_to_my_websites()
             .go_to_editor_from_website(2)
     expect(@browser.url.include?('/editor/website/')).to eql(true)
@@ -62,7 +62,7 @@ describe "Growth plan" do
   end
   it "change grwoth plan from editor (modal)" do
     @landing.login()
-            .login_user(@username_expired, @password_expired) 
+            .success_login_user(@username_expired, @password_expired) 
             .go_to_my_websites()
             .go_to_editor_from_website(2)
     expect(@browser.url.include?('/editor/website/')).to eql(true)

@@ -9,33 +9,44 @@ module Login
     @browser = driver
     return self
   end
-  def self.login_user(username, password)
+   #party enter and warnings data
+  def self.get_input_error(name, password)
+    if name 
+      return @browser.element(css: @not_valie_field), self
+    elseif password
+      return @browser.element(css: @not_valie_field), self
+    else
+      return @browser.elements(css: @not_valie_field), self
+    end
+  end
+  def self.set_mail_input(username)
     @browser.element(css: @email_input).send_keys username
-    @browser.element(css: @password_input).send_keys password
+    return self
+  end
+  def self.set_pass_input(pass)
+    @browser.element(css: @email_input).send_keys pass
+    return self
+  end
+  def self.submit_login
     @browser.element(css: @login_button).click
-    @browser.element(css: ".menu__link.ico.ring-ico").fire_event 'hover'
+    return self
+  end
+  #success login
+  def self.success_login_user(username, password)
+    set_mail_input username
+    set_pass_input password
+    submit_login
+    sleep 1
     return Account.new @browser
   end
   def self.get_invalid_fields
     return @browser.elements(css: @not_valid_field), self
   end
-  def self.fail_login_user(*args)
-    email = "12311232132121@213123123"
-    pass = "12311232132121@213123123"
-    if args.length != 0
-      email = args[0]  
-      pass = args[1]
-      pattern = args[2]
-    end
-    if pattern
-      @browser.element(css: @email_input).send_keys email
-      @browser.element(css: @password_input).send_keys pass
-      @browser.element(css: @login_button).click
-      return self
-    end
-    @browser.element(css: @email_input).send_keys email
-    @browser.element(css: @password_input).send_keys pass
-    @browser.element(css: @login_button).click
+  #fail login
+  def self.fail_login_user(username, pass)
+    set_mail_input username
+    set_pass_input pass
+    submit_login
     return @browser.element(text: "Invalid email or password"), self
   end
 end

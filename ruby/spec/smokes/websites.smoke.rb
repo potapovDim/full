@@ -8,7 +8,7 @@ describe "Websites myaccount" do
     @browser.window.resize_to 1600, 1200 
     @browser.goto @base_url
     @my_account_websites = @landing.login()
-                          .login_user(@username_remove, @password_remove)
+                          .success_login_user(@username_remove, @password_remove)
                           .go_to_my_websites()
   end
   it "try to add more then 10 websites" do

@@ -6,7 +6,7 @@ describe "Editor top nav" do
     @browser.window.resize_to 1600, 1200
     @browser.goto @base_url
     @landing.login()
-            .login_user(@username, @password) 
+            .success_login_user(@username, @password) 
             .go_to_my_websites()
             .go_to_editor_from_website(0)
   end
@@ -44,7 +44,7 @@ describe "Editor top nav" do
   end
   # it "present open website button not exists" do
   #   @landing.login()
-  #           .login_user(@username, @password) 
+  #           .success_login_user(@username, @password) 
   #           .go_to_my_websites()
   #           .go_to_editor_from_website(1)
   #   top_nav, button = @editor.get_top_nav_instance()

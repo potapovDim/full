@@ -77,43 +77,43 @@ describe "Login user" do
   end
   #success part login
   it "sucess login user" do
-    @landing.login().login_user(@username, @password)
+    @landing.login().success_login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/websites')).to eql(true)
   end
   it "get started (success login)" do
-    @landing.get_started_login().login_user(@username, @password)
+    @landing.get_started_login().success_login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/websites')).to eql(true)
   end
   it "sign up and start trial (success login)" do
-    @landing.signup_and_freetrial_login().login_user(@username, @password)
+    @landing.signup_and_freetrial_login().success_login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/websites')).to eql(true)
   end
   it "go pricing and success login by first growth plan" do
     @landing
         .header_pricing_page()
         .success_login_by_growth_plan(0)
-        .login_user(@username, @password)
+        .success_login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/websites')).to eql(true)
   end
   it "go pricing and success login by second growth plan" do
     @landing
         .header_pricing_page()
         .success_login_by_growth_plan(1)
-        .login_user(@username, @password)
+        .success_login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/websites')).to eql(true)
   end
   it "go pricing and success login by third growth plan" do
     @landing
         .header_pricing_page()
         .success_login_by_growth_plan(2)
-        .login_user(@username, @password)
+        .success_login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/websites')).to eql(true)
   end
   it "go pricing and success login by fourth growth plan" do
     @landing
         .header_pricing_page()
         .success_login_by_growth_plan(3)
-        .login_user(@username, @password)
+        .success_login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/websites')).to eql(true)
   end
   #concets header
@@ -121,7 +121,7 @@ describe "Login user" do
     @landing
         .header_concepts_page()
         .go_to_login()
-        .login_user(@username, @password)
+        .success_login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/website/create/')).to eql(true)
   end
   it "go pricing from footer and success login by first growth plan" do
@@ -129,7 +129,7 @@ describe "Login user" do
         .go_to_footer()
         .pricing_page()
         .success_login_by_growth_plan(0)
-        .login_user(@username, @password)
+        .success_login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/websites')).to eql(true)
   end
   it "go pricing from footer and success login by second growth plan" do
@@ -137,7 +137,7 @@ describe "Login user" do
         .go_to_footer()
         .pricing_page()
         .success_login_by_growth_plan(1)
-        .login_user(@username, @password)
+        .success_login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/websites')).to eql(true)
   end
   it "go pricing from footer and success login by third growth plan" do
@@ -145,7 +145,7 @@ describe "Login user" do
         .go_to_footer()
         .pricing_page()
         .success_login_by_growth_plan(2)
-        .login_user(@username, @password)
+        .success_login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/websites')).to eql(true)
   end
   it "go pricing from footer and success login by fourth growth plan" do
@@ -153,7 +153,7 @@ describe "Login user" do
         .go_to_footer()
         .pricing_page()
         .success_login_by_growth_plan(3)
-        .login_user(@username, @password)
+        .success_login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/websites')).to eql(true)
   end
   it "go to concept from fotter and login " do
@@ -161,7 +161,7 @@ describe "Login user" do
       .go_to_footer()
       .concepts_page()
       .go_to_login()
-      .login_user(@username, @password)
+      .success_login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/website/create/')).to eql(true)
   end
 end
