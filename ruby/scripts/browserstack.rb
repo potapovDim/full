@@ -1,12 +1,9 @@
-require 'yaml'
-require 'rspec'
-require 'browserstack/local'
-require 'watir'
+require_relative './deps.rb'
 
 TASK_ID = (ENV['TASK_ID'] || 0).to_i
 CONFIG_NAME = ENV['CONFIG_NAME'] || 'single'
 
-CONFIG = YAML.load(File.read(File.join(File.dirname(__FILE__), "../config/#{CONFIG_NAME}.config.yml")))
+CONFIG = YAML.load(File.read(File.join(File.dirname(__FILE__), "../config/browserstack.yml")))
 CONFIG['user'] = ENV['BROWSERSTACK_USERNAME'] || CONFIG['user']
 CONFIG['key'] = ENV['BROWSERSTACK_ACCESS_KEY'] || CONFIG['key']
 

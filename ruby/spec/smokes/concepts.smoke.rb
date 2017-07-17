@@ -1,4 +1,4 @@
-require_relative '../../scripts/local.rb'
+require_relative '../../scripts/index.rb'
 
 # , :focus => true if need run only this suit
 describe "Concepts" do

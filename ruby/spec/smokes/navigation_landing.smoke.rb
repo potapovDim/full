@@ -1,4 +1,4 @@
-require_relative '../../scripts/local.rb'
+require_relative '../../scripts/index.rb'
 
 describe 'Navigation' do
   # before :each do
