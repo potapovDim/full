@@ -11,22 +11,34 @@ module Login
   end
    #party enter and warnings data
   def self.get_input_error(field)
+    error_name = nil
+    error_pass = nil
     case field
       when 'name'
-        return @browser.elements(css: @error_input_message)[3], self
+        error_name = @browser.elements(css: @error_input_message)[3]
+        return error_name, self
       when 'pass'
-        return @browser.elements(css: @error_input_message)[4], self
+        error_pass = @browser.elements(css: @error_input_message)[4]
+        return error_pass, self
       when 'both'
-        return @browser.elements(css: @error_input_message), self
+        error_name = @browser.elements(css: @error_input_message)[3]
+        error_pass = @browser.elements(css: @error_input_message)[4]
+        return error_name, error_pass, self
     end
   end
   def self.set_mail_input(username)
-    @browser.element(css: @email_input).wait_until_present.to_subtype.clear
+    @browser.element(css: @email_input).focus
+    for i in 0..@browser.element(css: @email_input).value.length - 1
+      @browser.send_keys :backspace
+    end
     @browser.element(css: @email_input).send_keys username
     return self
   end
   def self.set_pass_input(pass)
-    @browser.element(css: @password_input).wait_until_present.to_subtype.clear
+    @browser.element(css: @password_input).focus
+    for i in 0..@browser.element(css: @password_input).value.length - 1
+      @browser.send_keys :backspace
+    end
     @browser.element(css: @password_input).send_keys pass
     return self
   end
