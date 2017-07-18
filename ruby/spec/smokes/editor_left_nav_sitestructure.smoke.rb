@@ -1,7 +1,7 @@
 require_relative '../../scripts/local'
 require_relative '../../helpers/index'
 # , :focus => true if need run only this suit
-describe "Leftnav (site structure)" do
+describe 'Editor leftnav' do
   before :each do
     clear_useless_user_pages(@username, @password)
     @browser.window.resize_to 1600, 1200
@@ -13,7 +13,7 @@ describe "Leftnav (site structure)" do
     expect(@browser.url.include?('/editor/website/')).to eql(true)
     @left_nav = LeftNav.new @browser
   end
-  it "add new page and delete page" do
+  it 'add new page and delete page' do
     #add page part
     page_length_before, new_page = @left_nav
                                     .open_pages()

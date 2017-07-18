@@ -1,7 +1,7 @@
 require_relative '../../scripts/index.rb'
 
 # , :focus => true if need run only this suit
-describe "Components align" do
+describe 'Components' do
   before :each do
     @browser.window.resize_to  1600, 1200
     @browser.goto @base_url
@@ -17,7 +17,7 @@ describe "Components align" do
     @text = Text.new @browser
     @button = Button.new @browser
   end
-  it "change elements align" do
+  it 'change elements align' do
     @button.focus_element
     sleep 1
     @button.context_panel_action("align center")
@@ -27,7 +27,6 @@ describe "Components align" do
         .click_context_item("align center")
 
     @icon.focus_element
-    @icon.focus_element
     sleep 1
     @icon.context_panel_action("align center")
         .click_context_item("align left")
@@ -35,7 +34,6 @@ describe "Components align" do
         .click_context_item("align left")
         .click_context_item("align center")
 
-    @image.focus_element
     @image.focus_element
     sleep 1
     @image.context_panel_action("align center")

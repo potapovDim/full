@@ -3,27 +3,30 @@ module Login
   @password_input               = 'input#id9'
   @login_button                 = 'button[title="Login"]'
   @alarm_ico_login_form         = '.icon.icon_alarm.icon_absolute_right'
-  @not_valid_field              = '.field_invalid'
+  @error_input_message          = '.field__message'
   
   def self.initDriver(driver)
     @browser = driver
     return self
   end
    #party enter and warnings data
-  def self.get_input_error(name, password)
-    if name 
-      return @browser.element(css: @not_valie_field), self
-    elseif password
-      return @browser.element(css: @not_valie_field), self
-    else
-      return @browser.elements(css: @not_valie_field), self
+  def self.get_input_error(field)
+    case field
+      when 'name'
+        return @browser.elements(css: @error_input_message)[3], self
+      when 'pass'
+        return @browser.elements(css: @error_input_message)[4], self
+      when 'both'
+        return @browser.elements(css: @error_input_message), self
     end
   end
   def self.set_mail_input(username)
+    @browser.element(css: @email_input).wait_until_present.to_subtype.clear
     @browser.element(css: @email_input).send_keys username
     return self
   end
   def self.set_pass_input(pass)
+    @browser.element(css: @password_input).wait_until_present.to_subtype.clear
     @browser.element(css: @password_input).send_keys pass
     return self
   end

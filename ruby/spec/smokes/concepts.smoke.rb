@@ -1,13 +1,13 @@
 require_relative '../../scripts/index.rb'
 
 # , :focus => true if need run only this suit
-describe "Concepts" do
+describe 'Concepts' do
   before :each do
     @browser.window.resize_to 1200, 1600
     @browser.goto @base_url
   end
 
-  it "filter concepts by category" do
+  it 'filter concepts by category' do
     concepts_page, active_filter = @landing.header_concepts_page()
                                            .concepts_all()
                                            .get_active_concept_filter_text()
@@ -41,7 +41,7 @@ describe "Concepts" do
     #                                        .get_active_concept_filter_text()
     # expect(active_filter.include? 'Wedding').to eql(true)
   end
-  it "filter concepts by key word" do
+  it 'filter concepts by key word' do
     concepts_page, result = @landing.header_concepts_page()
                                     .search_concept_by_keys('law')
                                     .assert_search('law')

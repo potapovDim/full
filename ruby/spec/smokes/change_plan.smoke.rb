@@ -1,18 +1,18 @@
 require_relative '../../scripts/index.rb'
 
 # , :focus => true if need run only this suit
-describe "Growth plan" do
+describe 'Growth plan' do
   before :each do
     @browser.window.resize_to 1200, 1600
     @browser.goto @base_url
   end
 
-  it "redirect to login" do
+  it 'redirect to login' do
     @browser.goto @base_url+'plan'
     expect(@browser.url.include?('/plan')).to eql(false)
     expect(@browser.url.include?('/login')).to eql(true)
   end
-  it "change growth plan (top panel button)" do
+  it 'change growth plan (top panel button)' do
     plan_page_driver, price_value = @landing.login()
                                             .success_login_user(@username_expired, @password_expired)
                                             .buy_growth_plan()
@@ -31,7 +31,7 @@ describe "Growth plan" do
                                             .enter_promocode_fail("dsakdkljsajdlaskl")
     expect(error_value).to eql('You have entered a wrong code')
   end
-  it "chage growth plan (modal message button)" do
+  it 'chage growth plan (modal message button)' do
     plan_page_driver, price_value = @landing.login()
                                             .success_login_user(@username_expired, @password_expired) 
                                             .go_to_my_websites()
@@ -51,7 +51,7 @@ describe "Growth plan" do
                                             .enter_promocode_fail("dsakdkljsajdlaskl")
     expect(error_value).to eql('You have entered a wrong code')
   end
-  it "change grwoth plan from editor (top panel)" do
+  it 'change grwoth plan from editor (top panel)' do
     @landing.login()
             .success_login_user(@username_expired, @password_expired) 
             .go_to_my_websites()
@@ -60,7 +60,7 @@ describe "Growth plan" do
     @editor.buy_growth_plan(true)
     expect(@browser.url.include?('/plan?websiteId')).to eql(true)
   end
-  it "change grwoth plan from editor (modal)" do
+  it 'change grwoth plan from editor (modal)' do
     @landing.login()
             .success_login_user(@username_expired, @password_expired) 
             .go_to_my_websites()

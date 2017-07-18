@@ -1,7 +1,7 @@
 require_relative '../../scripts/index.rb'
 
 # , :focus => true if need run only this suit
-describe "Row component" do
+describe 'Row' do
   before :each do
     @browser.window.resize_to 1600, 1200 
     @browser.goto @base_url
@@ -17,17 +17,7 @@ describe "Row component" do
         .change_background_type("none")
     @browser.send_keys :escape
   end
-  it "change row layout (by select layout)" do
-      @row.hover_current_row
-      @row.click_row_context("settings")
-          .choose_tab("layout")
-          .change_layout(2)
-          .change_layout(3)
-          .change_layout(4)
-          .change_layout(5)
-      @browser.send_keys :escape
-  end
-  it "change row background (color)" do
+  it 'row background (color)' do
     
     initial_background = @row.get_row_background
     @row.click_row_context('settings')
@@ -37,7 +27,7 @@ describe "Row component" do
     changed_background = @row.get_row_background
     expect(changed_background).to_not eql(initial_background)
   end
-  it "change row background (gradient)" do
+  it 'row background (gradient)' do
     initial_background = @row.get_row_background
     @row.click_row_context('settings')
         .choose_tab("background")
@@ -46,7 +36,7 @@ describe "Row component" do
     changed_background = @row.get_row_background
     expect(changed_background).to_not eql(initial_background)
   end
-  it "change row layout" do
+  it 'row layout' do
     initial_layout = @row.get_row_layout
     @row.click_row_context("settings")
         .choose_tab("layout")
