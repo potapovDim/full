@@ -31,7 +31,7 @@ RSpec.configure do |config|
     #editor po
     @editor = Editor.new(@browser)
     begin
-      @browser.driver.manage.timeouts.implicit_wait = 150
+      @browser.driver.manage.timeouts.implicit_wait = 10
       example.run
     ensure
       if example.exception && NEED_SCREEN

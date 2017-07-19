@@ -72,7 +72,7 @@ def clear_useless_user_websites(username, password, all, need_nine)
   puts remove_body
 end
 
-
 def clear_useless_user_pages(username, password)
   remove_test_page_from_websites(get_user_website_list(get_user_token(username, password)))
 end
+
