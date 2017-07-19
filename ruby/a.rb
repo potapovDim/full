@@ -1,3 +1,4 @@
-for i in 0..5-1
-   puts "Value of local variable is #{i}"
-end
+ar = Array.new(100)
+str = ar.join('1')
+
+print str.length,'---=-=-=', str
