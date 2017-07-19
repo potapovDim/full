@@ -76,3 +76,14 @@ def clear_useless_user_pages(username, password)
   remove_test_page_from_websites(get_user_website_list(get_user_token(username, password)))
 end
 
+def get_published_concepts
+  concepts = JSON.parse(RestClient::Request.execute(url: "#{@base_url}/api/concept",
+                                           method: :get,
+                                           headers: {content_type: 'application/json'},
+                                           verify_ssl: false))['data']
+  concepts_ids = []
+  concepts.each do |concept|
+    concepts_ids.push concept['_id']
+  end
+  return concepts_ids
+end
