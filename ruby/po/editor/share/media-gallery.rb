@@ -21,14 +21,14 @@ module MediaGallery
   end
   #tabs 
   def self.select_tab(tab="my images")
-    tabs = @browser.elements(css: '.item_2-e')
+    tabs = @browser.elements(css: '.item_2-ePA')
     case tab
       when "my images"
         tabs[0].click
       when "free photos"
         tabs[1].click
-      when "help"
-        tabs[2].click
+      # when "help"
+      #   tabs[2].click
     end
     return self
   end

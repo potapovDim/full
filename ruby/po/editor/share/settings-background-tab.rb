@@ -43,10 +43,7 @@ module BackgroundTab
         drop_options[2].fire_event "mousedown"
       when "gradient"
         drop_list[0].fire_event "mousedown"
-        drop_options[3].fire_event "mousedown"    
-      # when "gradient"
-      #   drop_list[0].fire_event "mousedown"
-      #   drop_options[4].fire_event "mousedown"    
+        drop_options[3].fire_event "mousedown"
     end
     return self
   end

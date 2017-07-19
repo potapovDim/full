@@ -6,7 +6,6 @@ describe 'Growth plan' do
     @browser.window.resize_to 1200, 1600
     @browser.goto @base_url
   end
-
   it 'redirect to login' do
     @browser.goto @base_url+'plan'
     expect(@browser.url.include?('/plan')).to eql(false)
