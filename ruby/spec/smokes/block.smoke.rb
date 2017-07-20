@@ -37,7 +37,7 @@ describe 'Block component' do
     expect(@block.get_block_background.include?('linear-gradient')).to eql(true)
   end
   it 'background image' do
-     @block.click_block_context('settings')
+    @block.click_block_context('settings')
           .choose_tab('background')
           .change_background_type('image')
           .open_gallery()
@@ -45,6 +45,7 @@ describe 'Block component' do
           .choose_background_image(1)
     @browser.send_keys :escape
 
-    puts @block.get_block_background 
+    expect(@block
+        .get_block_background.include?('url("https://weblium-stage.storage.googleapis.com').to eql(true) 
   end
 end

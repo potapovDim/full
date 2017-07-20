@@ -4,7 +4,7 @@ require 'rspec/core/rake_task'
 
 RSpec::Core::RakeTask.new(:base_smoke) do |t|
   ENV['LOCATION_RUNNER'] = 'local'
-  t.pattern = Dir.glob('spec/smokes/*.smoke.rb')
+  t.pattern = Dir.glob('spec/smokes/block.smoke.rb')
   t.rspec_opts = '--format documentation'
   t.verbose = false
 end

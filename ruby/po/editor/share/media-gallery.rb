@@ -8,7 +8,7 @@ module MediaGallery
   @search_input                 = '[placeholder="Search photos"]'
   @search_button                = 'button[title="Search"]'
   #images collection 
-  @unsplash_img                 = '.scrollarea-content.scrollBar__content img'
+  @unsplash_img                 = '.imageItem_1-Z9K.unsplash_1lZxI'
   #buttons for scroll and add image to own MediaGallery
   # @uploading = @browser.div(text: 'Uploading')
   # @uploaded = @browser.div(text: 'Uploaded')
@@ -40,7 +40,7 @@ module MediaGallery
   end
 
   def self.choose_background_image(im_number=0)
-    @browser.elements(css: @unsplash_img)[im_number].click
+    @browser.elements(css: @unsplash_img)[im_number].fire_event 'click'
     @browser.div(text: 'Add').click
     @browser.wait_until {@browser.div(text: 'Uploading').present?}
     self.select_tab
