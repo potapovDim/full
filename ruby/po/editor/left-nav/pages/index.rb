@@ -6,10 +6,8 @@ module Pages
   #css selectors
   @pages_open                       = '[data-test="left-nav-button-Pages"]>button'
   @page                             = '[data-test="item-node-target"]'
-  @page_button_remove               = '[data-test="layout-button-remove-page"]'
-  @page_button_dublicate            = '[data-test="layout-button-duplicate-page"]'
-  @page_button_settings             = '[data-test="layout-button-page-settings"]'
-  @submit_remove_page_button        = 'button[title="Remove"]'
+  @layout_page_settings             = '[data-test="layout-button-settings"]'
+  @submit_remove_page_button        = '[title="Remove page"]'
   #initialize browser
   @browser
   def self.initDriver(browser)
@@ -25,18 +23,18 @@ module Pages
     @browser.elements(css: @page_buttons)[1].click
     return self
   end
-  def self.delete_page(page_number=0)
-    page_length_before = @browser.elements(css: @page).length
-    @browser.elements(css: @page)[page_number].hover
-    @browser.elements(css: @page_button_remove)[page_number].click
+  def self.delete_page_last_page
+    @browser.elements(css: @page)[@browser.elements(css: @page).length - 1].fire_event 'onmouseover'
+    @browser.elements(css: @page)[@browser.elements(css: @page).length - 1].hover
+    @browser.elements(css: @layout_page_settings)[@browser.elements(css: @page).length - 1].click
     @browser.element(css: @submit_remove_page_button).click
-    #@browser.element(css: @pages_open).click
-    page_length_after = @browser.elements(css: @page).length
-    return page_length_before, page_length_after
+    return self
   end
-
+  def self.get_pages_length
+    return @browser.elements(css: @page).length
+  end
   def self.create_new_page
     @browser.div(text: 'Create new page').click
-    return @browser.elements(css: @page).length, CreateNewPage.initDriver(@browser)
+    return CreateNewPage.initDriver(@browser)
   end
 end

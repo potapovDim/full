@@ -20,7 +20,7 @@ class LeftNav
     return Add.initDriver @@browser
   end
 
-  def open_pages
+  def open_site_structure
     @@browser.element(css: @@pages).click
     return Pages.initDriver @@browser
   end
