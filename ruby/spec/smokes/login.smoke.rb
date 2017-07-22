@@ -206,12 +206,4 @@ describe 'Login user' do
         .success_login_user(@username, @password)
     expect(@browser.url.include?('/myaccount/websites')).to eql(true)
   end
-  it 'go to concept from fotter and login ' do
-    @landing
-      .go_to_footer()
-      .concepts_page()
-      .go_to_login()
-      .success_login_user(@username, @password)
-    expect(@browser.url.include?('/myaccount/website/create/')).to eql(true)
-  end
 end
