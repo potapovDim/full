@@ -46,6 +46,6 @@ describe 'Block component' do
     @browser.send_keys :escape
 
     expect(@block
-        .get_block_background.include?('url("https://weblium-stage.storage.googleapis.com').to eql(true) 
+        .get_block_background.include?('url("https://weblium-stage.storage.googleapis.com')).to eql(true) 
   end
 end

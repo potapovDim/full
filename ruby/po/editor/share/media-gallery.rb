@@ -9,6 +9,7 @@ module MediaGallery
   @search_button                = 'button[title="Search"]'
   #images collection 
   @unsplash_img                 = '.imageItem_1-Z9K.unsplash_1lZxI'
+  @image_thumbnail              = '.thumbnail_JEatj'
   #buttons for scroll and add image to own MediaGallery
   # @uploading = @browser.div(text: 'Uploading')
   # @uploaded = @browser.div(text: 'Uploaded')
@@ -32,18 +33,23 @@ module MediaGallery
     end
     return self
   end
+  def self.choose_image(index)
+    @browser.elements(css: @image_thumbnail)[index].fire_event 'click'
+    return self
+  end
   #search input and button
   def self.search_free_photo(search_value)
     @browser.element(css: @search_input).send_keys search_value
     @browser.element(css: @search_button).click
     return self
   end
-
+  
   def self.choose_background_image(im_number=0)
     @browser.elements(css: @unsplash_img)[im_number].fire_event 'click'
     @browser.div(text: 'Add').click
-    @browser.wait_until {@browser.div(text: 'Uploading').present?}
+    @browser.wait_until {@browser.div(text: 'Uploaded').present?}
     self.select_tab
+    self.choose_image(0)
     @browser.element(css: @change_image_button).click
     return self
   end
