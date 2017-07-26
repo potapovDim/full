@@ -2,27 +2,27 @@ require 'rake'
 require 'parallel'
 require 'rspec/core/rake_task'
 
-RSpec::Core::RakeTask.new(:base_smoke) do |t|
+RSpec::Core::RakeTask.new(:base_e2e) do |t|
   ENV['LOCATION_RUNNER'] = 'local'
-  t.pattern = Dir.glob('spec/smokes/*.smoke.rb')
+  t.pattern = Dir.glob('spec/e2e/*.e2e.rb')
   t.rspec_opts = '--format documentation'
   t.verbose = false
 end
 
-task :smoke_stage do |t, args|
+task :e2e_stage do |t, args|
   ENV['CONFIG_NAME'] = "stage"
   ENV['BROWSER_NAME'] = "chrome"
-  Rake::Task["base_smoke"].invoke
-  Rake::Task["base_smoke"].reenable
+  Rake::Task["base_e2e"].invoke
+  Rake::Task["base_e2e"].reenable
 end
 
-task :default => :smoke_stage #:chrome
+task :default => :e2e_stage #:chrome
 
-task :smoke_prod do |t, args|
+task :e2e_prod do |t, args|
   ENV['CONFIG_NAME'] = "prod"
   ENV['BROWSER_NAME'] = "chrome"
-  Rake::Task["base_smoke"].invoke
-  Rake::Task["base_smoke"].reenable
+  Rake::Task["base_e2e"].invoke
+  Rake::Task["base_e2e"].reenable
 end
 
 task :parallel do |t, args|
@@ -30,7 +30,7 @@ task :parallel do |t, args|
   Parallel.map(@browsers, :in_processes => @browsers.length) do |browser|
     ENV['BROWSER_NAME'] = browser
     ENV['CONFIG_NAME'] = "prod"
-    Rake::Task["base_smoke"].invoke
-    Rake::Task["base_smoke"].reenable
+    Rake::Task["base_e2e"].invoke
+    Rake::Task["base_e2e"].reenable
   end
 end
