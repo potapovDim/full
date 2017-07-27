@@ -3,4 +3,5 @@
 localdata
 .DS_Store
 config
+helpers
 a.rb
