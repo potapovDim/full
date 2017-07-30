@@ -18,7 +18,6 @@ describe 'Row' do
     @browser.send_keys :escape
   end
   it 'row background (color)' do
-    
     initial_background = @row.get_row_background
     @row.click_row_context('settings')
         .choose_tab("background")
