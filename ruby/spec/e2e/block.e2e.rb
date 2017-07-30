@@ -19,24 +19,23 @@ describe 'Block component' do
     expect(@block.get_block_background.include?('none')).to eql(true)
     expect(@block.get_block_background.include?('linear-gradient')).to eql(false)
   end
-  it 'background color' do
+  it 'background settings part (color, gradient, image)' do
     @block.click_block_context('settings')
           .choose_tab('background')
           .change_background_type('color')
     @browser.send_keys :escape
     
-    expect(@block.get_block_background.include?('rgb(255, 255, 255)')).to eql(true)
+    expect(@block.get_block_background.include?('rgb')).to eql(true)
+    expect(@block.get_block_background.include?('255, 255, 255')).to eql(true)
     expect(@block.get_block_background.include?('linear-gradient')).to eql(false)
-  end
-  it 'background gradient' do
+
     @block.click_block_context('settings')
           .choose_tab('background')
           .change_background_type('gradient')
     @browser.send_keys :escape
 
     expect(@block.get_block_background.include?('linear-gradient')).to eql(true)
-  end
-  it 'background image' do
+
     @block.click_block_context('settings')
           .choose_tab('background')
           .change_background_type('image')

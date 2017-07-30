@@ -2,9 +2,9 @@ require_relative './new-tab'
 
 module EditorTopNav
   #selectors 
-  @buy_a_growth_plan_top_link                   = 'a[title="Buy a Growth Plan"]'
+  @buy_a_growth_plan_top_link                   = 'a[title="Buy Growth Plan"]'
   @view_pricing_button                          = 'button[title="View pricing"]'
-  @buy_a_growth_plan_modal_button               = 'button[title="Buy a Growth Plan"]'
+  @buy_a_growth_plan_modal_button               = 'button[title="Buy Growth Plan"]'
   @ready_to_launch_submit                       = 'button[title="Ready to launch!"]'
   @preview_or_edit_website                      = '[data-test="preview-or-edit"]'
   @mobile_view_mode                             = '[data-test="website-view-mobile"] > a'
