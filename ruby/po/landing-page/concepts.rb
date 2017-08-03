@@ -44,6 +44,7 @@ module Concepts
   # change filter concepts by category
   def self.concepts_all
     @browser.elements(css: @concept_category_filter_button)[0].click
+    sleep 0.5
     return self
   end
   def self.concepts_blogs

@@ -12,6 +12,7 @@ end
 task :e2e_stage do |t, args|
   ENV['CONFIG_NAME'] = "stage"
   ENV['BROWSER_NAME'] = "chrome"
+  # ENV['NEED_SCREEN'] = "yes"
   Rake::Task["base_e2e"].invoke
   Rake::Task["base_e2e"].reenable
 end

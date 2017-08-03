@@ -4,7 +4,7 @@ require_relative '../../helpers/index'
 # , :focus => true if need run only this suit
 describe 'Demo' do
   before :each do
-    @browser.window.resize_to 1200, 1600
+    @browser.window.resize_to 1600, 1200
   end
   it 'go to sign up' do
     concepts_ids = get_published_concepts()

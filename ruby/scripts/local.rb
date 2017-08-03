@@ -36,10 +36,10 @@ RSpec.configure do |config|
     ensure
       if example.exception && NEED_SCREEN
         Dir::mkdir('screenshots') if not File.directory?('screenshots')
-        screenshot = "./screenshots/FAILED_#{example.full_description}.jpeg"
+        screenshot = "./screenshots/FAILED_#{example.full_description}.png"
         @browser.driver.save_screenshot(screenshot)
         @browser.quit
-        embed screenshot, 'image/jpeg'
+        #embed screenshot, 'image/png'
       end
       @browser.quit
     end

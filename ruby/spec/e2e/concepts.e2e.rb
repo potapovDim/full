@@ -3,12 +3,12 @@ require_relative '../../scripts/index.rb'
 # , :focus => true if need run only this suit
 describe 'Concepts' do
   before :each do
-    @browser.window.resize_to 1200, 1600
+    @browser.window.resize_to 1600, 1200
     @browser.goto @base_url
   end
 
   it 'filter concepts by category' do
-    concepts_page, active_filter = @landing.header_concepts_page()
+    active_filter, concepts_page = @landing.header_concepts_page()
                                            .concepts_all()
                                            .get_active_concept_filter_text()
     expect(active_filter.include? 'All').to eql(true)
@@ -16,7 +16,7 @@ describe 'Concepts' do
     #                                        .concepts_blogs()
     #                                        .get_active_concept_filter_text()
     # expect(active_filter.include? 'Blogs').to eql(true)
-    concepts_page, active_filter = concepts_page
+    active_filter, concepts_page = concepts_page
                                            .concepts_businesses()
                                            .get_active_concept_filter_text()
     expect(active_filter.include? 'Businesses').to eql(true)
@@ -28,11 +28,11 @@ describe 'Concepts' do
     #                                        .concepts_personal()
     #                                        .get_active_concept_filter_text()
     # expect(active_filter.include? 'Personal').to eql(true)
-    concepts_page, active_filter = concepts_page
+    active_filter, concepts_page = concepts_page
                                            .concepts_portfolios()
                                            .get_active_concept_filter_text()
     expect(active_filter.include? 'Portfolios').to eql(true)
-    concepts_page, active_filter = concepts_page
+    active_filter, concepts_page = concepts_page
                                            .concepts_restaurants()
                                            .get_active_concept_filter_text()
     expect(active_filter.include? 'Restaurants').to eql(true)
