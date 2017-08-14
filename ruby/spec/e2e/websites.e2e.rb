@@ -13,7 +13,7 @@ describe 'Websites myaccount' do
   end
   it 'try to add more then 10 websites' do
     @my_account_websites.add_new_website.choose_concept(0)
-    expect(@browser.url.lude?('myaccount/website/create')).to eql(true)
+    expect(@browser.url.include?('myaccount/website/create')).to eql(true)
     editor_top_nav = @editor.get_top_nav_instance
 
     @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/website/')}

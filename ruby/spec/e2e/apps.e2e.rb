@@ -15,6 +15,7 @@ describe 'Apps' do
     @image_gallery = ImageGallery.new @browser
     @map = Map.new @browser
     @menu = Menu.new @browser
+    @slider = Slider.new @browser
   end
   it 'change apps align' do
     @social_icons.focus_element
@@ -44,6 +45,13 @@ describe 'Apps' do
     @menu.focus_element
     sleep 1
     @menu.context_panel_action('align center')
+        .click_context_item('align left')
+        .click_context_item('align right')
+        .click_context_item('align left')
+        .click_context_item('align center')
+    sleep 1
+    @slider.focus_element
+    @slider.context_panel_action('align center')
         .click_context_item('align left')
         .click_context_item('align right')
         .click_context_item('align left')
