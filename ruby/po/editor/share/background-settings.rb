@@ -25,7 +25,7 @@ class BackgroundSettings
   #methods
   #shared methods
   #change change background type
-  def self.change_background_type(background = "none")
+  def change_background_type(background = "none")
     drop_list =  @browser.elements(css: @drop_list_control)
     drop_options = @browser.elements(css: @drop_list_options)
     case background
@@ -45,7 +45,7 @@ class BackgroundSettings
     return self
   end
   #open color picker 
-  def self.open_color_picker (number = 0)
+  def open_color_picker (number = 0)
     @browser.elements(css: @color_picker)[number].click
     return ColorPicker.initDriver @browser
   end
@@ -67,7 +67,7 @@ class BackgroundSettings
     end
     return self
   end
-  def self.change_background_position(position="top left") #change image position on block background
+  def change_background_position(position="top left") #change image position on block background
     drop_list =  @browser.elements(css: @drop_list_control)
     drop_options = @browser.elements(css: @drop_list_options)
     case position
