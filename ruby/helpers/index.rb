@@ -1,3 +1,6 @@
+require 'rest-client'
+require 'json'
+
 def generate_email_prefix
   string_builder = '1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'
   initial_prefix_email = 
@@ -8,8 +11,12 @@ def generate_email_prefix
 end
 
 
-require 'rest-client'
-require 'json'
+def assert_elasticsearch_run
+  RestClient::Request.execute(url: "http://127.0.0.1:9200/",
+                          method: :get,
+                          headers: {content_type: 'application/json'},
+                          verify_ssl: false)
+end
 
 def get_user_token(username, password)
   user_token = JSON.parse(RestClient::Request.execute(url: "#{@base_url}/api/v0.1.0/auth/login",
