@@ -1,16 +1,14 @@
-module Login
-  @email_input                  = 'input#id5'
-  @password_input               = 'input#id9'
-  @login_button                 = 'button[title="Login"]'
-  @alarm_ico_login_form         = '.icon.icon_alarm.icon_absolute_right'
-  @error_input_message          = '.field__message'
-  
-  def self.initDriver(driver)
+class Login
+  def initialize(driver)
     @browser = driver
-    return self
+    @email_input                  = 'input#id5'
+    @password_input               = 'input#id9'
+    @login_button                 = 'button[title="Login"]'
+    @alarm_ico_login_form         = '.icon.icon_alarm.icon_absolute_right'
+    @error_input_message          = '.field__message'
   end
    #party enter and warnings data
-  def self.get_input_error(field)
+  def get_input_error(field)
     error_name = nil
     error_pass = nil
     case field
@@ -26,7 +24,7 @@ module Login
         return error_name, error_pass, self
     end
   end
-  def self.set_mail_input(username)
+  def set_mail_input(username)
     @browser.element(css: @email_input).focus
     for i in 0..@browser.element(css: @email_input).value.length - 1
       @browser.send_keys :backspace
@@ -34,7 +32,7 @@ module Login
     @browser.element(css: @email_input).send_keys username
     return self
   end
-  def self.set_pass_input(pass)
+  def set_pass_input(pass)
     @browser.element(css: @password_input).focus
     for i in 0..@browser.element(css: @password_input).value.length - 1
       @browser.send_keys :backspace
@@ -42,23 +40,23 @@ module Login
     @browser.element(css: @password_input).send_keys pass
     return self
   end
-  def self.submit_login
+  def submit_login
     @browser.element(css: @login_button).click
     return self
   end
   #success login
-  def self.success_login_user(username, password)
+  def success_login_user(username, password)
     set_mail_input username
     set_pass_input password
     submit_login
     sleep 1
     return Account.new @browser
   end
-  def self.get_invalid_fields
+  def get_invalid_fields
     return @browser.elements(css: @not_valid_field), self
   end
   #fail login
-  def self.fail_login_user(username, pass)
+  def fail_login_user(username, pass)
     set_mail_input username
     set_pass_input pass
     submit_login

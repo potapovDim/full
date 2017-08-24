@@ -7,11 +7,6 @@ class BackgroundSettings
   @settings_body                = '[data-test="window-settings-content"]'
   #current background
   @current_background_image     = '[data-test="settings-upload-photo"]'
-  #Open drop down controls
-  # @drop_list_control        = '.Select-control'
-  #Drop down options   
-  # @drop_list_options        = '.Select-option'
-  #if original image toggle repeat background
   @repeat_background_checkbox   = 'label[for="background-repeat"]'
   #open color picker 
   @color_picker                 = '[data-test="color-picker-input"]'

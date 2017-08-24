@@ -4,5 +4,6 @@
 js/node_modules
 js/e2e/reports
 js/localdata
+js/package-lock.json
 
 ruby/screenshots

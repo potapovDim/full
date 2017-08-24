@@ -30,33 +30,33 @@ class LandingPage
 
   def login
     @browser.element(css: @user_login).fire_event 'click'
-    return Login.initDriver(@browser)
+    return Login.new @browser
   end
 
   def get_started_login
     @browser.element(css: @get_started).fire_event 'click'
     @browser.label(text: 'Log in').fire_event 'click'
-    return Login.initDriver(@browser)
+    return Login.new @browser
   end
   
   def signup_and_freetrial_login
     @browser.element(css: @signup_and_freetrial).fire_event 'hover'
     @browser.element(css: @signup_and_freetrial).fire_event 'click'
     @browser.label(text: 'Log in').fire_event "click"
-    return Login.initDriver(@browser)
+    return Login.new @browser
   end
 
    def header_pricing_page
     @browser.element(css: @header_pricing).click
-    return Pricing.initDriver(@browser)
+    return Pricing.new @browser
   end
 
   def header_concepts_page
     @browser.element(css: @header_concepts).click
-    return Concepts.initDriver(@browser)
+    return Concepts.new @browser
   end
   def go_to_footer
     @browser.execute_script("window.scrollBy(0, 150000)")
-    return Footer.initDriver(@browser)
+    return Footer.new @browser
   end
 end

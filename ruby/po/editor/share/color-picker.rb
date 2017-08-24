@@ -1,7 +1,7 @@
 #color picker 
-module ColorPicker
+class ColorPicker
   #css selectors
-  def self.initialize_saturation(browser)
+  def initialize(browser)
     @browser = browser
     @color_picker_pointer = '.pointer_35h'
     @alpha_input = '[data-test="input-number-input"]'
@@ -9,7 +9,7 @@ module ColorPicker
     @hue_vertical = '.hue-vertical'
   end
 
-  def self.change_color_saturation(x, y, place) #change color
+  def change_color_saturation(x, y, place) #change color
     case place
       when "hue"  
         @browser.element(css: @hue_vertical).drag_and_drop_by x, y
@@ -19,12 +19,12 @@ module ColorPicker
     return self
   end
 
-  def self.change_alpha_slider_saturation(x)
+  def change_alpha_slider_saturation(x)
     @browser.element(css: @color_picker_pointer).fire_event "mouseover"  
     @browser.element(css: @color_picker_pointer).drag_and_drop_by x, 0
   end
 
-  def self.input_alpha_palette(percent)
+  def input_alpha_palette(percent)
     @browser.element(css: @alpha_input).send_keys percent
   end
 end
