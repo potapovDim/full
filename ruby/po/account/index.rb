@@ -9,15 +9,14 @@ class Account
     @my_websites                    = 'a[href="/myaccount/account/websites"]' 
     @buy_growth_plan_button         = '[data-test="Buy Growth Plan"]'
   end
-
   #navigation methods
   def go_to_my_profile
     @browser.element(text: 'My profile').click
-    return MyProfile.initDriver(@browser)
+    return MyProfile.new @browser
   end
   def buy_growth_plan
     @browser.element(css: @buy_growth_plan_button).click
-    return Plan.initDriver(@browser)
+    return Plan.new @browser
   end
   def go_to_landing
     @browser.element(css: @back_landing).click
@@ -25,6 +24,6 @@ class Account
 
   def go_to_my_websites
     @browser.elements(css: @left_nav_item)[0].click
-    return MyWebsites.initDriver(@browser)
+    return MyWebsites.new @browser
   end
 end
