@@ -101,14 +101,4 @@ class BackgroundSettings
     end
     return self
   end
-  #current background image
-  # def self.get_current_backgroud_image
-  #   return @browser.element(css: @current_background_image).attribute_value('style')
-  # end
-  #media gallery
-  # def self.open_gallery
-  #   @browser.element(css: @meddia_gallery_button).click
-  #   return MediaGallery.initDriver @browser
-  # end
-  #need presets library add
 end

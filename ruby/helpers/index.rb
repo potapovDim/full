@@ -10,7 +10,6 @@ def generate_email_prefix
   return initial_prefix_email
 end
 
-
 def assert_elasticsearch_run
   RestClient::Request.execute(url: "http://127.0.0.1:9200/",
                           method: :get,
@@ -18,14 +17,19 @@ def assert_elasticsearch_run
                           verify_ssl: false)
 end
 
+def set_token(browser, username, password)
+  browser.execute_script("localStorage.auth = #{get_user_token(username, password).to_json}")
+end
+
 def get_user_token(username, password)
-  user_token = JSON.parse(RestClient::Request.execute(url: "#{@base_url}/api/v0.1.0/auth/login",
+  login_data = JSON.parse(RestClient::Request.execute(url: "#{@base_url}/api/v0.1.0/auth/login",
                                            method: :post,
                                            headers: {content_type: 'application/json'},
                                            payload: {'username' => username, 'password' =>  password }.to_json,
-                                           verify_ssl: false))['token']
-  return user_token
+                                           verify_ssl: false))
+  return login_data
 end
+
 def get_user_website_list(token)
     user_website_list = JSON.parse(RestClient::Request.execute(url: "#{@base_url}/api/v0.1.0/websites",
                                            method: :get,
@@ -33,6 +37,7 @@ def get_user_website_list(token)
                                            verify_ssl: false))
   return {"websites"=>user_website_list['data'], "user_token" => token}
 end
+
 def remove_test_page_from_websites(data_token)
   websites = data_token['websites'].each do |website|
       website_data =  JSON.parse(RestClient::Request.execute(url: "#{@base_url}/api/v0.1.0/website/#{website['_id']}",
@@ -57,7 +62,7 @@ end
 
 
 def clear_useless_user_websites(username, password, all, need_nine)
-  websites_token = get_user_website_list(get_user_token(username, password))
+  websites_token = get_user_website_list(get_user_token(username, password)['token'])
   websites = websites_token['websites']
   token = websites_token['user_token']
   if need_nine && websites.length == 9
@@ -80,7 +85,7 @@ def clear_useless_user_websites(username, password, all, need_nine)
 end
 
 def clear_useless_user_pages(username, password)
-  remove_test_page_from_websites(get_user_website_list(get_user_token(username, password)))
+  remove_test_page_from_websites(get_user_website_list(get_user_token(username, password)['token']))
 end
 
 def get_published_concepts
