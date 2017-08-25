@@ -1,4 +1,4 @@
-require_relative './deps.rb'
+require_relative './deps'
 
 CONFIG_NAME = ENV['CONFIG_NAME']
 BROWSER_NAME = ENV['BROWSER_NAME']
@@ -26,6 +26,10 @@ RSpec.configure do |config|
     @username_remove        = CONFIG['username_remove']
     @password_remove        = CONFIG['password_expired']
 
+    if @base_url == 'http://weblium.dev/'
+      print '!!!!!!!!!!!!!!!!!!!!!!! elasticsearch asser'
+      assert_elasticsearch_run
+    end
     #landing po 
     @landing = LandingPage.new(@browser)
     #editor po

@@ -31,3 +31,5 @@ require_relative '../po/editor/apps/index'
 require_relative '../po/editor/left-nav/index'
 #row
 require_relative '../po/editor/row/index'
+#helpers
+require_relative '../helpers/index'

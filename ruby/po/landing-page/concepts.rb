@@ -7,19 +7,19 @@ class Concepts
     @concept_title                      = '.image-item__title'
     @concept_category_filter_button     = 'button.aside-menu__link'
     @concept_category_filter_item       = '.aside-menu__item'
+    @magic_start_button                 = '.concept-item__btn.concept-item__btn_blue'
+    @preview_concept                    = '.concept-item__btn.concept-item__btn_white'
     @active_concept_category            = '.aside-menu__item.flex.flex_align_center.light.active'
     #when 10 free concepts open modal
     @buy_grown_plan                     = '[data-test="Buy growth plan"]'
-    @Login = Login.initDriver driver
     @browser = driver
-    return self
   end
    
   #method
   def go_to_login #if use it for login case
     @browser.elements(css: @concept)[0].fire_event 'hover'
     @browser.elements(css: @start_your_website)[0].fire_event 'click'
-    return @Login
+    return Login.new @browser
   end
   def choose_concept(concept_index)
     @browser.elements(css: @concept)[concept_index].fire_event 'hover'
@@ -89,6 +89,6 @@ class Concepts
   #buy growth plan from 
   def go_to_growth_plan_from_modal
     @browser.element(css: @buy_grown_plan).fire_event 'click'
-    return Plan.initDriver @browser
+    return Plan.new @browser
   end
 end
