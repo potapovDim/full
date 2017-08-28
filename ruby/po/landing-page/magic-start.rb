@@ -2,7 +2,7 @@ class MagicStart
   def initialize(browser)
     @browser                          = browser
     @disable_all_blocks               = '.constructor__link.constructor__link_sm'
-    @toggle_block                     = '.toggle__input'
+    @toggle_disable_block             = '.toggle__input'
     @preview_block_image              = '.constructor-preview__pic'
     @skip_magic_and_proceed_to_editor = '.constructor__link.constructor__link_md.constructor__link_underline'
     @breadcrumbs_link                 = '.breadcrumbs__link'
@@ -10,10 +10,21 @@ class MagicStart
     @reroll_design                    = '.btn-circle'
     @site_name                        = '#site_name'
     @proceed_to_final_step            = '.btn.btn_md.btn_blue.btn_full.constructor__btn'
+    @info                             = '.plan.plan_offset'
   end
 
   def back_from_step
     @browser.a(text: 'Back').fire_event 'click'
+    return self
+  end
+
+  def disable_all_blocks
+    @browser.element(css: @disable_all_blocks).fire_event 'click'
+    return self
+  end
+
+  def disable_block(index)
+    @browser.element(css: @toggle_disable_block).fire_event 'change'
     return self
   end
 
@@ -25,5 +36,9 @@ class MagicStart
   def rerelol_design_all_blocks
     @browser.elements(css: @reroll_design)[0].fire_event 'click'
     return self
+  end
+
+  def get_login
+    return Login.new @browser
   end
 end

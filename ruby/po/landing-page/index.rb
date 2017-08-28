@@ -1,8 +1,4 @@
 class LandingPage
-  # include Login
-  # include Pricing
-  # include Concepts
-  # include Footer
   #inititalize class variables
   def initialize(driver)
     #webdriver instance
@@ -19,6 +15,11 @@ class LandingPage
     @header_about_us          = 'a[title="About us"]'
     @header_concepts          = 'a[title="Concepts"]'
     @header_pricing           = 'a[title="Pricing"]'
+    @weblium_left_icon        = 'a[title="Home"]'
+  end
+
+  def go_to_landing
+    @browser.element(css: @weblium_left_icon).fire_event 'click'
   end
 
   def helper_contextpanel(index)
@@ -28,6 +29,10 @@ class LandingPage
     return true
   end
 
+  def go_to_about_us
+    @browser.element(css: @header_about_us).fire_event 'click'
+  end
+
   def login
     @browser.element(css: @user_login).fire_event 'click'
     return Login.new @browser
@@ -35,14 +40,14 @@ class LandingPage
 
   def get_started_login
     @browser.element(css: @get_started).fire_event 'click'
-    @browser.label(text: 'Log in').fire_event 'click'
+    # @browser.label(text: 'Log in').fire_event 'click'
     return Login.new @browser
   end
   
   def signup_and_freetrial_login
     @browser.element(css: @signup_and_freetrial).fire_event 'hover'
     @browser.element(css: @signup_and_freetrial).fire_event 'click'
-    @browser.label(text: 'Log in').fire_event "click"
+    # @browser.label(text: 'Log in').fire_event "click"
     return Login.new @browser
   end
 

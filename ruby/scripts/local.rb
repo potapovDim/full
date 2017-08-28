@@ -9,6 +9,7 @@ CONFIG = YAML.load(File.read(File.join(File.dirname(__FILE__), "../config/#{CONF
 RSpec.configure do |config|
     # config.filter_run :focus => true
     config.around(:example) do |example|
+  # config.before :each do
     @browser = nil
     case BROWSER_NAME
       when 'chrome'
@@ -34,8 +35,13 @@ RSpec.configure do |config|
     @landing = LandingPage.new(@browser)
     #editor po
     @editor = Editor.new(@browser)
+    @browser.driver.manage.timeouts.implicit_wait = 10
+  # end
+  # config.after :each do
+  #   @browser.close 
+  # end
     begin
-      @browser.driver.manage.timeouts.implicit_wait = 10
+     
       example.run
     ensure
       if example.exception && NEED_SCREEN

@@ -13,14 +13,14 @@ class Login
     error_pass = nil
     case field
       when 'name'
-        error_name = @browser.elements(css: @error_input_message)[3]
+        error_name = @browser.elements(css: @error_input_message)[0]
         return error_name, self
       when 'pass'
-        error_pass = @browser.elements(css: @error_input_message)[4]
+        error_pass = @browser.elements(css: @error_input_message)[1]
         return error_pass, self
       when 'both'
-        error_name = @browser.elements(css: @error_input_message)[3]
-        error_pass = @browser.elements(css: @error_input_message)[4]
+        error_name = @browser.elements(css: @error_input_message)[0]
+        error_pass = @browser.elements(css: @error_input_message)[1]
         return error_name, error_pass, self
     end
   end

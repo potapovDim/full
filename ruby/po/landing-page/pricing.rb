@@ -1,16 +1,13 @@
 require_relative './login'
 
-module Pricing
+class Pricing
   #pricing selectors
-  @buy_growth_plan                  = 'a[title="Buy growth plan"]' # 0 green button , 1 test plan , 2 monthy , 4 annually
-  @plan_feature                     = '.plan__feature' # Moneyback guarantee ; 14 days for free
-  @sign_up_button                   = 'a[title="Sign up"]' #0 top right button , 1 green centred button
-  
   #initialize webdriver 
-  def self.initDriver(driver)
-    @Login = Login.initDriver driver #
+  def initialize(driver)
     @browser = driver
-    return self
+    @buy_growth_plan                  = 'a[title="Buy growth plan"]' # 0 green button , 1 test plan , 2 monthy , 4 annually
+    @plan_feature                     = '.plan__feature' # Moneyback guarantee ; 14 days for free
+    @sign_up_button                   = 'a[title="Sign up"]' #0 top right button , 1 green centred button
   end
   #methods
   def self.success_login_by_growth_plan(growth_plan_position = 0)
@@ -24,13 +21,13 @@ module Pricing
       when 3 #login by first plan -> annually plan
         @browser.elements(css: @buy_growth_plan)[3].fire_event 'click'
     end
-    return @Login
+    return Login.new @browser
   end
 
   def self.success_login_by_sign_up_centred
     @browser.elements(css: @sign_up_button)[1].fire_event 'click' # click centred sign up (green button)
     @browser.label(text: 'Login').fire_event "click"
-    return Login.initDriver(@browser)
+    return Login.new @browser
   end
 
   def self.back_home
