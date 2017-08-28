@@ -1,6 +1,7 @@
 class Concepts
   #initialize webdriver 
   def initialize(driver)
+    @browser                            = driver
     @concept                            = 'img[alt="concept name"]'
     @start_your_website                 = 'button[title="Start website"]'
     @search_input                       = 'input.field__input'
@@ -12,19 +13,12 @@ class Concepts
     @active_concept_category            = '.aside-menu__item.flex.flex_align_center.light.active'
     #when 10 free concepts open modal
     @buy_grown_plan                     = '[data-test="Buy growth plan"]'
-    @browser = driver
   end
    
   #method
-  def go_to_login #if use it for login case
-    @browser.elements(css: @concept)[0].fire_event 'hover'
-    @browser.elements(css: @start_your_website)[0].fire_event 'click'
-    return Login.new @browser
-  end
-  def choose_concept(concept_index)
-    @browser.elements(css: @concept)[concept_index].fire_event 'hover'
-    @browser.elements(css: @start_your_website)[concept_index].fire_event 'click'
-    return self
+  def start_magic(concept_idex) #if use it for login case
+    @browser.a(text: 'Magic start')[concept_idex].fire_event 'hover'
+    @browser.a(text: 'Magic start')[concept_idex].fire_event 'click'
   end
   #search concept by keys
   def search_concept_by_keys(keys)
@@ -44,41 +38,6 @@ class Concepts
   def concepts_all
     @browser.elements(css: @concept_category_filter_button)[0].click
     sleep 0.5
-    return self
-  end
-  def concepts_blogs
-    @browser.elements(css: @concept_category_filter_button)[1].click
-    #@browser.element(text: 'Blogs').click
-    return self
-  end
-  def concepts_businesses
-    @browser.elements(css: @concept_category_filter_button)[2].click
-    #@browser.element(text: 'Businesses').click
-    return self
-  end
-  def concepts_musicians
-    @browser.elements(css: @concept_category_filter_button)[3].click
-    #@browser.element(text: 'Musicians').click
-    return self
-  end
-  def concepts_personal
-    @browser.elements(css: @concept_category_filter_button)[4].click
-    #@browser.element(text: 'Personal').click
-    return self
-  end
-  def concepts_portfolios
-    @browser.elements(css: @concept_category_filter_button)[5].click
-    # @browser.element(text: 'Portfolios').click
-    return self
-  end
-  def concepts_restaurants
-    @browser.elements(css: @concept_category_filter_button)[6].click
-    #@browser.element(text: 'Restaurants').click
-    return self
-  end
-  def concepts_wedding
-    @browser.elements(css: @concept_category_filter_button)[7].click
-    #@browser.element(text: 'Wedding').click
     return self
   end
   #get active concept filter text 
