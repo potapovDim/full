@@ -7,7 +7,7 @@ describe 'Components (app, general elements context-panel)' do
           @browser.goto @base_url
           @landing.login()
                   .success_login_user(@username, @password) 
-        Ï         .go_to_my_websites()
+                  .go_to_my_websites()
                   .go_to_editor_from_website(0)
           sleep 1
           expect(@browser.url.include?('/editor/website/')).to eql(true)
