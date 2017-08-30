@@ -2,7 +2,8 @@ class MagicStart
   def initialize(browser)
     @browser                          = browser
     @disable_all_blocks               = '.constructor__link.constructor__link_sm'
-    @toggle_disable_block             = '.toggle__input'
+    @disable_block_status             = '.toggle__input'
+    @toggle_disable_block             = '.toggle__label'
     @preview_block_image              = '.constructor-preview__pic'
     @skip_magic_and_proceed_to_editor = '.constructor__link.constructor__link_md.constructor__link_underline'
     @breadcrumbs_link                 = '.breadcrumbs__link'
@@ -20,11 +21,13 @@ class MagicStart
 
   def disable_all_blocks
     @browser.element(css: @disable_all_blocks).fire_event 'click'
+    sleep 1
     return self
   end
 
-  def disable_block(index)
-    @browser.element(css: @toggle_disable_block).fire_event 'change'
+  def disable_enable_block(index)
+    @browser.element(css: @toggle_disable_block).fire_event 'click'
+    sleep 1
     return self
   end
 
@@ -40,5 +43,17 @@ class MagicStart
 
   def get_login
     return Login.new @browser
+  end
+
+  def get_all_blocks_checkbox_status
+    status = nil
+    for i in 0..@browser.checkboxes(css: @disable_block_status).length-1 do
+      if !@browser.checkboxes(css: @disable_block_status)[i].checked?
+        status = false
+      else
+        return true
+      end
+    end
+    return status
   end
 end

@@ -16,9 +16,10 @@ class Concepts
   end
    
   #method
-  def start_magic(concept_idex) #if use it for login case
-    @browser.a(text: 'Magic start')[concept_idex].fire_event 'hover'
-    @browser.a(text: 'Magic start')[concept_idex].fire_event 'click'
+  def start_magic(concept_index) #if use it for login case
+    @browser.elements(css: '.concept-item__btns')[concept_index].a(text: 'Magic start').fire_event 'hover'
+    @browser.elements(css: '.concept-item__btns')[concept_index].a(text: 'Magic start').fire_event 'click'
+    return MagicStart.new @browser
   end
   #search concept by keys
   def search_concept_by_keys(keys)

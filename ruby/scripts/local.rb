@@ -41,7 +41,6 @@ RSpec.configure do |config|
   #   @browser.close 
   # end
     begin
-     
       example.run
     ensure
       if example.exception && NEED_SCREEN

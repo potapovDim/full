@@ -10,7 +10,7 @@ describe 'User profile' do
   it 'change user data' do
     new_user_firstname = 'test'
     user_name, myProfile = @landing
-                    .signup_and_freetrial_login()
+                    .login()
                     .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .change_first_name(new_user_firstname)
@@ -72,7 +72,7 @@ describe 'User profile' do
   it 'change user password (negative)' do
     new_password = '123321321'
     message, profile = @landing
-                    .signup_and_freetrial_login()
+                    .login()
                     .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .go_to_change_password()
@@ -82,7 +82,7 @@ describe 'User profile' do
   it 'change user first name (negative)' do
     new_user_name = Array.new(300).join('1')
     user_name, my_profile = @landing
-                    .signup_and_freetrial_login()
+                    .login()
                     .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .change_first_name(new_user_name)
@@ -95,7 +95,7 @@ describe 'User profile' do
   it 'change user last name (negative)'  do
     new_user_lastname = Array.new(300).join('2')
     user_name, my_profile = @landing
-                    .signup_and_freetrial_login()
+                    .login()
                     .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .change_last_name(new_user_lastname)
@@ -109,7 +109,7 @@ describe 'User profile' do
     adrs1 = Array.new(300).join('1')
     adrs2 = Array.new(300).join('2')
     my_profile = @landing
-                    .signup_and_freetrial_login()
+                    .login()
                     .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .change_street_address1(adrs1)
@@ -128,7 +128,7 @@ describe 'User profile' do
     city = Array.new(300).join('1')
     region = Array.new(300).join('2')
     my_profile = @landing
-                    .signup_and_freetrial_login()
+                    .login()
                     .success_login_user(@username, @password)
                     .go_to_my_profile()
                     .change_city_name(city)
