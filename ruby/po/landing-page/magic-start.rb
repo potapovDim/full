@@ -19,6 +19,12 @@ class MagicStart
     return self
   end
 
+  def almost_done_present
+    return @browser.div(text: 'Almost done!').present?
+  end
+  def play_with_design_present 
+    return @browser.div(text: 'It’s time to play with design').present?
+  end
   def disable_all_blocks
     @browser.element(css: @disable_all_blocks).fire_event 'click'
     sleep 1

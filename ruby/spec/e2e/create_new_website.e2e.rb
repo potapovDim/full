@@ -11,5 +11,9 @@ describe 'Create new website from concept' do
     expect(start_magic.get_all_blocks_checkbox_status()).to eql(false)
     start_magic.disable_enable_block(1)
     expect(start_magic.get_all_blocks_checkbox_status()).to eql(true)
+    start_magic.next_step()
+    expect(start_magic.play_with_design_present()).to eql(true)
+    start_magic.next_step()
+    expect(start_magic.almost_done_present()).to eql(true)
   end
 end
