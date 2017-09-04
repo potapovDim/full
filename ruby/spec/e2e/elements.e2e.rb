@@ -17,47 +17,47 @@ describe 'Components (app, general elements context-panel)' do
           @text = Text.new @browser
           @button = Button.new @browser
         end
-        it 'change elements align' do
-          @button.focus_element
-          sleep 1
-          @button.context_panel_action("align center")
-              .click_context_item("align left")
-              .click_context_item("align right")
-              .click_context_item("align left")
-              .click_context_item("align center")
+    #     it 'change elements align' do
+    #       @button.focus_element
+    #       sleep 1
+    #       @button.context_panel_action("align center")
+    #           .click_context_item("align left")
+    #           .click_context_item("align right")
+    #           .click_context_item("align left")
+    #           .click_context_item("align center")
 
-          @icon.focus_element
-          sleep 1
-          @icon.context_panel_action("align center")
-              .click_context_item("align left")
-              .click_context_item("align right")
-              .click_context_item("align left")
-              .click_context_item("align center")
+    #       @icon.focus_element
+    #       sleep 1
+    #       @icon.context_panel_action("align center")
+    #           .click_context_item("align left")
+    #           .click_context_item("align right")
+    #           .click_context_item("align left")
+    #           .click_context_item("align center")
    
-          @image.focus_element
-          sleep 1
-          @image.context_panel_action("align center")
-              .click_context_item("align left")
-              .click_context_item("align right")
-              .click_context_item("align left")
-              .click_context_item("align center")
+    #       @image.focus_element
+    #       sleep 1
+    #       @image.context_panel_action("align center")
+    #           .click_context_item("align left")
+    #           .click_context_item("align right")
+    #           .click_context_item("align left")
+    #           .click_context_item("align center")
       
-          @text.focus_element
-          sleep 1
-          @text.context_panel_action("align center")
-              .click_context_item("align left")
-              .click_context_item("align right")
-              .click_context_item("align left")
-              .click_context_item("align center")
+    #       @text.focus_element
+    #       sleep 1
+    #       @text.context_panel_action("align center")
+    #           .click_context_item("align left")
+    #           .click_context_item("align right")
+    #           .click_context_item("align left")
+    #           .click_context_item("align center")
 
-          @line.focus_element
-          sleep 1
-          @line.context_panel_action("align center")
-              .click_context_item("align left")
-              .click_context_item("align right")
-              .click_context_item("align left")
-              .click_context_item("align center")
-        end
+    #       @line.focus_element
+    #       sleep 1
+    #       @line.context_panel_action("align center")
+    #           .click_context_item("align left")
+    #           .click_context_item("align right")
+    #           .click_context_item("align left")
+    #           .click_context_item("align center")
+    #     end
     end
       # , :focus => true if need run only this suit
     describe 'Apps' do
@@ -85,36 +85,36 @@ describe 'Components (app, general elements context-panel)' do
               .click_context_item('align left')
               .click_context_item('align center')
       
-          @image_gallery.focus_element
-          sleep 1
-          @image_gallery.context_panel_action('align center')
-              .click_context_item('align left')
-              .click_context_item('align right')
-              .click_context_item('align left')
-              .click_context_item('align center')
+        #   @image_gallery.focus_element
+        #   sleep 1
+        #   @image_gallery.context_panel_action('align center')
+        #       .click_context_item('align left')
+        #       .click_context_item('align right')
+        #       .click_context_item('align left')
+        #       .click_context_item('align center')
       
-          @map.focus_element
-          sleep 1
-          @map.context_panel_action('align center')
-              .click_context_item('align left')
-              .click_context_item('align right')
-              .click_context_item('align left')
-              .click_context_item('align center')
+        #   @map.focus_element
+        #   sleep 1
+        #   @map.context_panel_action('align center')
+        #       .click_context_item('align left')
+        #       .click_context_item('align right')
+        #       .click_context_item('align left')
+        #       .click_context_item('align center')
           
-          @menu.focus_element
-          sleep 1
-          @menu.context_panel_action('align center')
-              .click_context_item('align left')
-              .click_context_item('align right')
-              .click_context_item('align left')
-              .click_context_item('align center')
-          sleep 1
-          @slider.focus_element
-          @slider.context_panel_action('align center')
-              .click_context_item('align left')
-              .click_context_item('align right')
-              .click_context_item('align left')
-              .click_context_item('align center')
+        #   @menu.focus_element
+        #   sleep 1
+        #   @menu.context_panel_action('align center')
+        #       .click_context_item('align left')
+        #       .click_context_item('align right')
+        #       .click_context_item('align left')
+        #       .click_context_item('align center')
+        #   sleep 1
+        #   @slider.focus_element
+        #   @slider.context_panel_action('align center')
+        #       .click_context_item('align left')
+        #       .click_context_item('align right')
+        #       .click_context_item('align left')
+        #       .click_context_item('align center')
         end
     end
 end
