@@ -50,23 +50,14 @@ class MagicStart
   def get_login
     return Login.new @browser
   end
-
-  def all_blocks_checkbox_disabled?
+  #use  xor for enabled and disable conditionals
+  #expected - true  - all blocks enable
+  #expected - false - all blocks disabled 
+  #function returs true if all checkboxes has the same status as expexted varaible
+  def get_all_blocks_checkbox_status(expected)
     status = nil;
     for i in 0..@browser.checkboxes(css: @disable_block_status).length-1 do
-      if !@browser.checkboxes(css: @disable_block_status)[i].checked?
-        status = true
-      else
-        return false
-      end
-    end
-    return status
-  end
-
-  def all_blocks_checkbox_enable?
-    status = nil;
-    for i in 0..@browser.checkboxes(css: @disable_block_status).length-1 do
-      if @browser.checkboxes(css: @disable_block_status)[i].checked?
+      if expected ^ !@browser.checkboxes(css: @disable_block_status)[i].checked?
         status = true
       else
         return false
