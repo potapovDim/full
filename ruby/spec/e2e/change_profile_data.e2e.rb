@@ -16,7 +16,7 @@ describe 'User profile' do
                     .change_first_name(new_user_firstname)
                     .save_new_user_info_button(true, false)
                     .get_user_name_last_name()
-    expect(user_name.include? new_user_name).to eql(true)
+    expect(user_name.include? new_user_firstname).to eql(true)
 
     new_user_lastname = 'test'
     user_name, myProfile = myProfile.change_last_name(new_user_lastname)
@@ -68,6 +68,7 @@ describe 'User profile' do
                     .change_password(@password, new_password, true)
     expect(message).to eql('Password success changed')
   end
+
   #negative cases
   it 'change user password (negative)' do
     new_password = '123321321'
@@ -122,7 +123,6 @@ describe 'User profile' do
     address1_2, page = my_profile.get_data_from_form(2)
     expect(address1_2[:adr1]).not_to eql(adrs1)
     expect(address1_2[:adr2]).not_to eql(adrs2)
-
   end
   it 'change city region (negative)' do
     city = Array.new(300).join('1')

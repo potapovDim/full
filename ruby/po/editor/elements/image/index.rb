@@ -1,7 +1,7 @@
-require_relative "./context-panel"
+require_relative "../context-panel"
 
 class Image
-  include ImageContextPanel
+  include ContextPanel
   #css selectors
   @@draggable_image = '[data-test="draggable-element-image"]' #draggable decorator selector
   #@extensions_line = '[data-test="extensions-container-none"]'
@@ -9,7 +9,9 @@ class Image
   @@browser
   def initialize(browser)
     @@browser = browser
-    ImageContextPanel.initDriver @@browser
+    ContextPanel.initDriver @@browser
+    ContextPanel.init_element_selector @@draggable_image
+    
   end
   #methods
   def focus_element 
@@ -17,6 +19,6 @@ class Image
     @@browser.element(css: @@draggable_image).fire_event "mousedown"
   end
   def context_panel_action(align="align center")
-    ImageContextPanel.click_context_item align
+    ContextPanel.click_context_item align
   end
 end

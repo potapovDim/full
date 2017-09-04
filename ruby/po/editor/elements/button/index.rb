@@ -1,7 +1,6 @@
-require_relative "./context-panel"
-
+require_relative "../context-panel"
 class Button
-  include ButtonContextPanel
+  include ContextPanel
   #css selectors
   @@draggable_button = '[data-test="draggable-element-button"]' #draggable decorator selector
   #@extensions_line = '[data-test="extensions-container-none"]'
@@ -9,7 +8,8 @@ class Button
   @@browser
   def initialize(browser)
     @@browser = browser
-    ButtonContextPanel.initDriver @@browser
+    ContextPanel.initDriver @@browser
+    ContextPanel.init_element_selector @@draggable_button
   end
   #methods
   def focus_element
@@ -17,6 +17,6 @@ class Button
     @@browser.element(css: @@draggable_button).fire_event "mousedown"
   end
   def context_panel_action(align="align center")
-    ButtonContextPanel.click_context_item align
+    ContextPanel.click_context_item align
   end
 end

@@ -1,7 +1,7 @@
-require_relative "./context-panel"
+require_relative "../context-panel"
 
 class Line
-  include LineContextPanel
+  include ContextPanel
   #css selectors
   @@draggable_line = '[data-test="draggable-element-line"]' #draggable decorator selector
   #@extensions_line = '[data-test="extensions-container-none"]'
@@ -9,7 +9,8 @@ class Line
   @@browser
   def initialize(browser)
     @@browser = browser
-    LineContextPanel.initDriver @@browser
+    ContextPanel.initDriver @@browser
+    ContextPanel.init_element_selector @@draggable_line    
   end
   #methods
   def focus_element 
@@ -17,6 +18,6 @@ class Line
     @@browser.element(css: @@draggable_line).fire_event "mousedown"
   end
   def context_panel_action(align="align center")
-    LineContextPanel.click_context_item align
+    ContextPanel.click_context_item align
   end
 end

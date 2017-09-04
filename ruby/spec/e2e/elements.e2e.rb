@@ -25,7 +25,7 @@ describe 'Components (app, general elements context-panel)' do
               .click_context_item("align right")
               .click_context_item("align left")
               .click_context_item("align center")
-      
+
           @icon.focus_element
           sleep 1
           @icon.context_panel_action("align center")
@@ -33,18 +33,10 @@ describe 'Components (app, general elements context-panel)' do
               .click_context_item("align right")
               .click_context_item("align left")
               .click_context_item("align center")
-      
+   
           @image.focus_element
           sleep 1
           @image.context_panel_action("align center")
-              .click_context_item("align left")
-              .click_context_item("align right")
-              .click_context_item("align left")
-              .click_context_item("align center")
-          
-          @button.focus_element
-          sleep 1
-          @button.context_panel_action("align center")
               .click_context_item("align left")
               .click_context_item("align right")
               .click_context_item("align left")
@@ -57,7 +49,7 @@ describe 'Components (app, general elements context-panel)' do
               .click_context_item("align right")
               .click_context_item("align left")
               .click_context_item("align center")
-      
+
           @line.focus_element
           sleep 1
           @line.context_panel_action("align center")
@@ -66,8 +58,7 @@ describe 'Components (app, general elements context-panel)' do
               .click_context_item("align left")
               .click_context_item("align center")
         end
-      end
-      
+    end
       # , :focus => true if need run only this suit
     describe 'Apps' do
         before :each do
@@ -125,5 +116,5 @@ describe 'Components (app, general elements context-panel)' do
               .click_context_item('align left')
               .click_context_item('align center')
         end
-      end
+    end
 end

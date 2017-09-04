@@ -4,7 +4,7 @@ require 'rspec/core/rake_task'
 
 RSpec::Core::RakeTask.new(:base_e2e) do |t|
   ENV['LOCATION_RUNNER'] = 'local'
-  t.pattern = Dir.glob('spec/e2e/create_new_website.e2e.rb')
+  t.pattern = Dir.glob('spec/e2e/elements.e2e.rb')
   t.rspec_opts = '--format documentation'
   t.verbose = false
 end
