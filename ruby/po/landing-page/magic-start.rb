@@ -32,7 +32,7 @@ class MagicStart
   end
 
   def disable_enable_block(index)
-    @browser.element(css: @toggle_disable_block).fire_event 'click'
+    @browser.checkboxes(css: @disable_block_status)[index].fire_event 'click'
     sleep 1
     return self
   end
@@ -51,15 +51,31 @@ class MagicStart
     return Login.new @browser
   end
 
-  def get_all_blocks_checkbox_status
-    status = nil
+  def all_blocks_checkbox_disabled?
+    status = nil;
     for i in 0..@browser.checkboxes(css: @disable_block_status).length-1 do
       if !@browser.checkboxes(css: @disable_block_status)[i].checked?
-        status = false
+        status = true
       else
-        return true
+        return false
       end
     end
     return status
+  end
+
+  def all_blocks_checkbox_enable?
+    status = nil;
+    for i in 0..@browser.checkboxes(css: @disable_block_status).length-1 do
+      if @browser.checkboxes(css: @disable_block_status)[i].checked?
+        status = true
+      else
+        return false
+      end
+    end
+    return status
+  end
+
+  def get_checkbox_status (index) 
+    return @browser.checkboxes(css: @disable_block_status)[index].checked?
   end
 end
