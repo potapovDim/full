@@ -20,10 +20,10 @@ class MagicStart
   end
 
   def almost_done_present
-    return @browser.div(text: 'Almost done!').present?
+    return @browser.div(text: 'Almost done!').wait_until_present
   end
   def play_with_design_present 
-    return @browser.div(text: 'It’s time to play with design').present?
+    return @browser.div(text: 'It’s time to play with design').wait_until_present
   end
   def disable_all_blocks
     @browser.element(css: @disable_all_blocks).fire_event 'click'
@@ -50,10 +50,11 @@ class MagicStart
   def get_login
     return Login.new @browser
   end
-  #use  xor for enabled and disable conditionals
+  #INPUT
   #expected - true  - all blocks enable
-  #expected - false - all blocks disabled 
-  #function returs true if all checkboxes has the same status as expexted varaible
+  #expected - false - all blocks disabled
+  #OUTPUT
+  #function returs true if all checkboxes has the same status as a expexted varaible
   def get_all_blocks_checkbox_status(expected)
     status = nil;
     for i in 0..@browser.checkboxes(css: @disable_block_status).length-1 do
@@ -69,4 +70,23 @@ class MagicStart
   def get_checkbox_status (index) 
     return @browser.checkboxes(css: @disable_block_status)[index].checked?
   end
+  def set_site_name
+     @browser.element(css: @site_name).send_keys "test_site"
+  end
+  def get_site_name
+    @browser.element(css: @site_name).value
+  end
+  def final_step
+    @browser.element(css: @proceed_to_final_step). fire_event 'click'  
+  end
+  def skip_magic
+    @browser.element(css: @skip_magic_and_proceed_to_editor). fire_event 'click'
+  end
+
+  #0 - go to concepts
+  #1 - go to concept category
+  def go_to_consepts_page(i)
+    @browser.elements(css: @breadcrumbs_link)[i]. fire_event 'click'
+  end
+
 end
