@@ -1,5 +1,3 @@
-require_relative "../../context-panel/context-panel"
-
 class SocialShare
   #css selectors
   @@draggable_social_share = '[data-test="draggable-element-social-share"]' #draggable decorator selector

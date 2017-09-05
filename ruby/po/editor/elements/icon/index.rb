@@ -1,5 +1,3 @@
-require_relative "../../context-panel/context-panel"
-
 class Icon
   #css selectors
   @@draggable_icon = '[data-test="draggable-element-icon"]' #draggable decorator selector

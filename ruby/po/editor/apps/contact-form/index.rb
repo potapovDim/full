@@ -1,5 +1,3 @@
-require_relative "../../context-panel/context-panel"
-
 class ContactForm
   #css selectors
   @@draggable_contact_form = '[data-test="draggable-element-contact-form"]' #draggable decorator selector

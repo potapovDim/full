@@ -1,5 +1,3 @@
-require_relative "../../context-panel/context-panel"
-
 class Video
   #css selectors
   @@draggable_video = '[data-test="draggable-element-video"]' #draggable decorator selector

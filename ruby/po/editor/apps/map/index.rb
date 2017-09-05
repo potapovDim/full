@@ -1,5 +1,3 @@
-require_relative "../../context-panel/context-panel"
-
 class Map
   #css selectors
   @@draggable_map = '[data-test="draggable-element-map"]' #draggable decorator selector

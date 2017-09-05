@@ -1,5 +1,3 @@
-require_relative "../../context-panel/context-panel"
-
 class Slider
   #css selectors
   @@draggable_slider = '[data-test="draggable-element-slider"]' #draggable decorator selector

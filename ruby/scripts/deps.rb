@@ -21,6 +21,7 @@ require_relative '../po/account/website-settings'
 #editor 
 require_relative '../po/editor/index'
 require_relative "../po/editor/top-nav/index"
+require_relative "../po/editor/context-panel/context-panel"
 #editor parts
 #block
 require_relative '../po/editor/block/index'

@@ -1,5 +1,3 @@
-require_relative "../../context-panel/context-panel"
-
 class ImageGallery
   #css selectors
   @@draggable_image_gallery = '[data-test="draggable-element-gallery"]' #draggable decorator selector

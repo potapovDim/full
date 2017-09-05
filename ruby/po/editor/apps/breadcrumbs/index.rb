@@ -1,5 +1,3 @@
-require_relative "../../context-panel/context-panel"
-
 class Breadcrumbs
   #css selectors
   @@draggable_contact_form = '[data-test="draggable-element-breadcrumbs"]' #draggable decorator selector

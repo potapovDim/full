@@ -1,5 +1,3 @@
-require_relative "../../context-panel/context-panel"
-
 class Menu
   #css selectors
   @@draggable_menu = '[data-test="draggable-element-menu"]' #draggable decorator selector

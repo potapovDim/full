@@ -1,5 +1,3 @@
-require_relative "../../context-panel/context-panel"
-
 class Line
   #css selectors
   @@draggable_line = '[data-test="draggable-element-line"]' #draggable decorator selector

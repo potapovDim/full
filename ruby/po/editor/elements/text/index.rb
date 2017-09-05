@@ -1,5 +1,3 @@
-require_relative "../../context-panel/context-panel"
-
 class Text
   #css selectors
   @@draggable_text = '[data-test="draggable-element-text"]' #draggable decorator selector
