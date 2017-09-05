@@ -1,12 +1,12 @@
-module SignUp
-  @email_input                  = 'input[name="email"]'
-  @name_input                   = 'input[name="name"]'
-  @password_input               = 'input[name="password"]'
-  @signup_button                = 'button[type="submit"]'
-  @accept_terms                 = '#terms'
-  @captcha                      = '.recaptcha-checkbox-checkmark'  
+class SignUp
   def self.initialize(driver)
     @browser = driver
+    @email_input                  = 'input[name="email"]'
+    @name_input                   = 'input[name="name"]'
+    @password_input               = 'input[name="password"]'
+    @signup_button                = 'button[type="submit"]'
+    @accept_terms                 = '#terms'
+    @captcha                      = '.recaptcha-checkbox-checkmark'  
     self
   end
   def self.signup_user(username, password)

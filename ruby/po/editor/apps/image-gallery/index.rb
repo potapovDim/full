@@ -1,21 +1,17 @@
-require_relative "./context-panel"
-
 class ImageGallery
-  include ImageGalleryContextPanel
   #css selectors
-  @@draggable_image_gallery = '[data-test="draggable-element-image-gallery"]' #draggable decorator selector
+  @@draggable_image_gallery = '[data-test="draggable-element-gallery"]' #draggable decorator selector
   #@extensions_line = '[data-test="extensions-container-none"]'
   #browser instance
   @@browser
   def initialize(browser)
     @@browser = browser
-    ImageGalleryContextPanel.initDriver @@browser
   end
   #methods
   def focus_element 
     @@browser.element(css: @@draggable_image_gallery).fire_event "mousedown"
   end
-  def context_panel_action(align="align center")
-    ImageGalleryContextPanel.click_context_item align
+  def get_context_panel
+    return ContextPanel.new(@@browser,@@draggable_image_gallery)
   end
 end
