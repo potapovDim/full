@@ -1,21 +1,18 @@
 require_relative "./elements"
 require_relative "./built-in-apps"
 
-module Add
-  include ElementsPart
-  include BuiltInAppsPart
+class Add
   #browser instance
   @browser
-  def self.initDriver(browser)
-    @browser = browser
-    return self
+  def initialize (browser)
+    @browser = browser  
   end
   #api methods
-  def self.add_elements
-    return ElementsPart.initDriver @browser
+  def add_elements
+    return ElementsPart.new @browser
   end
 
-  def self.add_apps
-    return BuiltInAppsPart.initDriver @browser
+  def add_apps
+    return BuiltInAppsPart.new @browser
   end
 end

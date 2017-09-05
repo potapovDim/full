@@ -1,19 +1,18 @@
-module ElementsPart
-  #left nav add apps catalogue
-  #css selectors
-  @button = '[data-test="thumbnail-button"]'
-  @text = '[data-test="thumbnail-text"]'
-  @line = '[data-test="thumbnail-line"]'
-  @icon = '[data-test="thumbnail-icon"]'
-  @image = '[data-test="thumbnail-image"]'
-  #initialize browser
-  @browser
-  def self.initDriver(browser)
+class ElementsPart
+
+  def initialize (browser)
     @browser = browser
-    return self
+
+    #left nav add apps catalogue
+    #css selectors
+    @button = '[data-test="thumbnail-button"]'
+    @text = '[data-test="thumbnail-text"]'
+    @line = '[data-test="thumbnail-line"]'
+    @icon = '[data-test="thumbnail-icon"]'
+    @image = '[data-test="thumbnail-image"]'
   end
   #apps left nav methods
-  def self.add_element_from_catalogue(x, y, element="text")
+  def add_element_from_catalogue(x, y, element="text")
     case element
       when "text"
         @browser.element(css: @text).hover

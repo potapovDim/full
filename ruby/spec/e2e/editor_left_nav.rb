@@ -24,5 +24,6 @@ describe 'Editor leftnav' do
     @left_nav.open_site_structure()
     page_length_after = site_structure.get_pages_length()
     expect(page_length_before != page_length_after ).to be true
+    expect(page_length_before == page_length_after - 1 ).to be true
   end
 end
