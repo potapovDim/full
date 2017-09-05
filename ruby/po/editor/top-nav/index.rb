@@ -108,12 +108,12 @@ module EditorTopNav
   #go to buying plan for current website (top black link)
   def self.buy_a_growth_plan_for_current_website
     @browser.element(css: @buy_a_growth_plan_top_link).fire_event 'click'
-    return Plan.initDriver(@browser)
+    return Plan.new(@browser)
   end
   #go to buying plan for current website (from opened modal)
   def self.buy_a_growth_plan_for_current_website_modal
     @browser.element(css: @buy_a_growth_plan_modal_button).fire_event 'click'
-    return Plan.initDriver(@browser)
+    return Plan.new(@browser)
   end
   #go to pricing
   def self.go_to_view_pricing
