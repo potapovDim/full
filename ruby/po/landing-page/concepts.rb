@@ -41,6 +41,24 @@ class Concepts
     sleep 0.5
     return self
   end
+  def choose_category(category)
+    case category
+    when "Beauty & Fashion"
+      @browser.elements(css: @concept_category_filter_button)[1].click
+    when "Business"
+      @browser.elements(css: @concept_category_filter_button)[2].click
+    when "Finance & Law"
+      @browser.elements(css: @concept_category_filter_button)[3].click
+    when "Healthcare"
+      @browser.elements(css: @concept_category_filter_button)[4].click
+    when "Photo"
+      @browser.elements(css: @concept_category_filter_button)[5].click
+    when "Restaurants"
+      @browser.elements(css: @concept_category_filter_button)[6].click
+    sleep 0.5
+    end
+    return self
+  end
   #get active concept filter text 
   def get_active_concept_filter_text
     active_tab_text = @browser.element(css: @active_concept_category).text

@@ -34,7 +34,7 @@ class Plan
     @browser.element(css: @concepts).click
     return Concepts.new @browser
   end
-
+  
   def choose_your_payment_method(payment_method)
     case payment_method
       when "annually"
