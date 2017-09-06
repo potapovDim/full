@@ -1,20 +1,18 @@
-module BuiltInAppsPart
-  #left nav add elements catalogue
-  #css selectors
-  @social_icons = '[data-test="thumbnail-social-icons"]'
-  @social_share = '[data-test="thumbnail-social-share"]'
-  @contact_form = '[data-test="thumbnail-contact-form"]'
-  @map = '[data-test="thumbnail-map"]'
-  @video = '[data-test="thumbnail-video"]'
-  @image_gallery = '[data-test="thumbnail-image-gallery"]'
-  #initialize browser
-  @browser
-  def self.initDriver(browser)
+class BuiltInAppsPart
+  def initialize (browser)
+    #left nav add elements catalogue
+    #css selectors
+    @social_icons = '[data-test="thumbnail-social-icons"]'
+    @social_share = '[data-test="thumbnail-social-share"]'
+    @contact_form = '[data-test="thumbnail-contact-form"]'
+    @map = '[data-test="thumbnail-map"]'
+    @video = '[data-test="thumbnail-video"]'
+    @image_gallery = '[data-test="thumbnail-image-gallery"]'
+    #initialize browser
     @browser = browser
-    return self
   end
   #elements left nav methods
-  def self.add_app_from_catalogue(x, y, app="map")
+  def add_app_from_catalogue(x, y, app="map")
     case element
       when "map"
         @browser.element(css: @map).hover

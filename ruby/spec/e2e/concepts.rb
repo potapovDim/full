@@ -12,34 +12,35 @@ describe 'Concepts' do
                                            .concepts_all()
                                            .get_active_concept_filter_text()
     expect(active_filter.include? 'All').to eql(true)
-    # concepts_page, active_filter = concepts_page
-    #                                        .concepts_blogs()
-    #                                        .get_active_concept_filter_text()
-    # expect(active_filter.include? 'Blogs').to eql(true)
+
     active_filter, concepts_page = concepts_page
-                                           .concepts_businesses()
+                                           .choose_category("Beauty & Fashion")
                                            .get_active_concept_filter_text()
-    expect(active_filter.include? 'Businesses').to eql(true)
-    # concepts_page, active_filter = concepts_page
-    #                                        .concepts_musicians()
-    #                                        .get_active_concept_filter_text()
-    # expect(active_filter.include? 'Musicians').to eql(true)
-    # concepts_page, active_filter = concepts_page
-    #                                        .concepts_personal()
-    #                                        .get_active_concept_filter_text()
-    # expect(active_filter.include? 'Personal').to eql(true)
+    expect(active_filter.include? 'Beauty & Fashion').to eql(true)
+
     active_filter, concepts_page = concepts_page
-                                           .concepts_portfolios()
+                                           .choose_category("Business")
                                            .get_active_concept_filter_text()
-    expect(active_filter.include? 'Portfolios').to eql(true)
+    expect(active_filter.include? 'Business').to eql(true)
+
     active_filter, concepts_page = concepts_page
-                                           .concepts_restaurants()
+                                           .choose_category("Finance & Law")
+                                           .get_active_concept_filter_text()
+    expect(active_filter.include? 'Finance & Law').to eql(true)
+
+    active_filter, concepts_page = concepts_page
+                                           .choose_category("Healthcare")
+                                           .get_active_concept_filter_text()
+    expect(active_filter.include? 'Healthcare').to eql(true)
+
+    active_filter, concepts_page = concepts_page
+                                           .choose_category("Photo")
+                                           .get_active_concept_filter_text()
+    expect(active_filter.include? 'Photo').to eql(true)
+    active_filter, concepts_page = concepts_page
+                                           .choose_category("Restaurants")
                                            .get_active_concept_filter_text()
     expect(active_filter.include? 'Restaurants').to eql(true)
-    # concepts_page, active_filter = concepts_page
-    #                                        .concepts_wedding()
-    #                                        .get_active_concept_filter_text()
-    # expect(active_filter.include? 'Wedding').to eql(true)
   end
   it 'filter concepts by key word' do
     concepts_page, result = @landing.header_concepts_page()

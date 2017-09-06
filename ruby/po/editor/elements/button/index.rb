@@ -1,4 +1,3 @@
-require_relative "../../context-panel/context-panel"
 class Button
   #css selectors
   @@draggable_button = '[data-test="draggable-element-button"]' #draggable decorator selector

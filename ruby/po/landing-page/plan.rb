@@ -12,7 +12,7 @@ class Plan
     #plans 
     @annually_plan                        = '#annually' # 15 per/month
     @monthly_plan                         = '#monthly' # 10.5 per/month
-    @biannually_plan                      = '#biannually' # 8.25 per/month
+    @biennially_plan                      = '#biennially' # 8.25 per/month
     #payment way
     @stripe                               = '#stripe' 
     @paypal                               = '#paypal' 
@@ -34,7 +34,7 @@ class Plan
     @browser.element(css: @concepts).click
     return Concepts.new @browser
   end
-
+  
   def choose_your_payment_method(payment_method)
     case payment_method
       when "annually"
@@ -42,7 +42,7 @@ class Plan
       when "monthly"
         @browser.element(css: @monthly_plan).fire_event 'click'
       when "binnualy"
-        @browser.element(css: @biannually_plan).fire_event 'click'
+        @browser.element(css: @biennially_plan).fire_event 'click'
     end
     return self, @browser.element(css: @day_price).text
   end
