@@ -1,14 +1,12 @@
-module LineHeight
-  #css selectors
-  @item = '[data-test="drop-down-item"]'
-  #initialize browser
-  @browser
-  def self.initDriver(browser)
+class LineHeight
+  def initialize (browser)
+    #css selectors
+    @item = '[data-test="drop-down-item"]'
+    #initialize browser
     @browser = browser
-    return self
   end
 
-  def self.choose_line_height(line_height=8)
+  def choose_line_height(line_height=8)
     line_heights = @browser.elements(css: @item)
     case font_type
       when 8

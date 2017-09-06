@@ -1,28 +1,22 @@
 require_relative "../../share/background-settings"
 require_relative "./settings-appearance-tab.rb"
 
-module SettingsBlock
-  # include BackgroundTab
-  include AppearanceTab
-  #css selectors
-  @background_tab = 'Background'
-  @appearance_tab = 'Appearance'
-
-  #browser instance
-  @browser
-  def self.initDriver(browser)
+class SettingsBlock
+  def initialize(browser)
     @browser = browser
-    return self
+    #css selectors
+    @background_tab = 'Background'
+    @appearance_tab = 'Appearance'
   end
   #background tab api
-  def self.choose_tab(tab = "background")
+  def choose_tab(tab = "background")
     case tab
       when "background"
         @browser.element(text: @background_tab).click
         return BackgroundSettings.new @browser
       when "appearance"
         @browser.element(text: @appearance_tab).click
-        return AppearanceTab.initDriver @browser
+        return AppearanceTab.new @browser
     end
   end
 end

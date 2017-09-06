@@ -9,7 +9,6 @@ class CreateNewPage
     @cancel_button                 = 'button[title="Cancel"]'
     @add_page_button               = 'button[title="Add page"]'
     #initialize browser
-  
   end
   #api methods
   def enter_page_name(name)

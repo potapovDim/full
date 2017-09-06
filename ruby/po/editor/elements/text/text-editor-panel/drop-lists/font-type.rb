@@ -1,14 +1,10 @@
-module FontType
-  #css selectors
-  @item = '[data-test="drop-down-item"]'
-  #initialize browser
-  @browser
-  def self.initDriver(browser)
-    @browser = browser
-    return self
-  end
+class FontType
 
-  def self.choose_font_type(font_type="thin")
+  def initialize (browser)
+    @item = '[data-test="drop-down-item"]'
+    @browser = browser    
+  end
+  def hoose_font_type(font_type="thin")
     font_types = @browser.elements(css: @item)
     case font_type
       when "thin"
