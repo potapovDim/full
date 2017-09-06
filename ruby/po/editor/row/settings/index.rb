@@ -1,27 +1,23 @@
 require_relative "../../share/background-settings"
 require_relative "./layout"
 
-module SettingsRow
-  include LayoutTab
-  #css selectors
-  @background_tab = 'Background'
-  @layout_tab = 'Layout'
+class SettingsRow
 
-  #browser instance
-  @browser
-  def self.initDriver(browser)
+  def initialize(browser)
     @browser = browser
-    return self
+    #css selectors
+    @background_tab = 'Background'
+    @layout_tab = 'Layout'
   end
   #background tab api
-  def self.choose_tab(tab = "background")
+  def choose_tab(tab = "background")
     case tab
       when "background"
         @browser.element(text: @background_tab).click
         return BackgroundSettings.new @browser
       when "layout"
         @browser.element(text: @layout_tab).click
-        return LayoutTab.initDriver @browser
+        return LayoutTab.new @browser
     end
   end
 end

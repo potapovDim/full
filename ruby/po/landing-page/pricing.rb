@@ -10,7 +10,7 @@ class Pricing
     @sign_up_button                   = 'a[title="Sign up"]' #0 top right button , 1 green centred button
   end
   #methods
-  def self.success_login_by_growth_plan(growth_plan_position = 0)
+  def success_login_by_growth_plan(growth_plan_position = 0)
     case growth_plan_position
       when 0 #login by green button 
         @browser.elements(css: @buy_growth_plan)[0].fire_event 'click'
@@ -24,13 +24,13 @@ class Pricing
     return Login.new @browser
   end
 
-  def self.success_login_by_sign_up_centred
+  def success_login_by_sign_up_centred
     @browser.elements(css: @sign_up_button)[1].fire_event 'click' # click centred sign up (green button)
     @browser.label(text: 'Login').fire_event "click"
     return Login.new @browser
   end
 
-  def self.back_home
+  def back_home
     @browser.element(css '[title="Home"]').fire_event 'click'
   end
 end

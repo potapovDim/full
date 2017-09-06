@@ -1,5 +1,5 @@
 class SignUp
-  def self.initialize(driver)
+  def initialize(driver)
     @browser = driver
     @email_input                  = 'input[name="email"]'
     @name_input                   = 'input[name="name"]'
@@ -7,9 +7,8 @@ class SignUp
     @signup_button                = 'button[type="submit"]'
     @accept_terms                 = '#terms'
     @captcha                      = '.recaptcha-checkbox-checkmark'  
-    self
   end
-  def self.signup_user(username, password)
+  def signup_user(username, password)
     @browser.element(css: @email_input).send_keys username
     @browser.elements(css: @password_input)[0].send_keys password
     @browser.elements(css: @password_input)[1].send_keys password

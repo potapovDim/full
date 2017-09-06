@@ -1,17 +1,18 @@
 #row layout
-module LayoutTab
-  @block_component           = '[data-test="block-component"]'
-  @layout_item               = '[data-test="row-layout-item"]'
-  @custom_layout_circle      = '.rc-slider'
-  @no_margin                 = '#nomargin-option'
-  #browser instance
-  @browser
-  def self.initDriver(browser)
+class LayoutTab
+
+  def initialize(browser)
     @browser = browser
-    return self
+    @block_component           = '[data-test="block-component"]'
+    @layout_item               = '[data-test="row-layout-item"]'
+    @custom_layout_circle      = '.rc-slider'
+    @no_margin                 = '#nomargin-option'
+    #browser instance
+    @browser
   end
+  
   #api methods
-  def self.change_layout(layout = 1)
+  def change_layout(layout = 1)
     layouts = @browser.elements(css: @layout_item)
     case layout
       when 1
@@ -43,11 +44,11 @@ module LayoutTab
     end
     return self
   end
-  def self.create_cutom_layout(x, y, pointer_index=0)
+  def create_cutom_layout(x, y, pointer_index=0)
     @browser.elements(css: @custom_layout_circle)[pointer_index].drag_and_drop_by x, y
     return self
   end
-  def self.change_nomargin_option
+  def change_nomargin_option
     @browser.element(css: @no_margin).fire_event "change"
     return self
   end

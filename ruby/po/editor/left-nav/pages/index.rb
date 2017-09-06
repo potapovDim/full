@@ -11,10 +11,6 @@ class Pages
     @layout_page_settings             = '[data-test="layout-button-settings"]'
     @submit_remove_page_button        = '[title="Remove page"]'
   end
-  def initDriver(browser)
-
-    return self
-  end
   #api methods
   def open_page_settings
     @browser.elements(css: @page_buttons)[0].click

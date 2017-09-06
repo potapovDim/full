@@ -1,5 +1,4 @@
 class ElementsPart
-
   def initialize (browser)
     @browser = browser
 

@@ -1,17 +1,13 @@
 require_relative "../../../share/color-picker"
 
-module ControlButtons
-  include ColorPicker
-  #css slectors
-  @control_selector = '[data-test="button-control-text-panel"]>button'
-  #initialize browser
-  @browser
-  def self.initDriver(browser)
-    @browser = browser
-    return self
+class ControlButtons
+
+  def initialize (browser)
+    @control_selector = '[data-test="button-control-text-panel"]>button'
+    @browser = browser  
   end
   #api methods
-  def self.change_text_view(control="b")
+  def change_text_view(control="b")
     controls = @browser.elements(css: @control_selector)
     case control
       when "paste" #paste 
@@ -46,10 +42,10 @@ module ControlButtons
         controls[14].click
       when "font color" #change font color 
         controls[15].click 
-        return ColorPicker.initDriver @browser
+        return ColorPicker.new @browser
       when "background color" #change font background color  
         controls[16].click
-        return ColorPicker.initDriver @browser
+        return ColorPicker.new @browser
       when "clear" #clear all text styles
         controls[17].click
       when "undo" #text undo (previous view)

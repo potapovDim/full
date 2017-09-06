@@ -2,20 +2,18 @@ require_relative "color-picker"
 require_relative "media-gallery"
 
 class BackgroundSettings
-  #css selectors initial
-  @draggable_header             = '[data-test="win-setting-header"]'
-  @settings_body                = '[data-test="window-settings-content"]'
-  #current background
-  @current_background_image     = '[data-test="settings-upload-photo"]'
-  @repeat_background_checkbox   = 'label[for="background-repeat"]'
-  #open color picker 
-  @color_picker                 = '[data-test="color-picker-input"]'
-  #open media 
-  @meddia_gallery_button        = '[data-test="settings-upload-photo"] button'
-  #initialize driver
-  @browser
   def initialize(browser)
     @browser = browser
+    #css selectors initial
+    @draggable_header             = '[data-test="win-setting-header"]'
+    @settings_body                = '[data-test="window-settings-content"]'
+    #current background
+    @current_background_image     = '[data-test="settings-upload-photo"]'
+    @repeat_background_checkbox   = 'label[for="background-repeat"]'
+    #open color picker 
+    @color_picker                 = '[data-test="color-picker-input"]'
+    #open media 
+    @meddia_gallery_button        = '[data-test="settings-upload-photo"] button'
   end
   #methods
   #shared methods
@@ -42,7 +40,7 @@ class BackgroundSettings
   #open color picker 
   def open_color_picker (number = 0)
     @browser.elements(css: @color_picker)[number].click
-    return ColorPicker.initDriver @browser
+    return ColorPicker.new @browser
   end
   #image part methods
   #change background size : contain - cover - original
