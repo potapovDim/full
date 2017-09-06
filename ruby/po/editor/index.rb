@@ -26,6 +26,6 @@ class Editor
     @@EditorTopNav.publish_button_click()
   end
   def get_top_nav_instance
-    return EditorTopNav
+    return @@EditorTopNav
   end
 end

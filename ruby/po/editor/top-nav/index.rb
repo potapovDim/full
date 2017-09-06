@@ -40,26 +40,33 @@ class EditorTopNav
     return self
   end
   #open website button should be present if website was published
-  def open_new_tab
-    @browser.element(css: @new_tab_modal_open).fire_event 'click'
+  def open_new_tab_window
+    ## new tab button if we have only 1 opened page
+    @browser.elements(css: ".innerText_2tBsx")[1].fire_event 'click'
     return NewTab.new(@browser)
   end
-  def open_website_button(should_present)
-     exists_button = nil
-     case should_present
-      when true
-        exists_button = @browser.span(css: @open_publised_website).present?
-      when false
-        exists_button = @browser.span(css: @open_publised_website).present?
-    end
-    return exists_button, self
+  #function returns true if expected result == real result
+  def open_website_button_presented?()
+      exists_button = @browser.span(css: @open_publised_website).present?
+    return exists_button, self 
   end
   #click publish button for open modal
   def publish_button_click
     if @browser.button(css: '.button_1BgCo.button_blue_2aXIf').text == 'Published'
+      #NEED REFACTOR BLOCK
       #if site already published we change block`s` padding
-      Block.new(@browser).resize_padding()
-                         .resize_padding_bottom_block(10, -10, 1)
+      # Block.new(@browser).resize_padding()
+      #                    .resize_padding_bottom_block(10, -10, 1)
+      
+      # KOSTUL SHOULD BE REWRITED AFTER BLOCK REFACTOR
+      image = Image.new(@browser)
+      image.focus_element
+      sleep 1
+      image.get_context_panel
+                          .click_context_item("align left")
+                          .click_context_item("align right")
+      ###########################
+
     elsif @browser.button(css: '.button_1BgCo.button_blue_2aXIf').text == 'Publishing'
        @browser.span(text: 'Publishing').fire_event 'click'
        return self 
@@ -70,25 +77,25 @@ class EditorTopNav
   #go to preview mode
   def preview_mode_submit
     @browser.element(css: @preview_or_edit_website).fire_event 'click'
-    @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/preview/')}
+    @browser.wait_until(150) {@browser.url.include?('/editor/preview/')}
     return self
   end
   #go to editor mode
   def editor_mode_submit
     @browser.element(css: @preview_or_edit_website).fire_event 'click'
-    @browser.wait_until(timeout: 150) { |browser| browser.url.include?('/editor/preview/') == false}
+    @browser.wait_until(150) { @browser.url.include?('/editor/preview/') == false}
     return self
   end
   #go to mobile mode
   def mobile_mode_submit
     @browser.element(css: @mobile_view_mode).fire_event 'click'
-    @browser.wait_until(timeout: 150) { |browser| browser.url.include? 'mobile/'}
+    @browser.wait_until(150) { @browser.url.include? 'mobile/'}
     return self
   end
   #go to desktop mode
   def desktop_mode_submit
     @browser.element(css: @desktop_view_mode).fire_event 'click'
-    @browser.wait_until(timeout: 150) { |browser| browser.url.include?('mobile/') == false}
+    @browser.wait_until(150) { @browser.url.include?('mobile/') == false}
     return self
   end
   #ready to lanunch! success publish your website

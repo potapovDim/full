@@ -32,23 +32,23 @@ describe 'Editor topnav' do
     expect(publish_result).to eql(true)
   end
   it 'open website button exists' do
-    button, top_nav = @editor.get_top_nav_instance()
-                             .open_website_button(true)
-    expect(button).to eql(true)
+    is_button_presented, top_nav = @editor.get_top_nav_instance()
+                             .open_website_button_presented?
+    expect(is_button_presented).to eql(true)
   end
   it 'new tab tests' do
-    new_tab = @editor.get_top_nav_instance().open_new_tab()
-    before_move, after_move, new_tab = new_tab.change_window_position(30 ,40)
-    expect(before_move).to_not eql after_move
-    new_tab.open_page(1)
+    new_tab_window = @editor.get_top_nav_instance().open_new_tab_window()
+    expect(new_tab_window.get_pages_count).to eql (2)
+    expect(new_tab_window.get_page_content(0).include?("Home")).to eql(true)
+    expect(new_tab_window.get_page_content(1).include?("test")).to eql(true)
+    #before_move, after_move, new_tab = new_tab.change_window_position(30 ,40)
+    # expect(before_move).to_not eql after_move
+    # new_tab.open_page(1)
   end
-  # it "present open website button not exists" do
-  #   @landing.login()
-  #           .success_login_user(@username, @password) 
-  #           .go_to_my_websites()
-  #           .go_to_editor_from_website(1)
-  #   top_nav, button = @editor.get_top_nav_instance()
-  #                            .open_website_button(false)
-  #   expect(button).to eql(false)
-  # end
+
+    # it "open website button exist" do
+    #   is_button_presented, top_nav = @editor.get_top_nav_instance()
+    #                            .open_website_button_presented?(true)
+    #   expect(is_button_presented).to eql(true)
+    # end
 end

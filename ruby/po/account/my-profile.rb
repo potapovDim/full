@@ -32,42 +32,42 @@ class MyProfile
   end
   #positive methods
   def change_first_name(name)
-    @browser.element(css: @first_name).wait_until_present.to_subtype.clear
+    @browser.element(css: @first_name).when_present.to_subtype.clear
     @browser.element(css: @first_name).send_keys name
     return self
   end
   def change_last_name(last_name)
-    @browser.element(css: @last_name).wait_until_present.to_subtype.clear
+    @browser.element(css: @last_name).when_present.to_subtype.clear
     @browser.element(css: @last_name).send_keys last_name
     return self
   end
   def change_phone_number(phone_number)
-    @browser.element(css: @phone_number).wait_until_present.to_subtype.clear
+    @browser.element(css: @phone_number).when_present.to_subtype.clear
     @browser.element(css: @phone_number).send_keys phone_number
     return self
   end
   def change_street_address1(address)
-    @browser.element(css: @street_address1).wait_until_present.to_subtype.clear
+    @browser.element(css: @street_address1).when_present.to_subtype.clear
     @browser.element(css: @street_address1).send_keys address
     return self
   end
   def change_street_address2(address)
-    @browser.element(css: @street_address2).wait_until_present.to_subtype.clear
+    @browser.element(css: @street_address2).when_present.to_subtype.clear
     @browser.element(css: @street_address2).send_keys address
     return self
   end
   def change_city_name(city_name)
-    @browser.element(css: @city_name).wait_until_present.to_subtype.clear
+    @browser.element(css: @city_name).when_present.to_subtype.clear
     @browser.element(css: @city_name).send_keys city_name
     return self
   end
   def change_region(region)
-    @browser.element(css: @state_region).wait_until_present.to_subtype.clear
+    @browser.element(css: @state_region).when_present.to_subtype.clear
     @browser.element(css: @state_region).send_keys region
     return self
   end
   def change_postal_code(code)
-    @browser.element(css: @postal_code).wait_until_present.to_subtype.clear
+    @browser.element(css: @postal_code).when_present.to_subtype.clear
     @browser.element(css: @postal_code).send_keys code
     return self
   end
