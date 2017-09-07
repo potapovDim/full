@@ -1,4 +1,3 @@
-require_relative "./settings/index"
 #context buttons row
 class ContextPanelRow
   def initialize(browser)

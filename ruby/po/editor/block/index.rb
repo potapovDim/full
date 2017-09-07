@@ -1,6 +1,3 @@
-require_relative "./paddings"
-require_relative "./context-panel"
-
 class Block
   def initialize(browser, block_target = 0)
     @@block_background        = '[data-test="block-component"]>div>div:nth-child(1)>div>div'

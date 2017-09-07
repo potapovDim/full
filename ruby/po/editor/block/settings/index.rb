@@ -1,6 +1,3 @@
-require_relative "../../share/background-settings"
-require_relative "./settings-appearance-tab.rb"
-
 class SettingsBlock
   def initialize(browser)
     @browser = browser

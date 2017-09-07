@@ -1,6 +1,3 @@
-require_relative "color-picker"
-require_relative "media-gallery"
-
 class BackgroundSettings
   def initialize(browser)
     @browser = browser

@@ -21,6 +21,7 @@ require_relative '../po/account/website-settings'
 #editor 
 require_relative '../po/editor/index'
 require_relative "../po/editor/top-nav/index"
+require_relative "../po/editor/top-nav/new-tab"
 require_relative "../po/editor/context-panel/context-panel"
 #editor parts
 #block
@@ -31,7 +32,9 @@ require_relative '../po/editor/elements/index'
 require_relative '../po/editor/apps/index'
 #left nav
 require_relative '../po/editor/left-nav/index'
-#row
+require_relative "../po/editor/left-nav/add/index"
+require_relative "../po/editor/left-nav/pages/index"
+require_relative "../po/editor/left-nav/pages/create-new-page"
 require_relative '../po/editor/row/index'
 #helpers
 require_relative '../helpers/index'
