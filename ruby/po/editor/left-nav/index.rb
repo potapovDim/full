@@ -1,8 +1,4 @@
-require_relative "./add/index"
-require_relative "./pages/index"
-
 class LeftNav
-
   #initialize drivers
   @@browser
   def initialize(browser)

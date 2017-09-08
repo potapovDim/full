@@ -1,4 +1,3 @@
-require_relative "../../../share/color-picker"
 
 class ControlButtons
 

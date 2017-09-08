@@ -1,5 +1,3 @@
-require_relative "./create-new-page"
-
 class Pages
   def initialize(browser)
     #initialize browser

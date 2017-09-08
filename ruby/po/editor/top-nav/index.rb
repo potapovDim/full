@@ -1,5 +1,3 @@
-require_relative './new-tab'
-
 class EditorTopNav
   #selectors 
   def initialize (browser)

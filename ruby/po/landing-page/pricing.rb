@@ -1,5 +1,3 @@
-require_relative './login'
-
 class Pricing
   #pricing selectors
   #initialize webdriver 

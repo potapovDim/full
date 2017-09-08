@@ -1,6 +1,3 @@
-require_relative "./elements"
-require_relative "./built-in-apps"
-
 class Add
   #browser instance
   @browser

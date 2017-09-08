@@ -1,6 +1,3 @@
-require_relative "../../share/background-settings"
-require_relative "./layout"
-
 class SettingsRow
 
   def initialize(browser)

@@ -1,4 +1,3 @@
-require_relative "./settings/index"
 #context buttons block
 class ContextPanelBlock
   def initialize(browser)
