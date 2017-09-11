@@ -18,6 +18,7 @@ require_relative '../po/account/index'
 require_relative '../po/account/my-profile'
 require_relative '../po/account/my-websites'
 require_relative '../po/account/website-settings'
+require_relative '../po/account/alert-window'
 #editor 
 require_relative '../po/editor/index'
 require_relative "../po/editor/top-nav/index"

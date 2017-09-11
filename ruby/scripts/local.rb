@@ -27,6 +27,15 @@ RSpec.configure do |config|
     @username_remove        = CONFIG['username_remove']
     @password_remove        = CONFIG['password_expired']
 
+    @user_with_10_site      = CONFIG['user_with_10_site']
+    @password_with_10_site  = CONFIG['password_with_10_site']
+
+    @fb_email               = CONFIG['fb_email']
+    @fb_pass                = CONFIG['fb_pass']
+    
+    @google_email           = CONFIG['google_email']
+    @google_pass            = CONFIG['google_pass']
+
     if @base_url == 'http://weblium.dev/'
       print '!!!!!!!!!!!!!!!!!!!!!!! elasticsearch asser'
       assert_elasticsearch_run

@@ -12,8 +12,12 @@ class MagicStart
     @site_name                        = '#site_name'
     @proceed_to_final_step            = '.btn.btn_md.btn_blue.btn_full.constructor__btn'
     @info                             = '.plan.plan_offset'
+    @loading_title                    = '.loading__title'
   end
 
+  def loading_title_present
+    return @browser.element(css: @loading_title).wait_until_present
+  end
   def back_from_step
     @browser.a(text: 'Back').fire_event 'click'
     return self
@@ -70,8 +74,8 @@ class MagicStart
   def get_checkbox_status (index) 
     return @browser.checkboxes(css: @disable_block_status)[index].checked?
   end
-  def set_site_name
-     @browser.element(css: @site_name).send_keys "test_site"
+  def set_site_name (name = "test_site")
+     @browser.element(css: @site_name).send_keys(name)
   end
   def get_site_name
     @browser.element(css: @site_name).value
