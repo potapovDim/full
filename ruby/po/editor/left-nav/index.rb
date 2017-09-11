@@ -19,4 +19,7 @@ class LeftNav
     @@browser.element(css: @@pages).click
     return Pages.new @@browser
   end
+  def present
+    return @@browser.element(css: @@add_catalogue).wait_until_present
+  end
 end

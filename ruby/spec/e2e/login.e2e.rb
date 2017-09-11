@@ -1,6 +1,6 @@
 require_relative '../../scripts/index.rb'
 
-# , :focus => true if need run only this suit
+#, :focus => true if need run only this suit
 describe 'Login user' do
   describe 'Fail login' do
     before :each do
@@ -67,6 +67,18 @@ describe 'Login user' do
     it 'sucess login user' do
       @landing.login().success_login_user(@username, @password)
       expect(@browser.url.include?('/myaccount/websites')).to eql(true)
+    end
+    it 'fb login' do
+    login = @landing.login().go_to_fb_login()
+    expect(@browser.url.include?("facebook")).to eql(true)
+    login.facebook_login(@fb_email, @fb_pass)
+    expect(@browser.url.include?("/myaccount/websites")).to eql(true)
+    end
+    it 'google login' do
+      login = @landing.login().go_to_google_login()
+      expect(@browser.url.include?("google")).to eql(true)
+      login.google_login(@google_email, @google_pass)
+      expect(@browser.url.include?("/myaccount/websites")).to eql(true)
     end
   end
 end

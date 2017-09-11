@@ -6,6 +6,18 @@ class Login
     @login_button                 = 'button[title="Login"]'
     @alarm_ico_login_form         = '.icon.icon_alarm.icon_absolute_right'
     @error_input_message          = '.field__message'
+    @go_to_facebook               = '.btn_social_facebook'
+    @go_to_google                 = '.btn_social_google'
+    #fb-page
+    @fb_login_input               = '#email'
+    @fb_pass_input                = '#pass'
+    @fb_login_button              = '#loginbutton'
+    #google page
+    @google_login_input           = '#identifierId'
+    @google_pass_input            = 'input[type="password"]'
+    @next                         = '#identifierNext' 
+    @passNext                     = '#passwordNext'
+
   end
    #party enter and warnings data
   def get_input_error(field)
@@ -61,5 +73,31 @@ class Login
     set_pass_input pass
     submit_login
     return @browser.element(text: "Invalid email or password"), self
+  end
+
+  def login_fields_presented?
+    return @browser.element(css: @email_input).present? && 
+           @browser.element(css: @password_input).present?
+  end
+  def go_to_fb_login 
+    @browser.element(css: @go_to_facebook ).click
+    return self
+  end
+  def facebook_login(username, password)
+    @browser.element(css: @fb_login_input).send_keys username
+    @browser.element(css: @fb_pass_input).send_keys password
+    @browser.element(css: @fb_login_button).click
+  end
+
+  def go_to_google_login 
+    @browser.element(css: @go_to_google ).click
+    return self
+  end
+  def google_login(username, password)
+    @browser.element(css: @google_login_input).send_keys username
+    @browser.element(css: @next).click   
+    @browser.element(css: @google_pass_input).send_keys password
+    @browser.element(css: @passNext ).click  
+    sleep 0.5
   end
 end
