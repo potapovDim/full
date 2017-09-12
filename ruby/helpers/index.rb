@@ -29,7 +29,9 @@ def get_user_token(username, password)
                                            verify_ssl: false))
   return login_data
 end
-
+def parse_token (token)
+  return JSON.parse(token)
+end
 def get_user_website_list(token)
     user_website_list = JSON.parse(RestClient::Request.execute(url: "#{@base_url}/api/v0.1.0/websites",
                                            method: :get,
@@ -60,15 +62,23 @@ def remove_test_page_from_websites(data_token)
   end
 end
 
-
-def clear_useless_user_websites(username, password, all, need_nine)
-  websites_token = get_user_website_list(get_user_token(username, password)['token'])
-  websites = websites_token['websites']
+# 3 - token, all, need_nine
+# 4 - username, pass, all, need_nine
+def clear_useless_user_websites(*args)
+  if args.length == 3  
+    websites_token = get_user_website_list(parse_token(args[0])['token'])
+  else
+    websites_token = get_user_website_list(get_user_token(args[0], args[1])['token'])
+  end
+    websites = websites_token['websites']
   token = websites_token['user_token']
-  if need_nine && websites.length == 9
+  #args[args.length - 1] - need_nine
+  if websites.length == 0 
+    return 
+  elsif args[args.length - 1] && websites.length == 9 
     return 
   end
-  if all
+  if args[args.length - 2] #all
     websites.each do |website|
     remove_body = JSON.parse(RestClient::Request.execute(url: "#{@base_url}/api/v0.1.0/website/#{website['_id']}",
                                            method: :delete,

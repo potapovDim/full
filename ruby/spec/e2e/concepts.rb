@@ -6,7 +6,7 @@ describe 'Concepts' do
     @browser.window.resize_to 1600, 1200
     @browser.goto @base_url
   end
-
+  #test case coverage <51 52 53>
   it 'filter concepts by category' do
     active_filter, concepts_page = @landing.header_concepts_page()
                                            .concepts_all()

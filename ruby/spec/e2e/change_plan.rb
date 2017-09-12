@@ -11,6 +11,7 @@ describe 'Growth plan' do
     expect(@browser.url.include?('/plan')).to eql(false)
     expect(@browser.url.include?('/login')).to eql(true)
   end
+  #test case coverage <55 56>
   it 'change growth plan (top panel button)' do
     plan_page_driver, price_value = @landing.login()
                                             .success_login_user(@username_expired, @password_expired)

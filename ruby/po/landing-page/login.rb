@@ -8,6 +8,7 @@ class Login
     @error_input_message          = '.field__message'
     @go_to_facebook               = '.btn_social_facebook'
     @go_to_google                 = '.btn_social_google'
+    @go_to_forgot_pass            = 'a[href="/reset_password"]'
     #fb-page
     @fb_login_input               = '#email'
     @fb_pass_input                = '#pass'
@@ -99,5 +100,13 @@ class Login
     @browser.element(css: @google_pass_input).send_keys password
     @browser.element(css: @passNext ).click  
     sleep 0.5
+  end
+  def go_to_signup
+    @browser.element(text: 'Create account').click
+    return SignUp.new(@browser)
+  end
+  def go_to_forgot_pass
+    @browser.element(css: @go_to_forgot_pass).click
+    return PassRecovery.new(@browser)
   end
 end

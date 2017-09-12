@@ -16,10 +16,23 @@ class LandingPage
     @header_concepts          = 'a[title="Concepts"]'
     @header_pricing           = 'a[title="Pricing"]'
     @weblium_left_icon        = 'a[title="Home"]'
+    @logo                     = '.logo'
+    
+    #on terms page
+    @privacy_policy           = 'a[title="Privacy Policy"]'
+    #privacy page
+    @terms                    = 'a[title="Terms of Use"]'
   end
 
+  def go_to_privacy_policy_form_terms
+    @browser.element(css: @privacy_policy).fire_event 'click'
+  end
+  def go_to_terms_from_privacy
+    @browser.element(css: @terms).fire_event 'click'
+  end
   def go_to_landing
     @browser.element(css: @weblium_left_icon).fire_event 'click'
+    return self
   end
 
   def helper_contextpanel(index)
@@ -63,5 +76,8 @@ class LandingPage
   def go_to_footer
     @browser.execute_script("window.scrollBy(0, 150000)")
     return Footer.new @browser
+  end
+  def go_to_home_by_logo
+    @browser.element(css: @logo).click
   end
 end
