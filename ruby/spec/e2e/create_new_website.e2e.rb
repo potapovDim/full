@@ -21,6 +21,7 @@ describe 'Create new website from concept' do
     start_magic.final_step()
     expect(Login.new(@browser).login_fields_presented?).to eql(true)
   end
+  #test case coverage <53>
   it 'create site as unauthorized user' do
     start_magic = @landing.header_concepts_page().start_magic(1)
     start_magic.skip_magic
@@ -42,6 +43,15 @@ describe 'Create new website from concept' do
     allert_window = AlertWindow.new(@browser)
     allert_window.present
     allert_window.close
+  end
+  it 'clear fb accout' do
+    login = @landing.login().go_to_fb_login()
+    expect(@browser.url.include?("facebook")).to eql(true)
+    login.facebook_login(@fb_email, @fb_pass)
+    expect(@browser.url.include?("/myaccount/websites")).to eql(true)
+    sleep 2
+    token = @browser.execute_script('return localStorage.auth')
+    result = clear_useless_user_websites(token,true,false)
   end
   it 'fb login at magic start' do
     start_magic = @landing.header_concepts_page().start_magic(1)

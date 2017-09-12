@@ -9,6 +9,7 @@ class Footer
     @concepts                 = 'a[href="/concepts"]'
     #
     @about                    = 'a[href="/about"]'
+    @template_logo            = 'a[href="https://www.templatemonster.com"]'
     #
     @blog                     = 'a[href="http://blog.weblium.com/"]'
     @facebook                 = 'a[href="https://www.facebook.com/weblium/"]'
@@ -60,5 +61,7 @@ class Footer
   def go_to_terms_of_use
     @browser.element(css: @terms_of_use).click 
   end
-
+  def go_to_TM 
+    @browser.element(css: @template_logo).click 
+  end
 end

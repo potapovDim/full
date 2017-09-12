@@ -6,6 +6,8 @@ describe 'Demo' do
   before :each do
     @browser.window.resize_to 1600, 1200
   end
+  #test case coverage <54>
+
   it 'go to sign up' do
     # concepts_ids = get_published_concepts()
     # concepts_ids.each do |id|

@@ -13,6 +13,8 @@ require_relative '../po/landing-page/plan'
 require_relative '../po/landing-page/footer'
 require_relative '../po/landing-page/concepts'
 require_relative '../po/landing-page/magic-start'
+require_relative '../po/landing-page/pass-recovery'
+
 #account 
 require_relative '../po/account/index'
 require_relative '../po/account/my-profile'
