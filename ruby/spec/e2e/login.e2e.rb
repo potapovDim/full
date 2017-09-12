@@ -1,6 +1,6 @@
 require_relative '../../scripts/index.rb'
 
-# , :focus => true if need run only this suit
+#, :focus => true if need run only this suit
 describe 'Login user' do
   describe 'Fail login' do
     before :each do
