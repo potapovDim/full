@@ -109,3 +109,23 @@ def get_published_concepts
   end
   return concepts_ids
 end
+def add_new_website(token)
+  first_id = get_published_concepts[0]
+  add_new_website =JSON.parse(RestClient::Request.execute(url:"#{@base_url}/api/website",
+                                                        method: :post,
+                                                        headers: {content_type: 'application/json', authorization: "Bearer #{token}"},
+                                                        payload: {'concept' => first_id, 'name' =>  "xxx" }.to_json,
+                                                        verify_ssl: false)) 
+                                              
+end
+def add_user_website (username, password)
+  add_new_website(get_user_token(username,password)['token'])
+end
+def get_website_number(username, password)
+    token = get_user_token(username,password)['token']
+    user_website_list = JSON.parse(RestClient::Request.execute(url: "#{@base_url}/api/v0.1.0/websites",
+                                           method: :get,
+                                           headers: {content_type: 'application/json', authorization: "Bearer #{token}"},
+                                           verify_ssl: false))
+  return user_website_list['total']
+end

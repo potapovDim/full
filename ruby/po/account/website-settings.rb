@@ -7,7 +7,7 @@ class WebsiteSettings
     @buy_growth_plan                  = 'button.status__btn'
     @edit_website                     = '[data-test="Edit this website"]'
     @site_name_input                  = '#site'
-    @remove_website                   = '[data-test="Remove website"]'
+    @remove_website                   = '[data-test="Delete website"]'
     @change_site_neme_save_button     = '[data-test="Save changes"]'
     ##delete website modal
     @confirm_remove_input             = '#delete'
@@ -23,7 +23,9 @@ class WebsiteSettings
     return self
   end
   def clear_name
-    @browser.element(css: @site_name_input).to_subtype.clear
+    for i in 0..@browser.element(css: @site_name_input).value.length - 1
+      @browser.element(css: @site_name_input).send_keys :backspace
+    end
     return self    
   end
   def site_name_save
@@ -38,5 +40,14 @@ class WebsiteSettings
   end
   def get_error
     return @browser.element(css: @error_text).when_present.text
+  end
+  def open_remove_modal
+     @browser.element(css: @remove_website).click  
+     return self 
+  end
+  def delete_website(confirming_phrase = "DELETE")
+    @browser.element(css: @confirm_remove_input).send_keys(confirming_phrase)
+    @browser.element(css: @confirm_remove_button).click
+    @browser.element(css: @close_devete_website_modal).click
   end
 end

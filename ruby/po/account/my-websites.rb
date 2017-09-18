@@ -40,6 +40,9 @@ class MyWebsites
       @browser.elements(css: @website_edit_button)[website].fire_event 'click'
     end
   end
+  def get_website_count
+    return @browser.elements(css: @website_edit_button).length 
+  end
 
   def open_website_settings(website)
     @browser.elements(css: @website_settings_button)[website].fire_event 'hover'
