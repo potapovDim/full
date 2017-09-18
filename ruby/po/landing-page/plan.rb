@@ -34,6 +34,9 @@ class Plan
     @browser.element(css: @concepts).click
     return Concepts.new @browser
   end
+  def website_option_presented?
+    return @browser.element(css: @your_website_name).present?
+  end
   
   def choose_your_payment_method(payment_method)
     case payment_method

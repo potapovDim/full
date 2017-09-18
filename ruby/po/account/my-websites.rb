@@ -44,5 +44,6 @@ class MyWebsites
   def open_website_settings(website)
     @browser.elements(css: @website_settings_button)[website].fire_event 'hover'
     @browser.elements(css: @website_settings_button)[website].fire_event 'click'
+    return WebsiteSettings.new(@browser)
   end
 end

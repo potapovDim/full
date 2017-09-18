@@ -1,6 +1,8 @@
 require_relative '../../scripts/index.rb'
 
 # , :focus => true if need run only this suit
+#test case coverage <55 56 60 61 62>
+
 describe 'Growth plan' do
   before :each do
     @browser.window.resize_to 1600, 1200
@@ -11,12 +13,12 @@ describe 'Growth plan' do
     expect(@browser.url.include?('/plan')).to eql(false)
     expect(@browser.url.include?('/login')).to eql(true)
   end
-  #test case coverage <55 56>
   it 'change growth plan (top panel button)' do
     plan_page_driver, price_value = @landing.login()
                                             .success_login_user(@username_expired, @password_expired)
                                             .buy_growth_plan()
                                             .choose_your_payment_method("annually")
+    expect(plan_page_driver.website_option_presented?).to eql(true)
     expect(price_value).to eql('$126')
     plan_page_after_change, price_value = plan_page_driver
                                             .choose_your_payment_method("monthly")
@@ -57,8 +59,10 @@ describe 'Growth plan' do
             .go_to_my_websites()
             .go_to_editor_from_website(2)
     expect(@browser.url.include?('/editor/website/')).to eql(true)
-    @editor.buy_growth_plan(true)
+    plan_page_driver = @editor.buy_growth_plan(true)
     expect(@browser.url.include?('/plan?websiteId')).to eql(true)
+    expect(plan_page_driver.website_option_presented?).to eql(false)
+
   end
   it 'change grwoth plan from editor (modal)' do
     @landing.login()
