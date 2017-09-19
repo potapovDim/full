@@ -17,21 +17,15 @@ class ContextPanelRow
     end
   end
   def row_remove(index)
-    @browser.elements(css: @row_component)[index].hover
-    @browser.wait_until {helper_contextpanel(index)}
     @browser.elements(css: @row_remove_button)[index].click
     return self
   end
   def row_duplicate(index)
-    @browser.elements(css: @row_component)[index].hover
-    @browser.wait_until {helper_contextpanel(index)}
     @browser.elements(css: @row_duplicate_button)[index].click
     return self
   end
   def open_row_settings (index)
-    @browser.elements(css: @row_component)[index].hover
-    @browser.wait_until {helper_contextpanel(index)}
     @browser.elements(css: @row_settings_button)[index].click
-    return SettingsRow.new @browser
+    #return SettingsRow.new @browser
   end
 end
