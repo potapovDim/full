@@ -20,6 +20,7 @@ class MyProfile
     @old_password                         = 'input[name="old-pswd"]'
     @new_password                         = 'input[name="new-pswd"]'
     @new_password_confirm                 = 'input[name="new-pswd-confirm"]'
+    @confirm_change                       = '[data-test="Change password"]'
     #email notification
     @monthly_news                         = 'input#keepSigned2'
     @important_updates                    = 'input#keepSigned3' 
@@ -103,11 +104,11 @@ class MyProfile
     @browser.button(text: 'Change password').click
     return self
   end
-  def change_password(old_pass, new_pass, positive = true)
+  def change_password_with_button_assert(old_pass, new_pass, confirm_pass, positive)
     @browser.element(css: @old_password).send_keys old_pass 
     @browser.element(css: @new_password).send_keys new_pass
-    @browser.element(css: @new_password_confirm).send_keys new_pass
-    @browser.element(css: '[data-test="Change password"]').click
+    @browser.element(css: @new_password_confirm).send_keys confirm_pass
+    @browser.element(css: @confirm_change).click
     condition = true
     if positive
       while condition do
@@ -123,6 +124,12 @@ class MyProfile
         end
       end
     return 'Failed to change password', self
+  end
+  def change_password(old_pass, new_pass, confirm_pass)
+    @browser.element(css: @old_password).send_keys old_pass 
+    @browser.element(css: @new_password).send_keys new_pass
+    @browser.element(css: @new_password_confirm).send_keys confirm_pass
+    @browser.element(css: @confirm_change).click
   end
   def change_notification(notification)
     case notification
@@ -160,9 +167,20 @@ class MyProfile
     end
     return data, self
   end
+  def clear_password_fields
+    max = [@browser.element(css: @old_password).value.length,
+           @browser.element(css: @new_password).value.length,
+           @browser.element(css: @new_password_confirm).value.length].max
+    for i in 0..max
+      @browser.element(css: @old_password).send_keys :backspace
+      @browser.element(css: @new_password).send_keys :backspace
+      @browser.element(css: @new_password_confirm).send_keys :backspace
+    end
+    return self
+  end
 
-  def get_exception_data_from_field
-   return @browser.element(css: @exceptions_message_data).text
+  def get_exception_data_from_field(index)
+   return @browser.elements(css: @exceptions_message_data)[index].text
   end
 end
 
