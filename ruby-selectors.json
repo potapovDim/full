@@ -1,303 +1,293 @@
 {
     "LandingPage": {
-        "user_login               ":"a[title='Log in']",
-        "user_signup              ":"a[title='Sign up']",
-        "get_started              ":"a[title='Get started']",
-        "signup_and_freetrial     ":"a[title='Sign up and start trial now']",
-        "footer_list_item         ":".footer-list__item",
-        "header_about_us          ":"a[title='About us']",
-        "header_concepts          ":"a[title='Concepts']",
-        "header_pricing           ":"a[title='Pricing']",
-        "weblium_left_icon        ":"a[title='Home']",
-        "logo                     ":".logo",
-        "privacy_policy           ":"a[title='Privacy Policy']",
-        "terms                    ":"a[title='Terms of Use']",
-
+        "user_login": "a[title='Login']",
+        "user_signup": "a[title='Signup']",
+        "get_started": "a[title='Getstarted']",
+        "signup_and_freetrial": "a[title='Signupandstarttrialnow']",
+        "footer_list_item": ".footer-list__item",
+        "header_about_us": "a[title='Aboutus']",
+        "header_concepts": "a[title='Concepts']",
+        "header_pricing": "a[title='Pricing']",
+        "weblium_left_icon": "a[title='Home']",
+        "logo": ".logo",
+        "privacy_policy": "a[title='PrivacyPolicy']",
+        "terms": "a[title='TermsofUse']",
         "Login": {
-            "email_input                  ": "input#id5",
-            "password_input               ": "input#id9",
-            "login_button                 ": "button[title='Login']",
-            "alarm_ico_login_form         ": ".icon.icon_alarm.icon_absolute_right",
-            "error_input_message          ": ".field__message",
-            "go_to_facebook               ": ".btn_social_facebook",
-            "go_to_google                 ": ".btn_social_google",
-            "go_to_forgot_pass            ": "a[href='/reset_password']",
-            "FacebookLoginPage":{
-                "fb_login_input               ":"#email",
-                "fb_pass_input                ":"#pass",
-                "fb_login_button              ":"#loginbutton"
+            "email_input": "input#id5",
+            "password_input": "input#id9",
+            "login_button": "button[title='Login']",
+            "alarm_ico_login_form": ".icon.icon_alarm.icon_absolute_right",
+            "error_input_message": ".field__message",
+            "go_to_facebook": ".btn_social_facebook",
+            "go_to_google": ".btn_social_google",
+            "go_to_forgot_pass": "a[href='/reset_password']",
+            "FacebookLoginPage": {
+                "fb_login_input": "#email",
+                "fb_pass_input": "#pass",
+                "fb_login_button": "#loginbutton"
             },
-            "GoogleLoginPage" :{
-                "google_login_input           ":"#identifierId",
-                "google_pass_input            ":"input[type='password']",
-                "next                         ":"#identifierNext", 
-                "passNext                     ":"#passwordNext"
+            "GoogleLoginPage": {
+                "google_login_input": "#identifierId",
+                "google_pass_input": "input[type='password']",
+                "next": "#identifierNext",
+                "passNext": "#passwordNext"
             }
-            
         },
-        "Magic Start": {
-            "disable_all_blocks               " : ".constructor__link.constructor__link_sm",
-            "disable_block_status             " : ".toggle__input",
-            "toggle_disable_block             " : ".toggle__label",
-            "preview_block_image              " : ".constructor-preview__pic",
-            "skip_magic_and_proceed_to_editor " : ".constructor__link.constructor__link_md.constructor__link_underline",
-            "breadcrumbs_link                 " : ".breadcrumbs__link",
-            "next_step                        " : ".btn.btn_md.btn_blue.constructor__btn.constructor-footer__btn",
-            "reroll_design                    " : ".btn-circle",
-            "site_name                        " : "#site_name",
-            "proceed_to_final_step            " : ".btn.btn_md.btn_blue.btn_full.constructor__btn",
-            "info                             " : ".plan.plan_offset",
-            "loading_title                    " : ".loading__title"
+        "MagicStart": {
+            "disable_all_blocks": ".constructor__link.constructor__link_sm",
+            "disable_block_status": ".toggle__input",
+            "toggle_disable_block": ".toggle__label",
+            "preview_block_image": ".constructor-preview__pic",
+            "skip_magic_and_proceed_to_editor": ".constructor__link.constructor__link_md.constructor__link_underline",
+            "breadcrumbs_link": ".breadcrumbs__link",
+            "next_step": ".btn.btn_md.btn_blue.constructor__btn.constructor-footer__btn",
+            "reroll_design": ".btn-circle",
+            "site_name": "#site_name",
+            "proceed_to_final_step": ".btn.btn_md.btn_blue.btn_full.constructor__btn",
+            "info": ".plan.plan_offset",
+            "loading_title": ".loading__title"
         },
-        "Pass Recovery": {
-            "email                  ": "#id10",
-            "back_to_sign_in        ": "a[href='/login']",
-            "title                  ": ".title",
-            "reset_button           ": "button[type='submit']",
-            "error_input_message    ": ".field__message"
+        "PassRecovery": {
+            "email": "#id10",
+            "back_to_sign_in": "a[href='/login']",
+            "title": ".title",
+            "reset_button": "button[type='submit']",
+            "error_input_message": ".field__message"
         },
         "Plan": {
-            "pricing                              ":"a[href='/pricing']",
-            "concepts                             ":"a[href='/concepts']",
-            "about                                ":"a[href='/about']",
+            "pricing": "a[href='/pricing']",
+            "concepts": "a[href='/concepts']",
+            "about": "a[href='/about']",
             "WebsiteDrop": {
-                "your_website_name                    ":"#website",
-                "website_option                       ":"option"
+                "your_website_name": "#website",
+                "website_option": "option"
             },
-            "Plans":{
-                "annually_plan                        ":"#annually", 
-                "monthly_plan                         ":"#monthly", 
-                "biennially_plan                      ":"#biennially"
+            "Plans": {
+                "annually_plan": "#annually",
+                "monthly_plan": "#monthly",
+                "biennially_plan": "#biennially"
             },
-            "stripe                               ":"#stripe", 
-            "paypal                               ":"#paypal", 
+            "stripe": "#stripe",
+            "paypal": "#paypal",
             "Promocode": {
-                "promocode_button                     ":"button[title='Enter promo code']", 
-                "promocode_input                      ":"input#promo", 
-                "promocode_submit                     ":"button[title='Submit']",
-                "promocode_submit_error               ":".footer-form__notice.error"
+                "promocode_button": "button[title='Enterpromocode']",
+                "promocode_input": "input#promo",
+                "promocode_submit": "button[title='Submit']",
+                "promocode_submit_error": ".footer-form__notice.error"
             },
-            "day_price                            ":".total-pay__price"
+            "day_price": ".total-pay__price"
         },
-        "Pricing":{
-            "buy_growth_plan"                   : "a[title='Buy growth plan']",
-            "plan_feature"                      :".plan__feature",
-            "sign_up_button"                    :"a[title='Sign up']" 
+        "Pricing": {
+            "buy_growth_plan": "a[title='Buygrowthplan']",
+            "plan_feature": ".plan__feature",
+            "sign_up_button": "a[title='Signup']"
         },
-        "SignUp":{
-            "email_input                  ":"#id1",
-            "name_input                   ":"input[name='name']",
-            "password_input               ":"input#id2",
-            "signup_button_text           ":"Sign up and start my website",
-            "captcha                      ":".recaptcha-checkbox-checkmark",
-            "error_input_messages         ":".field__message"
+        "SignUp": {
+            "email_input": "#id1",
+            "name_input": "input[name='name']",
+            "password_input": "input#id2",
+            "signup_button_text": "Signupandstartmywebsite",
+            "captcha": ".recaptcha-checkbox-checkmark",
+            "error_input_messages": ".field__message"
         },
         "Concepts": {
-            "concept                            ":"img[alt='concept name']",
-            "start_your_website                 ":"button[title='Start website']",
-            "search_input                       ":"input.field__input",
-            "concept_title                      ":".image-item__title",
-            "concept_category_filter_button     ":"button.aside-menu__link",
-            "concept_category_filter_item       ":".aside-menu__item",
-            "magic_start_button                 ":".concept-item__btn.concept-item__btn_blue",
-            "preview_concept                    ":".concept-item__btn.concept-item__btn_white",
-            "active_concept_category            ":".aside-menu__item.flex.flex_align_center.light.active",
-            "buy_grown_plan                     ":"[data-test='Buy growth plan']"
+            "concept": "img[alt='conceptname']",
+            "start_your_website": "button[title='Startwebsite']",
+            "search_input": "input.field__input",
+            "concept_title": ".image-item__title",
+            "concept_category_filter_button": "button.aside-menu__link",
+            "concept_category_filter_item": ".aside-menu__item",
+            "magic_start_button": ".concept-item__btn.concept-item__btn_blue",
+            "preview_concept": ".concept-item__btn.concept-item__btn_white",
+            "active_concept_category": ".aside-menu__item.flex.flex_align_center.light.active",
+            "buy_grown_plan": "[data-test='Buygrowthplan']"
         },
         "Footer": {
-            "pricing                  ":"a[href='/pricing']",
-            "concepts                 ":"a[href='/concepts']",
-            "about                    ":"a[href='/about']",
-            "template_logo            ":"a[href='https://www.templatemonster.com']",
-            "blog                     ":"a[href='http://blog.weblium.com/']",
-            "facebook                 ":"a[href='https://www.facebook.com/weblium/']",
-            "twitter                  ":"a[href='https://twitter.com/Weblium']",
-            "linkedin                 ":"a[href='https://www.linkedin.com/company-beta/17969770/']",
-            "support_center           ":"a[href='http://support.weblium.com/']",
-            "privacy_policy           ":"a[href='/policy']",
-            "terms_of_use             ":"a[href='/terms']"         
+            "pricing": "a[href='/pricing']",
+            "concepts": "a[href='/concepts']",
+            "about": "a[href='/about']",
+            "template_logo": "a[href='https://www.templatemonster.com']",
+            "blog": "a[href='http://blog.weblium.com/']",
+            "facebook": "a[href='https://www.facebook.com/weblium/']",
+            "twitter": "a[href='https://twitter.com/Weblium']",
+            "linkedin": "a[href='https://www.linkedin.com/company-beta/17969770/']",
+            "support_center": "a[href='http://support.weblium.com/']",
+            "privacy_policy": "a[href='/policy']",
+            "terms_of_use": "a[href='/terms']"
         }
     },
     "Account": {
-        "back_landing                   ":"button.logo",
-        "left_nav_item                  ":".left-nav__item",
-        "my_profile                     ":"a[href='/myaccount/account/profile']", 
-        "my_websites                    ":"a[href='/myaccount/account/websites']", 
-        "buy_growth_plan_button         ":"[data-test='Buy Growth Plan']",
-        "Alert Window": {
-            "buy_growth_plan            ":"[data-test='Buy growth plan']",
-            "close_window               ":".window__close",
-            "window_content             ":".window__content"
+        "back_landing": "button.logo",
+        "left_nav_item": ".left-nav__item",
+        "my_profile": "a[href='/myaccount/account/profile']",
+        "my_websites": "a[href='/myaccount/account/websites']",
+        "buy_growth_plan_button": "[data-test='BuyGrowthPlan']",
+        "AlertWindow": {
+            "buy_growth_plan": "[data-test='Buygrowthplan']",
+            "close_window": ".window__close",
+            "window_content": ".window__content"
         },
         "MyProfile": {
-            "first_name                           ":"input[name='sign-up-name']",
-            "last_name                            ":"input[name='sign-up-l-name']",
-            "phone_number                         ":"input[name='phone-num']",
-            "street_address1                      ":"input[name='address-1']",
-            "street_address2                      ":"input[name='address-2']",
-            "city_name                            ":"input[name='city']",
-            "state_region                         ":"input[name='region']",
-            "postal_code                          ":"input[name='zip']",
-            "country                              ":"#country",
-            "country_option                       ":"option",
-            "data_form_row                        ":".row-form",
-            
-            "change password":{
-                "go_to_change_password                ":"a[href='#password-form']",
-                "old_password                         ":"input[name='old-pswd']",
-                "new_password                         ":"input[name='new-pswd']",
-                "new_password_confirm                 ":"input[name='new-pswd-confirm']"
+            "first_name": "input[name='sign-up-name']",
+            "last_name": "input[name='sign-up-l-name']",
+            "phone_number": "input[name='phone-num']",
+            "street_address1": "input[name='address-1']",
+            "street_address2": "input[name='address-2']",
+            "city_name": "input[name='city']",
+            "state_region": "input[name='region']",
+            "postal_code": "input[name='zip']",
+            "country": "#country",
+            "country_option": "option",
+            "data_form_row": ".row-form",
+            "changepassword": {
+                "go_to_change_password": "a[href='#password-form']",
+                "old_password": "input[name='old-pswd']",
+                "new_password": "input[name='new-pswd']",
+                "new_password_confirm": "input[name='new-pswd-confirm']"
             },
-            "user_full_name                       ":".panel__header", 
-            "user_data_IDS                        ":".text-list",
-            "exceptions_message_data              ":"span.field__message"
+            "user_full_name": ".panel__header",
+            "user_data_IDS": ".text-list",
+            "exceptions_message_data": "span.field__message"
         },
         "MyWebsites": {
-            "top_panel_buy_growth_plan_button                       ":".btn.btn_green.trial-notice__btn", 
-            "message_modal_buy_growth_plan_button                   ":".btn.btn_green.bold.btn_width_md.btn_font_md",
-            "message_modal_view_pricing                             ":".btn.btn_flat.btn_flat_blue.btn_width_md.btn_font_md",
-            "website_edit_button                                    ":".btn.btn_white.btn_upper.btn_width_sd", 
-            "website_settings_button                                ":".button.btn.btn_flat.btn_flat_white.btn_upper.btn_width_sd",
-            "create_new_website_green_plus                          ":"[data-test='simple-button']"
+            "top_panel_buy_growth_plan_button": ".btn.btn_green.trial-notice__btn",
+            "message_modal_buy_growth_plan_button": ".btn.btn_green.bold.btn_width_md.btn_font_md",
+            "message_modal_view_pricing": ".btn.btn_flat.btn_flat_blue.btn_width_md.btn_font_md",
+            "website_edit_button": ".btn.btn_white.btn_upper.btn_width_sd",
+            "website_settings_button": ".button.btn.btn_flat.btn_flat_white.btn_upper.btn_width_sd",
+            "create_new_website_green_plus": "[data-test='simple-button']"
         },
         "WebsiteSettings": {
-            "site_name_banner                 ":".banner-tab__site.ellipsis", 
-            "site_domain_banner               ":".banner-tab__link.ellipsis", 
-            "buy_growth_plan                  ":"button.status__btn",
-            "edit_website                     ":"[data-test='Edit this website']",
-            "site_name_input                  ":"#site",
-            "remove_website                   ":"[data-test='Remove website']",
-            "change_site_neme_save_button     ":"[data-test='Save changes']",
-
-            "Delete website modal": {
-                "confirm_remove_input             ":"#delete",
-                "confirm_remove_button            ":"[data-test='Confirm removal']",
-                "close_devete_website_modal       ":"[data-test='simple-button']",
-                "error_text                       ":".field__message"
+            "site_name_banner": ".banner-tab__site.ellipsis",
+            "site_domain_banner": ".banner-tab__link.ellipsis",
+            "buy_growth_plan": "button.status__btn",
+            "edit_website": "[data-test='Editthiswebsite']",
+            "site_name_input": "#site",
+            "remove_website": "[data-test='Removewebsite']",
+            "change_site_neme_save_button": "[data-test='Savechanges']",
+            "Deletewebsitemodal": {
+                "confirm_remove_input": "#delete",
+                "confirm_remove_button": "[data-test='Confirmremoval']",
+                "close_devete_website_modal": "[data-test='simple-button']",
+                "error_text": ".field__message"
             }
         }
-
     },
     "Editor": {
         "Elements": {
-            "ContextPanel":"[data-test='context-panel-item']",
+            "ContextPanel": "[data-test='context-panel-item']",
             "Button": {
-                "draggable_button ":"[data-test='draggable-element-button']"
+                "draggable_button": "[data-test='draggable-element-button']"
             },
-            "Icon":{
-                "draggable_icon ":"[data-test='draggable-element-icon']"
-                
+            "Icon": {
+                "draggable_icon": "[data-test='draggable-element-icon']"
             },
-            "Image":{
-                "draggable_image ":"[data-test='draggable-element-image']"
-                
+            "Image": {
+                "draggable_image": "[data-test='draggable-element-image']"
             },
-            "Line":{
-                "draggable_line ":"[data-test='draggable-element-line']"
-                
+            "Line": {
+                "draggable_line": "[data-test='draggable-element-line']"
             },
-            "Text":{
-                "draggable_text ":"[data-test='draggable-element-text']",
-                "Text panel": { 
-                    "drop_list_item":"[data-test='drop-down-item']",
-                    "control_selector":"[data-test='button-control-text-panel']>button"
+            "Text": {
+                "draggable_text": "[data-test='draggable-element-text']",
+                "Textpanel": {
+                    "drop_list_item": "[data-test='drop-down-item']",
+                    "control_selector": "[data-test='button-control-text-panel']>button"
                 },
-                "Fonts":{
-                    "search_input ":"input[placeholder='Search font']",
-                    "prev_font ":"[data-test='prev-font']",
-                    "next_font ":"[data-test='next-font']",
-                    "font ":"[data-test='font-family-item']"
+                "Fonts": {
+                    "search_input": "input[placeholder='Searchfont']",
+                    "prev_font": "[data-test='prev-font']",
+                    "next_font": "[data-test='next-font']",
+                    "font": "[data-test='font-family-item']"
                 }
             }
         },
-        "Apps" : {
-            "ContextPanel":"[data-test='context-panel-item']",            
+        "Apps": {
+            "ContextPanel": "[data-test='context-panel-item']",
             "Breadcrumbs": {
-                "draggable_breadcrumbs" : "[data-test='draggable-element-breadcrumbs']"
+                "draggable_breadcrumbs": "[data-test='draggable-element-breadcrumbs']"
             },
             "ContactForm": {
-                "draggable_breadcrumbs" : "[data-test='draggable-element-contact-form']"
+                "draggable_breadcrumbs": "[data-test='draggable-element-contact-form']"
             },
             "ImageGallery": {
-                "draggable_breadcrumbs" : "[data-test='draggable-element-gallery']"
+                "draggable_breadcrumbs": "[data-test='draggable-element-gallery']"
             },
             "Map": {
-                "draggable_breadcrumbs" : "[data-test='draggable-element-map']"
+                "draggable_breadcrumbs": "[data-test='draggable-element-map']"
             },
             "Menu": {
-                "draggable_breadcrumbs" : "[data-test='draggable-element-menu']"
+                "draggable_breadcrumbs": "[data-test='draggable-element-menu']"
             },
             "Slider": {
-                "draggable_breadcrumbs" : "[data-test='draggable-element-slider']"
+                "draggable_breadcrumbs": "[data-test='draggable-element-slider']"
             },
             "SocialIcons": {
-                "draggable_breadcrumbs" : "[data-test='draggable-element-socialIcons']"
+                "draggable_breadcrumbs": "[data-test='draggable-element-socialIcons']"
             },
             "SocialShare": {
-                "draggable_breadcrumbs" : "[data-test='draggable-element-social-share']"
+                "draggable_breadcrumbs": "[data-test='draggable-element-social-share']"
             },
             "Video": {
-                "draggable_breadcrumbs" : "[data-test='draggable-element-video']"
+                "draggable_breadcrumbs": "[data-test='draggable-element-video']"
             }
         },
-        "LeftNav" :{
-            "add_catalogue             ":"[data-test='left-nav-button-Add']>button",
-            "pages                     ":"[data-test='left-nav-button-Pages']>button",
-            "blocks                    ":"[data-test='left-nav-button-Blocks']>button",
-            "ui_kit                    ":"[data-test='left-nav-button-Design']>button",
-            "Add":{
-                "social_icons ":"[data-test='thumbnail-social-icons']",
-                "social_share ":"[data-test='thumbnail-social-share']",
-                "contact_form ":"[data-test='thumbnail-contact-form']",
-                "map ":"[data-test='thumbnail-map']",
-                "video ":"[data-test='thumbnail-video']",
-                "image_gallery ":"[data-test='thumbnail-image-gallery']",
-                "button ":"[data-test='thumbnail-button']",
-                "text ":"[data-test='thumbnail-text']",
-                "line ":"[data-test='thumbnail-line']",
-                "icon ":"[data-test='thumbnail-icon']",
-                "image ":"[data-test='thumbnail-image']"
+        "LeftNav": {
+            "add_catalogue": "[data-test='left-nav-button-Add']>button",
+            "pages": "[data-test='left-nav-button-Pages']>button",
+            "blocks": "[data-test='left-nav-button-Blocks']>button",
+            "ui_kit": "[data-test='left-nav-button-Design']>button",
+            "Add": {
+                "social_icons": "[data-test='thumbnail-social-icons']",
+                "social_share": "[data-test='thumbnail-social-share']",
+                "contact_form": "[data-test='thumbnail-contact-form']",
+                "map": "[data-test='thumbnail-map']",
+                "video": "[data-test='thumbnail-video']",
+                "image_gallery": "[data-test='thumbnail-image-gallery']",
+                "button": "[data-test='thumbnail-button']",
+                "text": "[data-test='thumbnail-text']",
+                "line": "[data-test='thumbnail-line']",
+                "icon": "[data-test='thumbnail-icon']",
+                "image": "[data-test='thumbnail-image']"
             },
             "CreateNewPage": {
-                "page                          ":"[data-test='item-node-target']",
-                "page_name                     ":"#CreatePageInput1",
-                "page_url                      ":"#CreatePageInput2",
-                "cancel_button                 ":"button[title='Cancel']",
-                "add_page_button               ":"button[title='Add page']"
+                "page": "[data-test='item-node-target']",
+                "page_name": "#CreatePageInput1",
+                "page_url": "#CreatePageInput2",
+                "cancel_button": "button[title='Cancel']",
+                "add_page_button": "button[title='Addpage']"
             },
-            "Pages" :{
-                "pages_open                       ":"[data-test='left-nav-button-Pages']>button",
-                "page                             ":"[data-test='item-node-target']",
-                "layout_page_settings             ":"[data-test='layout-button-settings']",
-                "submit_remove_page_button        ":"[title='Remove page']"
+            "Pages": {
+                "pages_open": "[data-test='left-nav-button-Pages']>button",
+                "page": "[data-test='item-node-target']",
+                "layout_page_settings": "[data-test='layout-button-settings']",
+                "submit_remove_page_button": "[title='Removepage']"
             }
         },
-        "TopNav" : {
-            "buy_a_growth_plan_top_link                   ":"a[title='Buy Growth Plan']",
-            "view_pricing_button                          ":"button[title='View pricing']",
-            "buy_a_growth_plan_modal_button               ":"button[title='Buy Growth Plan']",
-            "ready_to_launch_submit                       ":"button[title='Ready to launch!']",
-            "preview_or_edit_website                      ":"[data-test='preview-or-edit']",
-            "mobile_view_mode                             ":"[data-test='website-view-mobile'] > a",
-            "desktop_view_mode                            ":"[data-test='website-view-desktop'] > a",
-            "open_publised_website                        ":"[data-test='open-published-site']",
-            "new_tab_modal_open                           ":"button[data-test='new-tab-pages']",
-
+        "TopNav": {
+            "buy_a_growth_plan_top_link": "a[title='BuyGrowthPlan']",
+            "view_pricing_button": "button[title='Viewpricing']",
+            "buy_a_growth_plan_modal_button": "button[title='BuyGrowthPlan']",
+            "ready_to_launch_submit": "button[title='Readytolaunch!']",
+            "preview_or_edit_website": "[data-test='preview-or-edit']",
+            "mobile_view_mode": "[data-test='website-view-mobile']>a",
+            "desktop_view_mode": "[data-test='website-view-desktop']>a",
+            "open_publised_website": "[data-test='open-published-site']",
+            "new_tab_modal_open": "button[data-test='new-tab-pages']",
             "RightNavigationPart": {
-                "right_drop_menu_navigation                   ":".moreMenu__button_1Rtgb",
-                "right_drop_menu_navigation_to_websites       ":"a[title='My websites']", 
-                "right_drop_menu_navigation_to_profile        ":"a[title='My profile']",
-                "right_drop_menu_navigation_to_buy_plan       ":"a[title='Buy growth plan']",
-                "right_drop_menu_navigation_to_site_settings  ":"a[title='Site settings']",
-                "right_drop_menu_navigation_logout            ":"a[title='Logout']"
+                "right_drop_menu_navigation": ".moreMenu__button_1Rtgb",
+                "right_drop_menu_navigation_to_websites": "a[title='Mywebsites']",
+                "right_drop_menu_navigation_to_profile": "a[title='Myprofile']",
+                "right_drop_menu_navigation_to_buy_plan": "a[title='Buygrowthplan']",
+                "right_drop_menu_navigation_to_site_settings": "a[title='Sitesettings']",
+                "right_drop_menu_navigation_logout": "a[title='Logout']"
             },
-            "NewTab" : {
-                "portal_window                            ":"[data-test='portal-window']",
-                "drag_modal                               ":"[data-test='win-setting-header-drag-ico']",
-                "close_modal_button                       ":"[data-test='win-setting-header-drag-ico'] ~ span",
-                "pages                                    ":"[data-test='item-node-target']"
+            "NewTab": {
+                "portal_window": "[data-test='portal-window']",
+                "drag_modal": "[data-test='win-setting-header-drag-ico']",
+                "close_modal_button": "[data-test='win-setting-header-drag-ico']~span",
+                "pages": "[data-test='item-node-target']"
             }
-
         }
     }
 }
