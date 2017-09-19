@@ -111,12 +111,11 @@ def get_published_concepts
 end
 def add_new_website(token)
   first_id = get_published_concepts[0]
-  add_new_website =JSON.parse(RestClient::Request.execute(url:"#{@base_url}/api/website",
+  RestClient::Request.execute(url:"#{@base_url}/api/website",
                                                         method: :post,
                                                         headers: {content_type: 'application/json', authorization: "Bearer #{token}"},
                                                         payload: {'concept' => first_id, 'name' =>  "xxx" }.to_json,
-                                                        verify_ssl: false)) 
-                                              
+                                                        verify_ssl: false)                                  
 end
 def add_user_website (username, password)
   add_new_website(get_user_token(username,password)['token'])
