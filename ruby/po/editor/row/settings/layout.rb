@@ -1,6 +1,5 @@
 #row layout
 class LayoutTab
-
   def initialize(browser)
     @browser = browser
     @block_component           = '[data-test="block-component"]'

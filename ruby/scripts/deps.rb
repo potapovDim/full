@@ -29,6 +29,12 @@ require_relative "../po/editor/context-panel/context-panel"
 #editor parts
 #block
 require_relative '../po/editor/block/index'
+#row
+require_relative '../po/editor/row/index'
+require_relative '../po/editor/row/context-panel'
+require_relative '../po/editor/row/settings/layout'
+require_relative '../po/editor/row/settings/index'
+
 #elements
 require_relative '../po/editor/elements/index'
 #apps
