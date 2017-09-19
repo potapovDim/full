@@ -6,13 +6,13 @@ class LayoutTab
     @layout_item               = '[data-test="row-layout-item"]'
     @custom_layout_circle      = '.rc-slider'
     @no_margin                 = '#nomargin-option'
+    @custom_width_text         = 'Change column width'
     #browser instance
-    @browser
   end
   
   #api methods
-  def change_layout(layout = 1)
-    layouts = @browser.elements(css: @layout_item)[i+1].click
+  def change_layout(i = 1)
+    layouts = @browser.elements(css: @layout_item)[i-1].click
     return self
   end
   def create_cutom_layout(x, y, pointer_index=0)
@@ -22,5 +22,8 @@ class LayoutTab
   def change_nomargin_option
     @browser.element(css: @no_margin).fire_event "change"
     return self
+  end
+  def custom_width_presented?
+    @browser.element(text: @custom_width_text).visible?
   end
 end

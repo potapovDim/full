@@ -11,7 +11,9 @@ describe 'Row' do
             .go_to_editor_from_website(0)
     expect(@browser.url.include?('/editor/website/')).to eql(true)
     @row = Row.new(@browser, 0)
+    LeftNav.new(@browser).present()
     @row.hover_current_row
+        .click_row_context("settings")
  #   @browser.send_keys :escape
   end
   #it 'row background (color)' do
@@ -33,14 +35,23 @@ describe 'Row' do
   #   expect(changed_background).to_not eql(initial_background)
   # end
   it 'row layout' do
-    @row.click_row_context("settings")
-    LayoutTab.new(@browser).change_layout(2)
-        # .change_layout(3)
-        # .change_layout(4)
-        # .change_layout(5)
-    @browser.send_keys :escape
+    layout_tab = LayoutTab.new(@browser)
+    layout_tab.change_layout(4)
     changed_row_layout = @row.get_row_layout
-    #expect(initial_layout).to_not eql(changed_row_layout)
+    expect(changed_row_layout).to eql(4)
+    expect(layout_tab.custom_width_presented?).to eql(true)
+    layout_tab.change_layout(1)
+    expect(@row.get_row_layout).to eql(1)
+    layout_tab.change_layout(5)
+    expect(@row.get_row_layout).to eql(6)
+    # @row.hover_current_row
+    # @row.   click_row_context("settings")
+    #     # .change_layout(3)
+    #     # .change_layout(4)
+    #     # .change_layout(5)
+    # @browser.send_keys :escape
+    # changed_row_layout = @row.get_row_layout
+    # expect(changed_row_layout).to_not eql(2)
   end
 end
 # , :focus => true if need run only this suit

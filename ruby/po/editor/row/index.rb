@@ -10,7 +10,8 @@ class Row
   #row context panel api
   def hover_current_row
     el = @browser.driver.find_element(:css, @row_background)
-    @browser.driver.action.move_to(el).perform  
+    @browser.driver.action.move_to(el).perform
+    return self
   end
   def click_row_context (button)
     case button
