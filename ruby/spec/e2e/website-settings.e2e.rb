@@ -1,5 +1,5 @@
 require_relative '../../scripts/index.rb'
-
+#test case coverage <63 64 65>
 describe 'change settings' do
   before :each do
     @browser.window.resize_to 1600, 1200 
@@ -36,6 +36,7 @@ describe 'change settings' do
     expect(@website_settings.get_website_name_from_banner).to eql("AAA")
   end
 end
+#test case coverage <66 67 68>
   describe ' site removing' do
     before do
       if get_website_number(@username, @password) <= 1
