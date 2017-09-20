@@ -18,7 +18,7 @@ const loginPageAPI = {
         .setValue('@passwordInput', password)
         .click('@loginSubmitButton')
         .waitForElementPresent('@myProfile')
-        .assert.urlContains('/account')
+        .assert.urlContains('/myaccount')
     }
     else {
       return this.waitForElementVisible('@emailInput')
@@ -26,11 +26,11 @@ const loginPageAPI = {
         .setValue('@passwordInput', USER_PASSWORD)
         .click('@loginSubmitButton')
         .waitForElementPresent('@myProfile')
-        .assert.urlContains('/account')
+        .assert.urlContains('/myaccount')
     }
   },
-  loginUserFailed(email, password) {
-    if (arguments.length == 2) {
+  loginUserFailed(email, password, alarmMessageLength) {
+    if (email) {
       return this.waitForElementVisible('@emailInput')
         .setValue('@emailInput', email)
         .setValue('@passwordInput', password)
@@ -44,6 +44,17 @@ const loginPageAPI = {
         .click('@loginSubmitButton')
         .pauseTime(500)
     }
+  },
+  googleLogin() {
+    return this.waitForElementPresent('@emailInput')
+      .click('@googleLoginButton')
+      .waitForElementVisible('@googlePhoneOrEmailInput')
+      .setValue('@googlePhoneOrEmailInput', USER_GOOGLE_EMAIL)
+      .click('@nextAtEmail')
+      .waitForElementPresent('@googlePasswordInput')
+      .setValue('@googlePasswordInput', USER_GOOGLE_PASSWORD)
+      .click('@passNext')
+      .assert.urlContains('/myaccount')
   }
 }
 module.exports = {

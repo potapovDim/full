@@ -11,10 +11,15 @@ export const landingMainPage = {
 
 export const loginModal = {
   emailInput                            : 'input#id5', //user email input
-  passwordInput                         : 'input#id9', //user email input
+  passwordInput                         : 'input#id9', //user password input
   loginSubmitButton                     : 'button[title="Login"]', //login submit button
   alarmMessage                          : '.icon.icon_alarm.icon_absolute_right', // if something wrong alarm message selector
-  invalidEmailOrPassword                : 'form>span' //if user data invalid
+  invalidEmailOrPassword                : 'form>span', //if user data invalid
+  googleLoginButton                     : '.btn_social_google', //button for open google login
+  googlePhoneOrEmailInput               : '#identifierId', //input at google page for email or phone
+  nextAtEmail                           : '#identifierNext', //next button
+  googlePasswordInput                   : 'input[type="password"]', // password at google page  
+  passNext                              : '#passwordNext' //next pass 
 }
 
 export const pricingPage = {
@@ -45,8 +50,8 @@ export const landingFooterPart = {
 }
 
 export const account = {
-  myProfile                             :'a[href="/myaccount/account/profile"]', //open my profile modal 
-  myWebsites                            :'a[href="/myaccount/account/websites"]' //open my websites list
+  myProfile                             :'a[href="/myaccount/profile"]', //open my profile modal 
+  myWebsites                            :'a[href="/myaccount/websites"]' //open my websites list
 }
 
 export const myProfile = {

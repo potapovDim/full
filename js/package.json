@@ -11,6 +11,7 @@
   "author": "Potapov Dmitriy",
   "license": "ISC",
   "dependencies": {
+    "@types/nightwatch": "^0.9.0",
     "nightwatch": "^0.9.16",
     "webdriver-manager": "^12.0.6"
   },

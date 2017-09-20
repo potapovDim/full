@@ -37,7 +37,7 @@ RSpec.configure do |config|
     @google_pass            = CONFIG['google_pass']
 
     if @base_url == 'http://weblium.dev/'
-      print '!!!!!!!!!!!!!!!!!!!!!!! elasticsearch asser'
+      print '!!!!!!!!!!!!!!!!!!!!!!! elasticsearch assert'
       assert_elasticsearch_run
     end
     #landing po 
