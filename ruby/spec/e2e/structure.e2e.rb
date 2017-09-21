@@ -43,15 +43,20 @@ describe 'Row' do
     layout_tab.change_layout(1)
     expect(@row.get_row_layout).to eql(1)
     layout_tab.change_layout(5)
+    expect(layout_tab.layout_active?(5)).to eql(true)
     expect(@row.get_row_layout).to eql(6)
-    # @row.hover_current_row
-    # @row.   click_row_context("settings")
-    #     # .change_layout(3)
-    #     # .change_layout(4)
-    #     # .change_layout(5)
-    # @browser.send_keys :escape
-    # changed_row_layout = @row.get_row_layout
-    # expect(changed_row_layout).to_not eql(2)
+    expect(layout_tab.get_layout_postion(5)).to eql("10")
+    layout_tab.create_custom_layout(100,0,5)
+    expect(layout_tab.get_layout_postion(5)).to eql("11")
+    expect(layout_tab.layout_active?(5)).to eql(false)
+    layout_tab.create_custom_layout(-100,0,5)
+    expect(layout_tab.get_layout_postion(5)).to eql("10")
+    expect(layout_tab.layout_active?(5)).to eql(true)
+    margin_before = @row.intend_between_columns?
+    layout_tab.nomargin_click
+    expect(@row.intend_between_columns?).to_not eql(margin_before)
+    layout_tab.nomargin_click
+    expect(@row.intend_between_columns?).to eql(margin_before)  
   end
 end
 # , :focus => true if need run only this suit

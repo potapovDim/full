@@ -14,6 +14,8 @@ RSpec.configure do |config|
     @browser = nil
     case BROWSER_NAME
       when 'chrome'
+        
+        #@browser = Selenium::WebDriver.for :chrome
         @browser = Watir::Browser.new :chrome
       when 'firefox'
         @browser = Watir::Browser.new :firefox
