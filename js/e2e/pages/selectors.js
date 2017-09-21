@@ -68,14 +68,14 @@ export const myProfile = {
   countryListOption                     : 'option', // country list selection
   dataFormRow                           : '.row-form', // data form row
   // change passwrod
-  goToChangePasswordModal               : 'a[href="#password-form"]',
+  goToChangePasswordModal               : '.text-list__item.text-list__item_md.light.link.bold', //open change password modal
   oldPasswordInput                      : 'input[name="old-pswd"]',
   newPasswordInput                      : 'input[name="new-pswd"]',
   newPasswordConfirmInput               : 'input[name="new-pswd-confirm"]', 
-  changePasswordButton                  : '.btn.btn_lg.btn_blue.btn_rect.btn_width_lg', // change password form button
-  changePasswordButtonProgress          : '.btn.btn_lg.btn_blue.btn_rect.btn_width_lg.progress', // change password form button progress
-  changePasswordButtonSuccess           : '.btn.btn_lg.btn_blue.btn_rect.btn_width_lg.success', // change password form button success
-  changePasswordButtonFail              : '.btn.btn_lg.btn_blue.btn_rect.btn_width_lg.fail', // change password form button failed
+  changePasswordButton                  : '.button.btn.btn_blue.btn_full.btn_sd', // change password form button
+  changePasswordButtonProgress          : '.button.btn.btn_blue.btn_full.btn_sd.progress', // change password form button progress
+  changePasswordButtonSuccess           : '.button.btn.btn_blue.btn_full.btn_sd.success', // change password form button success
+  changePasswordButtonFail              : '.button.btn.btn_blue.btn_full.btn_sd.fail', // change password form button failed
   //email notification
   monthlyNews                           : 'input#keepSigned2',
   importantUpdates                      : 'input#keepSigned3' ,
@@ -86,9 +86,9 @@ export const myProfile = {
   //exeptions message
   exceptionMessage                      : 'span.field__message',
   //save info button 
-  saveButton                            : '.btn.btn_lg.btn_blue.btn_rect.btn_width_xlg', // save info button
-  saveButtonProgress                    : '.btn.btn_lg.btn_blue.btn_rect.btn_width_xlg.progress', // save info button in progress
-  saveButtonSuccess                     : '.btn.btn_lg.btn_blue.btn_rect.btn_width_xlg.success', // save info button when success
+  saveButton                            : '.button.btn.btn_lg.btn_blue.btn_width_xlg', // save info button
+  saveButtonProgress                    : '.button.btn.btn_lg.btn_blue.btn_width_xlg.progress', // save info button in progress
+  saveButtonSuccess                     : '.button.btn.btn_lg.btn_blue.btn_width_xlg.success', // save info button when success
   //buy browth plan -> go to plans
   buyGrowthPlanGreenBtn                 : 'button.btn.btn_green.trial-notice__btn'
 }

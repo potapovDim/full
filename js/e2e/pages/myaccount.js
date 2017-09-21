@@ -56,7 +56,8 @@ const myAccountAPI = {
   },
   //change user password
   changeUserPasswordSuccess(oldPass, newPass) {
-    return this.waitForElementPresent('@oldPasswordInput')
+    return this.waitForElementPresent('@goToChangePasswordModal')
+               .click('@goToChangePasswordModal')
                .moveToElement('@oldPasswordInput', 0, 0)
                .setValue('@oldPasswordInput', oldPass)
                .waitForElementPresent('@newPasswordInput')
@@ -70,7 +71,8 @@ const myAccountAPI = {
   },
   //changePasswordButtonFail
   changeUserPasswordFailed(oldPass, newPass) {
-    return this.waitForElementPresent('@oldPasswordInput')
+    return this.waitForElementPresent('@goToChangePasswordModal')
+               .click('@goToChangePasswordModal')
                .moveToElement('@oldPasswordInput', 0, 0)
                .setValue('@oldPasswordInput', oldPass)
                .waitForElementPresent('@newPasswordInput')
@@ -83,7 +85,7 @@ const myAccountAPI = {
   }
 }
 module.exports = {
-  url: `${LINK_TO_RESOURCE}myaccount/account/profile`,
+  url: `${LINK_TO_RESOURCE}myaccount/profile`,
   elements: {
     ...account,
     ...myProfile,

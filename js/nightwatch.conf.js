@@ -21,7 +21,10 @@ module.exports = {
       desiredCapabilities: {
         browserName: "chrome",
         javascriptEnabled: true,
-        acceptSslCerts: false
+        acceptSslCerts: false,
+        // chromeOptions: {
+        //   args: ["headless", "no-sandbox", "disable-gpu"]
+        // }
       }
     },
     phantom: {
