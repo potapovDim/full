@@ -9,6 +9,13 @@ export const landingMainPage = {
   headerPricing                         : 'a[title="Pricing"]' //header Pricing link
 }
 
+export const concepts = {
+  searchConceptsByWord                  : '.field__input', //search input for conpect
+  conceptCategoryButton                 : '.aside-menu__link', // concept list button (All etc)
+  magicStartButton                      : '.link.concept-item__btn.concept-item__btn_blue',  //magic start button for every concept
+  previewConcept                        : '.link.concept-item__btn.concept-item__btn_white'
+}
+
 export const loginModal = {
   emailInput                            : 'input#id5', //user email input
   passwordInput                         : 'input#id9', //user password input
