@@ -32,4 +32,9 @@ class Row
   def get_row_layout
     return @browser.elements(css: @row_background)[@row_target].elements(css: @column_context_panel).length
   end
+  #true - margin exist
+  #false - margin do not exist
+  def intend_between_columns?
+    return !@browser.elements(css: @row_background)[@row_target].class_name.include?("noMargin_")
+  end
 end
