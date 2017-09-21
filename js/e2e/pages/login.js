@@ -52,9 +52,10 @@ const loginPageAPI = {
       .setValue('@googlePhoneOrEmailInput', USER_GOOGLE_EMAIL)
       .click('@nextAtEmail')
       .waitForElementPresent('@googlePasswordInput')
+      .click('body')
       .setValue('@googlePasswordInput', USER_GOOGLE_PASSWORD)
       .click('@passNext')
-      .assert.urlContains('/myaccount')
+      .waitForElementPresent('@myProfile')
   }
 }
 module.exports = {

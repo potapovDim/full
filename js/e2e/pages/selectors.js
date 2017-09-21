@@ -18,7 +18,7 @@ export const loginModal = {
   googleLoginButton                     : '.btn_social_google', //button for open google login
   googlePhoneOrEmailInput               : '#identifierId', //input at google page for email or phone
   nextAtEmail                           : '#identifierNext', //next button
-  googlePasswordInput                   : 'input[type="password"]', // password at google page  
+  googlePasswordInput                   : 'input[name="password"]', // password at google page  
   passNext                              : '#passwordNext' //next pass 
 }
 
