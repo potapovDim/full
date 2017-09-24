@@ -13,26 +13,22 @@ const plansPageAPI = {
   changeSelectedPlan(plan) {
     switch (plan) {
       case 'annually': {
-        this.waitForElementVisible('@planAnnually')
+        return this.waitForElementVisible('@planAnnually')
             .click('@planAnnually')
-        break
       }
       case 'monthly': {
-        this.waitForElementVisible('@planMonthly')
+        return this.waitForElementVisible('@planMonthly')
             .click('@planMonthly')
-        break
       }
       case 'binnually': {
-        this.waitForElementVisible('@planBiannually')
+        return this.waitForElementVisible('@planBiannually')
             .click('@planBiannually')
-        break
       }
       default: {
         console.warn('invalid plan')
         break
       }
     }
-    return this
   },
   //assert price when choosed plan
   getDayPrice (expectedPrice) {
