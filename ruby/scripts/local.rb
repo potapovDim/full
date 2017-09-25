@@ -10,33 +10,17 @@ RSpec.configure do |config|
     config.filter_run focus: true
     config.run_all_when_everything_filtered = true
     config.around(:example) do |example|
-<<<<<<< HEAD
     # config.before :each do
       @browser = nil
       case BROWSER_NAME
         when 'chrome'
-          @browser = Watir::Browser.new(:chrome, "headless", "no-sandbox", "disable-gpu")
+          @browser = Watir::Browser.new(:chrome)
         when 'firefox'
           @browser = Watir::Browser.new :firefox
       end
       @username               = CONFIG['username']
       @password               = CONFIG['password']
       @base_url               = CONFIG['base_url']
-=======
-  # config.before :each do
-    @browser = nil
-    case BROWSER_NAME
-      when 'chrome'
-        
-        #@browser = Selenium::WebDriver.for :chrome
-        @browser = Watir::Browser.new :chrome
-      when 'firefox'
-        @browser = Watir::Browser.new :firefox
-    end
-    @username               = CONFIG['username']
-    @password               = CONFIG['password']
-    @base_url               = CONFIG['base_url']
->>>>>>> layout
 
       @username_expired       = CONFIG['username_expired']
       @password_expired       = CONFIG['password_expired']
