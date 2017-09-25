@@ -1,30 +1,28 @@
-#color picker 
 class ColorPicker
-  #css selectors
   def initialize(browser)
     @browser = browser
-    @color_picker_pointer = '.pointer_35h'
+    @opacity_picker_pointer = '.pointer_35hVk'
+    @color_input = 'input[type="text"]'
+    @palette_item = '[data-test="color-item-palette"]'
     @alpha_input = '[data-test="input-number-input"]'
-    @saturation = '[data-test="color-picker-saturation"]>div'
-    @hue_vertical = '.hue-vertical'
   end
-
-  def change_color_saturation(x, y, place) #change color
-    case place
-      when "hue"  
-        @browser.element(css: @hue_vertical).drag_and_drop_by x, y
-      when "saturation"
-        @browser.element(css: @saturation).drag_and_drop_by x, y
-    end
+  def input_color_palette(color)
+    @browser.element(css: @color_input).send_keys color
+  end
+  def clear_color_input()
+    clear_input(@color_input)
     return self
   end
+  def input_alpha_palette(percent)
+    @browser.element(css: @alpha_input).send_keys percent
+  end
 
-  def change_alpha_slider_saturation(x)
+  def change_alpha_slider_palette(x)
     @browser.element(css: @color_picker_pointer).fire_event "mouseover"  
     @browser.element(css: @color_picker_pointer).drag_and_drop_by x, 0
   end
 
-  def input_alpha_palette(percent)
-    @browser.element(css: @alpha_input).send_keys percent
+  def click_palette_color(index)
+    @browser.elements(css: @palette_item)[index].fire_event 'click'
   end
 end
