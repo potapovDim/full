@@ -29,6 +29,15 @@ require_relative "../po/editor/context-panel/context-panel"
 #editor parts
 #block
 require_relative '../po/editor/block/index'
+#row
+require_relative '../po/editor/row/index'
+require_relative '../po/editor/row/context-panel'
+require_relative '../po/editor/row/settings/layout'
+require_relative '../po/editor/row/settings/index'
+#shared-tabs
+require_relative '../po/editor/share/color-picker'
+require_relative '../po/editor/shared-tab/background/color-tab'
+require_relative '../po/editor/shared-tab/background/sub-menu'
 #elements
 require_relative '../po/editor/elements/index'
 #apps
@@ -41,3 +50,4 @@ require_relative "../po/editor/left-nav/pages/create-new-page"
 require_relative '../po/editor/row/index'
 #helpers
 require_relative '../helpers/index'
+require_relative '../helpers/element-helper'

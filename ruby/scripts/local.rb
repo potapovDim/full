@@ -7,13 +7,14 @@ NEED_SCREEN = ENV['NEED_SCREEN']
 CONFIG = YAML.load(File.read(File.join(File.dirname(__FILE__), "../config/#{CONFIG_NAME}.yml")))
 
 RSpec.configure do |config|
-    # config.filter_run :focus => true
+    config.filter_run focus: true
+    config.run_all_when_everything_filtered = true
     config.around(:example) do |example|
     # config.before :each do
       @browser = nil
       case BROWSER_NAME
         when 'chrome'
-          @browser = Watir::Browser.new(:chrome, "headless", "no-sandbox", "disable-gpu")
+          @browser = Watir::Browser.new(:chrome)
         when 'firefox'
           @browser = Watir::Browser.new :firefox
       end
