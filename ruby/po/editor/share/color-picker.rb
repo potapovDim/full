@@ -36,6 +36,9 @@ class ColorPicker
   def click_palette_color(index)
     @browser.elements(css: @palette_item)[index].fire_event 'click'
   end
+  def is_color_active?(index)
+    return @browser.elements(css: @palette_item)[index].class_name.include?('active')
+  end
   def reset
     @browser.element(css: @reset_button).click
   end

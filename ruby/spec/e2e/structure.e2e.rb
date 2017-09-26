@@ -14,7 +14,7 @@ describe 'Row' do
  #   @browser.send_keys :escape
   end
 
-  it 'row background (color)' do
+  it 'row background (color)' do 
     initial_background = @row.get_row_background
     color_tab = @row_settings.choose_tab("background")
                 .swich_tab("Color")
@@ -36,15 +36,17 @@ describe 'Row' do
     expect(color_tab.opacity_element.value).to eql("100")
 #alpha input check
     color_tab.input_alpha_palette
-             .opacity_element.send_keys(15)
+             .opacity_element.send_keys(33)
     sleep 0.2    
-    expect(@row.get_row_background.include?("rgba(170, 170, 170, 0.15)")).to eql(true)
+    expect(@row.get_row_background.include?("rgba(170, 170, 170, 0.33)")).to eql(true)
 #set color by color picker 
 #check is opacity saved
     color_tab.click_palette_color(15)
     sleep 0.2            
-    expect(@row.get_row_background.include?('rgba(255, 202, 40, 0.15)')).to eql(true)
+    expect(@row.get_row_background.include?('rgba(255, 202, 40, 0.33)')).to eql(true)
     expect(color_tab.color_element.value).to eql("#FFCA28")
+    expect(color_tab.is_color_active?(15)).to eql(true)
+
 #check reset function
     color_tab.reset
     sleep 0.2   
