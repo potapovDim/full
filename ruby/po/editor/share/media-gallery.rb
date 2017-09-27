@@ -16,7 +16,7 @@ class MediaGallery
     @search_button                = 'button[title="Search"]'
     #images collection 
     @unsplash_img                 = '.imageItem_1-Z9K.unsplash_1lZxI'
-    @image_thumbnail              = '.thumbnail_JEatj'
+    @image_thumbnail              = '.imageItem_1-Z9K>div>div>div'
     @browser = browser
   end
   #tabs 
@@ -32,9 +32,12 @@ class MediaGallery
     end
     return self
   end
-  def choose_image(index)
-    @browser.elements(css: @image_thumbnail)[index].fire_event 'click'
+  def choose_image(i=0)
+    @browser.elements(css: @image_thumbnail)[i].fire_event 'click'
     return self
+  end
+  def change_image()
+    @browser.element(css: @change_image_button).click
   end
   #search input and button
   def search_free_photo(search_value)

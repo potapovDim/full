@@ -46,7 +46,6 @@ describe 'Row' do
     expect(@row.get_row_background.include?('rgba(255, 202, 40, 0.33)')).to eql(true)
     expect(color_tab.color_element.value).to eql("#FFCA28")
     expect(color_tab.is_color_active?(15)).to eql(true)
-
 #check reset function
     color_tab.reset
     sleep 0.2   
@@ -63,6 +62,37 @@ describe 'Row' do
 #     changed_background = @row.get_row_background
 #     expect(changed_background).to_not eql(initial_background)
 #   end
+  fit 'row background (image)' do
+    initial_background = @row.get_row_background
+    image_tab = @row_settings.choose_tab("background")
+                .swich_tab("Image")
+                .reset()
+         
+    image_tab.open_media_gallery()
+             .choose_image()
+             .change_image()
+    expect(@row.get_row_background).to include("url(")
+    background_tab = image_tab.open_background_settings
+                              .change_cover_settings("contain")
+    expect(@row.get_row_background).to include("contain")
+    background_tab.change_cover_settings("auto")
+    expect(@row.get_row_background).to include("auto")
+    background_tab.change_cover_settings("cover")
+    expect(@row.get_row_background).to include("cover")
+    background_tab.change_background_position("Top left")
+    expect(@row.get_row_style).to include("left top")    
+    background_tab.change_background_position("Bottom right")
+    expect(@row.get_row_style).to include("right bottom")    
+    background_tab.change_background_position("Middle center")
+    expect(@row.get_row_style).to include("center center")  
+    background_tab.change_background_position("Middle center")
+    expect(@row.get_row_style).to include("center center")
+    background_tab.repeat_image()
+    expect(@row.get_row_background).to_not include("no-repeat")
+    expect(@row.get_row_background).to include("repeat")
+    background_tab.repeat_image()
+    expect(@row.get_row_background).to include("no-repeat")
+  end
   it 'row layout' do
     layout_tab = LayoutTab.new(@browser)
     layout_tab.change_layout(4)

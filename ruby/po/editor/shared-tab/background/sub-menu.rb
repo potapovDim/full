@@ -18,13 +18,13 @@ class SubMenu
                 if get_active_tab != 'Image'                    
                     @browser.element(css: @image_tab).click
                 end
-                return LayoutTab.new @browser
+                return ImageTab.new @browser
             when 'Gradient'
                 if get_active_tab != 'Gradient'                    
                     @browser.element(css: @gradient_tab).click
                 end
-                return BackgroundSettings.new @browser
-        end
+                return GradienTab.new @browser                    
+            end
     end
     def get_active_tab
         return @browser.elements(css: @active_tab)[1].text
