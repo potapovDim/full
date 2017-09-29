@@ -8,6 +8,7 @@ class BackgroundSettings
     @contain_image   =          'label[for="contain"]'
 
     @repeat_image    =          'label[for="background-repeat"]'
+    @open_color_picker =        '[data-test="open-color-palette"]'
     
   end
   #cover settings:
@@ -30,9 +31,15 @@ class BackgroundSettings
     @browser.element(css: @repeat_image ).click
     return self
   end
+  def set_background_color(color)
+    color_picker = ColorPicker.new(@browser)
+    color_picker.clear_color_input
+                .color_element.send_keys(color)
+    return self
+  end
   #open color picker 
-  def open_color_picker (number = 0)
-    @browser.elements(css: @color_picker)[number].click
+  def open_color_picker ()
+    @browser.element(css: @open_color_picker).click
     return ColorPicker.new @browser
   end
   #position like on checkbox title

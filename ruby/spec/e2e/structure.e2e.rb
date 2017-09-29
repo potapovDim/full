@@ -35,7 +35,7 @@ describe 'Row' do
     expect(@row.get_row_background.include?("rgb(170, 170, 170)")).to eql(true)
     expect(color_tab.opacity_element.value).to eql("100")
 #alpha input check
-    color_tab.input_alpha_palette
+    color_tab.clear_opacity_input
              .opacity_element.send_keys(33)
     sleep 0.2    
     expect(@row.get_row_background.include?("rgba(170, 170, 170, 0.33)")).to eql(true)
@@ -75,23 +75,37 @@ describe 'Row' do
     background_tab = image_tab.open_background_settings
                               .change_cover_settings("contain")
     expect(@row.get_row_background).to include("contain")
-    background_tab.change_cover_settings("auto")
-    expect(@row.get_row_background).to include("auto")
     background_tab.change_cover_settings("cover")
-    expect(@row.get_row_background).to include("cover")
-    background_tab.change_background_position("Top left")
-    expect(@row.get_row_style).to include("left top")    
+    expect(@row.get_row_background).to include("cover") 
+    background_tab.change_cover_settings("auto")
+    expect(@row.get_row_background).to include("auto") 
     background_tab.change_background_position("Bottom right")
     expect(@row.get_row_style).to include("right bottom")    
     background_tab.change_background_position("Middle center")
-    expect(@row.get_row_style).to include("center center")  
-    background_tab.change_background_position("Middle center")
     expect(@row.get_row_style).to include("center center")
+    background_tab.change_background_position("Top left")
+    expect(@row.get_row_style).to include("left top")  
     background_tab.repeat_image()
     expect(@row.get_row_background).to_not include("no-repeat")
     expect(@row.get_row_background).to include("repeat")
     background_tab.repeat_image()
     expect(@row.get_row_background).to include("no-repeat")
+    background_tab.set_background_color("#000000")
+    expect(@row.get_row_background).to include("rgb(0, 0, 0)")
+    background_tab.open_color_picker()
+              .drag_opacity_picker(-30,0)
+              .click_palette_color(10)
+              .go_back()
+    expect(@row.get_row_style).to include("rgba(255, 111, 0, 0.79)","left top","auto","url(")
+    image_tab.clear_background_settings()
+    expect(@row.get_row_style).to include("rgb(255, 255, 255)",'center center','cover','url(')
+    image_tab.clear_image()
+    expect(@row.get_row_style).to_not include("rgb(255, 255, 255)",'center center','cover')
+    
+    # expect(@row.get_block_background).to_not include("rgba(255, 111, 0, 0.79)")
+    
+ 
+    
   end
   it 'row layout' do
     layout_tab = LayoutTab.new(@browser)
