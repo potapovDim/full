@@ -36,8 +36,11 @@ require_relative '../po/editor/row/settings/layout'
 require_relative '../po/editor/row/settings/index'
 #shared-tabs
 require_relative '../po/editor/share/color-picker'
+require_relative '../po/editor/share/media-gallery'
+require_relative '../po/editor/share/background-settings'
 require_relative '../po/editor/shared-tab/background/color-tab'
 require_relative '../po/editor/shared-tab/background/sub-menu'
+require_relative '../po/editor/shared-tab/background/image-tab'
 #elements
 require_relative '../po/editor/elements/index'
 #apps

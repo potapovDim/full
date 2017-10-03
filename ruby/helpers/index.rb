@@ -18,7 +18,8 @@ def assert_elasticsearch_run
 end
 
 def set_token(browser, username, password)
-  browser.execute_script("localStorage.auth = #{get_user_token(username, password).to_json}")
+
+  browser.execute_script("localStorage.setItem('auth','#{get_user_token(username, password).to_json}')")
 end
 
 def get_user_token(username, password)
@@ -127,4 +128,12 @@ def get_website_number(username, password)
                                            headers: {content_type: 'application/json', authorization: "Bearer #{token}"},
                                            verify_ssl: false))
   return user_website_list['total']
+end
+def get_first_user_website_id(username, password)
+  token = get_user_token(username,password)['token']
+  website_id = JSON.parse(RestClient::Request.execute(url: "#{@base_url}/api/v0.1.0/websites",
+                                           method: :get,
+                                           headers: {content_type: 'application/json', authorization: "Bearer #{token}"},
+                                           verify_ssl: false))
+  return website_id['data'][0]['_id']
 end
