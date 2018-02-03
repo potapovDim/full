@@ -12,3 +12,18 @@ export enum Roles {
   Support = 'support',
   Stockmanager = 'stockmanager'
 }
+
+export enum LeftMenuAdmin {
+  Dashboard = 'Dashboard',
+  Users = 'Users',
+  Websites = 'Websites',
+  // domains
+  Domains = 'Domains',
+  DomainsList = 'List',
+  DomainsSettings = 'Settins',
+  DomainsOpensrs = 'Opensrs',
+  // concepts
+  Concepts = 'Concepts'
+
+
+}

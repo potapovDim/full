@@ -3,6 +3,7 @@ import { $, $$, browser, ElementFinder } from 'protractor'
 export class TopNav {
 
   private logo: ElementFinder
+  private collapseLeftNav: ElementFinder
   private colorSheme: ElementFinder
   private colorGreen: ElementFinder
   private colorBlue: ElementFinder
@@ -12,6 +13,7 @@ export class TopNav {
 
   constructor() {
     this.logo = $('.al-logo.clearfix')
+    this.collapseLeftNav = $('.toolbar-menu.mat-icon.material-icons')
     this.colorSheme = $('.mat-button-wrapper')
     this.colorGreen = $('.theme-dot.teal-theme')
     this.colorBlue = $('.theme-dot.indigo-theme')
