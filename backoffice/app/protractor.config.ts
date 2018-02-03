@@ -23,6 +23,10 @@ const conf: Config = {
         reporter: 'spec'
     },
 
+    onPrepare() {
+        browser.waitForAngularEnabled(false)
+    },
+
     SELENIUM_PROMISE_MANAGER: false
 }
 

@@ -1,5 +1,27 @@
 import { expect } from 'chai'
-import { browser, by, element } from 'protractor'
+import { browser, by, element, ElementFinder, $ } from 'protractor'
+
+class Login {
+  private username: ElementFinder
+  private password: ElementFinder
+  private loginbtn: ElementFinder
+
+  constructor() {
+    this.username = $('#test')
+    this.password = $('#test')
+    this.loginbtn = $('#test')
+  }
+
+  async login(user: { usernam: string, password: string }) {
+    await this.username.sendKeys(user.usernam)
+    await this.password.sendKeys(user.password)
+    await this.loginbtn.click()
+  }
+}
+
+
+const loginPo = new Login()
+
 
 describe('test ', function () {
   it('test async', async () => {

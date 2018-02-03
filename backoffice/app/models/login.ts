@@ -1,6 +1,7 @@
 import { $, browser, ElementFinder } from 'protractor'
 
 export class Login {
+
   private username: ElementFinder
   private password: ElementFinder
   private signin: ElementFinder
@@ -14,7 +15,6 @@ export class Login {
   public async login(user: { username: string, password: string }) {
     await this.username.sendKeys(user.username)
     await this.password.sendKeys(user.password)
-
     await this.signin.click()
   }
 }
