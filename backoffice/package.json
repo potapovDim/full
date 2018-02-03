@@ -4,16 +4,14 @@
     "test": "protractor ./protractor.conf.js",
     "tsc": "tsc"
   },
-  "devDependencies": {
+  "dependencies": {
     "@types/mocha": "^2.2.41",
     "@types/node": "^8.0.24",
     "chai": "^4.1.1",
     "mocha": "^3.5.0",
     "protractor": "^5.1.1",
     "tslint": "^5.0.0",
-    "typescript": "^2.5.1"
-  },
-  "dependencies": {
+    "typescript": "^2.5.1",
     "ts-node": "^4.1.0"
   }
 }

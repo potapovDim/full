@@ -1,5 +1,7 @@
 import { browser, Config } from 'protractor'
 
+const ENV = process.env.NODE_ENV
+
 const conf: Config = {
     directConnect: true,
     capabilities: {
@@ -14,11 +16,13 @@ const conf: Config = {
         './specs/**/*.spec.ts',
     ],
     framework: 'mocha',
+
     mochaOpts: {
         timeout: 10000,
         fullTrace: true,
         reporter: 'spec'
     },
+
     SELENIUM_PROMISE_MANAGER: false
 }
 
