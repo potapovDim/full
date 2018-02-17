@@ -3,5 +3,6 @@
 localdata
 .DS_Store
 config
+Gemfile.lock
 helpers
 a.rb
