@@ -1,5 +1,5 @@
 import { $, $$, browser, ElementFinder } from 'protractor'
-
+import { waitForElement } from '../../helper'
 export class TopNav {
 
   private logo: ElementFinder
@@ -19,7 +19,13 @@ export class TopNav {
     this.colorBlue = $('.theme-dot.indigo-theme')
     this.avatar = $('.toolbar-avatar')
     this.profile = $$('.mat-menu-item').get(0)
-    this.signOut = $('.mat-menu-item').get(1)
+    this.signOut = $$('.mat-menu-item').get(1)
   }
 
+  public async logOut() {
+    await waitForElement(this.avatar)
+    await this.avatar.click()
+    await waitForElement(this.signOut)
+    await this.signOut.click()
+  }
 }
