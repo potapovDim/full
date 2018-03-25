@@ -1,13 +1,21 @@
-import { browser } from 'protractor';
-
 import { flows } from './../app/flows';
 import { Login } from './../app/models/login';
-import { users } from './../app/users';
+import { users, baseUrl } from './../app/users';
 
-describe('test ', function () {
+import { client } from '../app/driver'
+
+describe('test ', function() {
+
   before('open main page', async () => {
-    await browser.get('/')
+    await client.startDriver()
+    await client.goTo(baseUrl)
   })
+
+  after(async () => {
+    await client.close()
+    await client.stopDriver()
+  })
+
   users.forEach(user => {
     user.flows.forEach(flow => {
       flows[flow](user)

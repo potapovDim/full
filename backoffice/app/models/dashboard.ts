@@ -1,16 +1,17 @@
-import { $, $$, browser, ElementFinder, ElementArrayFinder } from 'protractor'
+import { Element, Elements } from 'awb'
+import { element as $, elements as $$ } from '../driver'
 
 export class Dashboard {
 
-  private cards: ElementArrayFinder
-  private totalCustomers: ElementFinder
-  private premiumWebsites: ElementFinder
-  private totalWebsites: ElementFinder
-  private publishedWebsites: ElementFinder
-  private totalConcepts: ElementFinder
-  private publishedConcepts: ElementFinder
-  private totalProfit: ElementFinder
-  private map: ElementFinder
+  private cards: Elements
+  private totalCustomers: Element
+  private premiumWebsites: Element
+  private totalWebsites: Element
+  private publishedWebsites: Element
+  private totalConcepts: Element
+  private publishedConcepts: Element
+  private totalProfit: Element
+  private map: Element
 
   constructor() {
     // description-stats
@@ -27,13 +28,13 @@ export class Dashboard {
 
   public getStat() {
     return {
-      totalCustomers: async () => await this.totalConcepts.$('.description-stats').getText(),
-      premiumWebsites: async () => await this.premiumWebsites.$('.description-stats').getText(),
-      totalWebsites: async () => await this.totalWebsites.$('.description-stats').getText(),
-      publishedWebsites: async () => await this.publishedWebsites.$('.description-stats').getText(),
-      totalConcepts: async () => await this.totalConcepts.$('.description-stats').getText(),
-      publishedConcepts: async () => await this.publishedConcepts.$('.description-stats').getText(),
-      totalProfit: async () => await this.totalProfit.$('.description-stats').getText(),
+      totalCustomers: async () => await this.totalConcepts.element('.description-stats').getText(),
+      premiumWebsites: async () => await this.premiumWebsites.element('.description-stats').getText(),
+      totalWebsites: async () => await this.totalWebsites.element('.description-stats').getText(),
+      publishedWebsites: async () => await this.publishedWebsites.element('.description-stats').getText(),
+      totalConcepts: async () => await this.totalConcepts.element('.description-stats').getText(),
+      publishedConcepts: async () => await this.publishedConcepts.element('.description-stats').getText(),
+      totalProfit: async () => await this.totalProfit.element('.description-stats').getText(),
     }
   }
 

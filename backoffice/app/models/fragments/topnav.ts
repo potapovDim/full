@@ -1,15 +1,17 @@
-import { $, $$, browser, ElementFinder } from 'protractor'
-import { waitForElement } from '../../helper'
+import { Elements, Element } from 'awb'
+import { element as $, elements as $$ } from '../../driver'
+
 export class TopNav {
 
-  private logo: ElementFinder
-  private collapseLeftNav: ElementFinder
-  private colorSheme: ElementFinder
-  private colorGreen: ElementFinder
-  private colorBlue: ElementFinder
-  private avatar: ElementFinder
-  private profile: ElementFinder
-  private signOut: ElementFinder
+  private logo: Element
+  private collapseLeftNav: Element
+  private colorSheme: Element
+  private colorGreen: Element
+  private colorBlue: Element
+  private avatar: Element
+  private profile: Element
+  private signOut: Element
+  private menuItems: Elements
 
   constructor() {
     this.logo = $('.al-logo.clearfix')
@@ -17,15 +19,14 @@ export class TopNav {
     this.colorSheme = $('.mat-button-wrapper')
     this.colorGreen = $('.theme-dot.teal-theme')
     this.colorBlue = $('.theme-dot.indigo-theme')
-    this.avatar = $('.toolbar-avatar')
-    this.profile = $$('.mat-menu-item').get(0)
-    this.signOut = $$('.mat-menu-item').get(1)
+    this.avatar = $('.toolbar-avatar').waitForClicable(1000)
+    this.menuItems = $$('.mat-menu-item').waitForElements(2500)
+    // this.profile = this.menuItems.get(0)
+    this.signOut = this.menuItems.get(1).waitForClicable(1000)
   }
 
   public async logOut() {
-    await waitForElement(this.avatar)
     await this.avatar.click()
-    await waitForElement(this.signOut)
     await this.signOut.click()
   }
 }
