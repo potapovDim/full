@@ -10,7 +10,7 @@ export class Login {
   constructor() {
     this.username = $('[name="username"]').waitForElementVisible(1000)
     this.password = $('[name="password"]').waitForElementVisible(1000)
-    this.signin = $('[type="submit"] > span').waitForClicable(1000)
+    this.signin = $('[type="submit"] > span').waitForClickable(1000)
   }
 
   public async login(user: { username: string, password: string }) {

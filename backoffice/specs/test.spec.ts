@@ -9,6 +9,11 @@ describe('test ', function() {
   before('open main page', async () => {
     await client.startDriver()
     await client.goTo(baseUrl)
+    console.log(await client.getTitle())
+    console.log(await client.getSize())
+    console.log(await client.getUrl())
+    console.log(await client.getBrowserTabs())
+    console.log(await client.getCurrentBrowserTab())
   })
 
   after(async () => {

@@ -37,5 +37,4 @@ export class Dashboard {
       totalProfit: async () => await this.totalProfit.element('.description-stats').getText(),
     }
   }
-
 }
