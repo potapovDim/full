@@ -8,12 +8,13 @@ describe('test ', function() {
 
   before('open main page', async () => {
     await client.startDriver()
+    await client.resizeWindow(1400, 850)
     await client.goTo(baseUrl)
-    console.log(await client.getTitle())
-    console.log(await client.getSize())
-    console.log(await client.getUrl())
-    console.log(await client.getBrowserTabs())
-    console.log(await client.getCurrentBrowserTab())
+    // console.log(await client.getTitle())
+    // console.log(await client.getSize())
+    // console.log(await client.getUrl())
+    // console.log(await client.getBrowserTabs())
+    // console.log(await client.getCurrentBrowserTab())
   })
 
   after(async () => {

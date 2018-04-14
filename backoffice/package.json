@@ -7,12 +7,12 @@
   "dependencies": {
     "@types/mocha": "^2.2.41",
     "@types/node": "^8.0.24",
+    "awb": "^0.4.10",
     "chai": "^4.1.1",
     "chance": "^1.0.13",
     "mocha": "^3.5.0",
     "ts-node": "^4.1.0",
     "tslint": "^5.0.0",
-    "typescript": "^2.5.1",
-    "awb": "^0.4.3"
+    "typescript": "^2.5.1"
   }
 }

@@ -19,10 +19,10 @@ export class TopNav {
     this.colorSheme = $('.mat-button-wrapper')
     this.colorGreen = $('.theme-dot.teal-theme')
     this.colorBlue = $('.theme-dot.indigo-theme')
-    this.avatar = $('.toolbar-avatar').waitForClickable(1000)
+    this.avatar = $('.toolbar-avatar').waitForClickable(1500)
     this.menuItems = $$('.mat-menu-item').waitForElements(2500)
     // this.profile = this.menuItems.get(0)
-    this.signOut = this.menuItems.get(1).waitForClickable(1000)
+    this.signOut = this.menuItems.get(1).waitForClickable(1500)
   }
 
   public async logOut() {
