@@ -1,13 +1,13 @@
 {
   "scripts": {
     "postinstall": "awb chrome standalone gecko",
-    "test": "mocha --require ts-node/register --timeout 25000 ./specs/**/*.spec.ts",
+    "test": "mocha --require ts-node/register --timeout 50000 ./specs/**/*.spec.ts",
     "tsc": "tsc"
   },
   "dependencies": {
     "@types/mocha": "^2.2.41",
     "@types/node": "^8.0.24",
-    "awb": "^0.4.10",
+    "awb": "^0.4.13",
     "chai": "^4.1.1",
     "chance": "^1.0.13",
     "mocha": "^3.5.0",

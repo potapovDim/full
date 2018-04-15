@@ -1,30 +1,6 @@
 import { Element, Elements } from 'awb'
 import { $, $$ } from '../../driver'
 
-class Checkboses {
-
-  private boxes: Elements
-  private boxesEnum: any
-
-  constructor(boxesEnum, root) {
-    this.boxes = root.$$('mat-checkbox')
-    this.boxesEnum = boxesEnum
-  }
-
-  public async sendKeys(boxes: Array<{ name: string, state: boolean }>) {
-    for (const box of boxes) {
-      await this.setBoxState(box)
-    }
-  }
-
-  private async setBoxState(box: { name, state }) {
-    const boxState = await this.boxes.get(this.boxesEnum[name]).$('input[type="checkbox"]').getAttribute('aria-checked')
-    if (!boxState === box.state) {
-      await this.boxes.get(this.boxesEnum[name]).click()
-    }
-  }
-}
-
 enum Boxes {
   Premium = 0,
   Published = 1,
@@ -42,6 +18,31 @@ interface IWebsiteFilter {
   name?: string
 }
 
+
+class Checkboses {
+
+  private boxes: Elements
+  private boxesEnum: any
+
+  constructor(boxesEnum, root) {
+    this.boxes = root.$$('mat-checkbox')
+    this.boxesEnum = boxesEnum
+  }
+
+  public async sendKeys(boxes: Array<{ name: string, state: boolean }>) {
+    for (const box of boxes) {
+      await this.setBoxState(box)
+    }
+  }
+
+  private async setBoxState({ name, state }) {
+    const boxState = (await this.boxes.get(this.boxesEnum[name]).$('input[type="checkbox"]').getAttribute('aria-checked')) === 'true'
+    if (!boxState === state) {
+      await this.boxes.get(this.boxesEnum[name]).click()
+    }
+  }
+}
+
 class WebsitesFilter {
   private root = $('basic-table-filter').waitForElement(2500)
   private boxes: Checkboses
@@ -50,6 +51,7 @@ class WebsitesFilter {
   private createdTo: Element
   private subdomain: Element
   private name: Element
+  private loader: Element
 
   constructor() {
     this.boxes = new Checkboses(Boxes, this.root)
