@@ -1,4 +1,5 @@
 export * from './dashboard'
+export * from './blocks'
 export * from './login'
 export * from './fragments'
 export * from './websites'

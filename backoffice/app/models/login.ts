@@ -1,5 +1,5 @@
 import { Element, Elements } from 'awb'
-import { element as $, elements as $$ } from '../driver'
+import { $, $$ } from '../driver'
 
 export class Login {
 

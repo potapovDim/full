@@ -103,39 +103,39 @@ function aa() {
 // }
 
 
-function AAA() {
-  const menuPoint = arguments[0]
+// function AAA() {
+//   const menuPoint = arguments[0]
 
-  const emptyArr = []
+//   const emptyArr = []
 
-  const menuItems = menuPoint.split('>')
+//   const menuItems = menuPoint.split('>')
 
-  if (menuItems.length === 1) {
-    const muneList = document.querySelector('#al-sidebar-list')
-    const items = document.querySelectorAll('#al-sidebar-list > mat-list-item')
-    for (let i = 0; i < items.length; i++) {
-      if (items[i].innerText.includes(menuItems[0])) {
-        items[i].querySelector('a[href]').click()
-      }
-    }
-  } else if (menuItems.length === 2) {
-    const arrows = document.querySelectorAll('[aria-hidden="true"].arrow.mat-icon.material-icons.ng-star-inserted[class$="ng-star-inserted"]')
-    emptyArr.forEach.call(arrows, (arrow) => arrow.click())
+//   if (menuItems.length === 1) {
+//     const muneList = document.querySelector('#al-sidebar-list')
+//     const items = document.querySelectorAll('#al-sidebar-list > mat-list-item')
+//     for (let i = 0; i < items.length; i++) {
+//       if (items[i].innerText.includes(menuItems[0])) {
+//         items[i].querySelector('a[href]').click()
+//       }
+//     }
+//   } else if (menuItems.length === 2) {
+//     const arrows = document.querySelectorAll('[aria-hidden="true"].arrow.mat-icon.material-icons.ng-star-inserted[class$="ng-star-inserted"]')
+//     emptyArr.forEach.call(arrows, (arrow) => arrow.click())
 
-    const itemsTop = document.querySelectorAll('#al-sidebar-list > mat-list-item')
+//     const itemsTop = document.querySelectorAll('#al-sidebar-list > mat-list-item')
 
-    for (let i = 0; i < itemsTop.length; i++) {
-      if (itemsTop[i].innerText.includes(menuItems[0])) {
-        const items = itemsTop[i].querySelectorAll('mat-list > mat-list-item')
-        for (let j = 0; j < items.length; j++) {
-          if (items[j].innerText.includes(menuItems[1])) {
-            items[j].querySelector('a[href]').click()
-          }
-        }
-      }
-    }
-  }
-}
+//     for (let i = 0; i < itemsTop.length; i++) {
+//       if (itemsTop[i].innerText.includes(menuItems[0])) {
+//         const items = itemsTop[i].querySelectorAll('mat-list > mat-list-item')
+//         for (let j = 0; j < items.length; j++) {
+//           if (items[j].innerText.includes(menuItems[1])) {
+//             items[j].querySelector('a[href]').click()
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
 // function findSubMath() {
 //   const emptyArr = []
