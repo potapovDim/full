@@ -1,5 +1,5 @@
 import { Element, Elements } from 'awb'
-import { element as $, elements as $$, client } from '../../driver'
+import { $, $$, client } from '../../driver'
 
 export class LeftNav {
   // root left nav component
@@ -47,11 +47,19 @@ export class LeftNav {
   public get to() {
     return {
       dashboard: async () => await this.clickMenu('Dashboard'),
-      websites: async () => await this.clickMenu('Websites')
+      websites: async () => await this.clickMenu('Websites'),
+
     }
   }
 }
 
+
+function aa() {
+  const emptyArr = []
+
+  const muneList = document.querySelector('#al-sidebar-list')
+
+}
 // private async expandAll() {
 //   await client.executeScript(`
 //       const emptyArr = []

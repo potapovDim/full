@@ -1,5 +1,5 @@
 import { Elements, Element } from 'awb'
-import { element as $, elements as $$ } from '../../driver'
+import { $, $$ } from '../../driver'
 
 export class TopNav {
 
@@ -13,6 +13,7 @@ export class TopNav {
   private signOut: Element
   private menuItems: Elements
   private loader: Element
+
   constructor() {
     this.loader = $('.spinner-wrapper')
     this.logo = $('.al-logo.clearfix')
