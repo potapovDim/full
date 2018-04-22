@@ -1,5 +1,7 @@
 {
   "scripts": {
+    "version": "0.0.1",
+    "name": "awb test project",
     "postinstall": "awb chrome standalone gecko",
     "test": "mocha --require ts-node/register --timeout 50000 ./specs/**/*.spec.ts",
     "tsc": "tsc"

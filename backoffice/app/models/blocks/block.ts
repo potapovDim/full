@@ -64,9 +64,9 @@ class Categories {
   }
 
   public async pickCategory(categoryName: string) {
-    const category = (await this.options.filter(async () => {
+    const category = (await this.options.filter(
       async (el) => await el.getText() === categoryName
-    }))[0]
+    ))[0]
     await category.click()
   }
 }
