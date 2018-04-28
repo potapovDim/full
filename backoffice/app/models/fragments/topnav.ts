@@ -21,14 +21,14 @@ export class TopNav {
     this.colorSheme = $('.mat-button-wrapper')
     this.colorGreen = $('.theme-dot.teal-theme')
     this.colorBlue = $('.theme-dot.indigo-theme')
-    this.avatar = $('.toolbar-avatar').waitForClickable(2500)
+    this.avatar = $('.toolbar-avatar').waitForClickable(45000)
     this.menuItems = $$('.mat-menu-item').waitForElements(2500)
     // this.profile = this.menuItems.get(0)
-    this.signOut = this.menuItems.get(1).waitForClickable(1500)
+    this.signOut = this.menuItems.get(1).waitForClickable(45000)
   }
 
   public async logOut() {
-    await this.loader.waitUntilDisappear(25000)
+    await this.loader.waitUntilDisappear(45000)
     await this.avatar.click()
     await this.signOut.click()
   }
